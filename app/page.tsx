@@ -103,7 +103,7 @@ export default function Home() {
   return (
     <div className="w-auto h-full outline">
       <div className="flex justify-between px-3 md:px-10 pt-4">
-        <h1 className="md:w-fit text-2xl font-semibold">SPayLater Insight</h1>
+        <h1 className="md:w-fit text-2xl font-semibold">PayLater Insight</h1>
         <ModeToggle />
       </div>
       <div className="container">
@@ -115,7 +115,7 @@ export default function Home() {
                   Calculate Your Interest
                 </CardTitle>
                 <CardDescription>
-                  Review your SPayLater payment plan before you checkout.
+                  Review your PayLater payment plan before you checkout.
                 </CardDescription>
               </CardHeader>
 
@@ -190,7 +190,7 @@ export default function Home() {
             </Card>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>SPayLater Overview</DialogTitle>
+                <DialogTitle>PayLater Overview</DialogTitle>
                 <DialogDescription>
                   Detailed breakdown of your upcoming purchase
                 </DialogDescription>
@@ -240,17 +240,17 @@ export default function Home() {
           <Card className="card-selector w-[350px] md:w-[500px] mt-3 m-10">
             <CardHeader>
               <CardTitle className="text-xl">
-                How to Use SPayLater Insight
+                How to Use PayLater Insight
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 1: Locate SPayLater Option on Shopee
+                  Step 1: Locate PayLater Option on Shopee
                 </h3>
                 <p className="text-justify ">
                   Navigate to your desired product on Shopee. Scroll down to the
-                  payment options and find the &lsquo;SPayLater&rsquo; feature.
+                  payment options and find the &lsquo;PayLater&rsquo; feature.
                   Need help? See the example below:
                 </p>
                 <div className="flex justify-center py-5">
@@ -258,7 +258,7 @@ export default function Home() {
                     src="/images/example-product-interest.png"
                     width={500}
                     height={300}
-                    alt="Example product indicating the location of the SPayLater option"
+                    alt="Example product indicating the location of the PayLater option"
                     priority={true}
                   />
                 </div>
@@ -286,13 +286,13 @@ export default function Home() {
                   the &lsquo;Submit&rsquo; button. The calculator will display a
                   detailed breakdown of your payment plan, including the total
                   interest charged. Review the information to make an informed
-                  decision before proceeding with SPayLater.
+                  decision before proceeding with PayLater.
                 </p>
               </div>
 
               <div className="flex justify-center mb-5">
                 <p className="text-center mt-4">
-                  Thank you for using our SPayLater Insight! We strive to make
+                  Thank you for using our PayLater Insight! We strive to make
                   your online shopping experience more transparent and informed.
                 </p>
               </div>

@@ -1,1 +1,1 @@
-SPayLater Insight
+PayLater Insight
