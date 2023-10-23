@@ -14,7 +14,7 @@ export const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "PayLater Insight",
   description:
-    "Manage your finance and expection when purchasing on Shopee using PayLater Insight",
+    "Manage your finance and expection when purchasing on Shopee - SPayLater using PayLater Insight",
   icons: {
     icon: {
       url: "/favicon.png",
