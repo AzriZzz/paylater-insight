@@ -115,7 +115,7 @@ export default function Home() {
                   Calculate Your Interest
                 </CardTitle>
                 <CardDescription>
-                  Review your PayLater payment plan before you checkout.
+                  Review your SPayLater payment plan before you checkout.
                 </CardDescription>
               </CardHeader>
 
@@ -183,7 +183,10 @@ export default function Home() {
                     </DialogTrigger>
                   </form>
                 </Form>
-                <div className="w-full text-center mt-4 animate-bounce" onClick={handleClick}>
+                <div
+                  className="w-full text-center mt-4"
+                  onClick={handleClick}
+                >
                   <span className=" cursor-pointer">How to use?</span>
                 </div>
               </CardContent>
@@ -223,12 +226,54 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-right">Interest Charged (RM):</span>
-                      <span className="text-lg text-red-600">{result.interestCharged.toFixed(2)}</span>
+                      <span className="text-lg text-red-600">
+                        {result.interestCharged.toFixed(2)}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-right">Interest Rate (%):</span>
-                      <span className="text-lg text-red-600">{result.interestRate.toFixed(2)}</span>
+                      <span className="text-lg text-red-600">
+                        {result.interestRate.toFixed(2)}
+                      </span>
                     </div>
+                  </div>
+                  <div className="items-center flex justify-center translate-y-10">
+                    {result.month === 1 && (
+                      <Image
+                        src="/images/grief-one.png"
+                        width={150}
+                        height={150}
+                        alt="Cartoon meme griefing over the interest charged for 1.5%"
+                        priority={true}
+                      />
+                    )}
+                    {result.month === 3 && (
+                      <Image
+                        src="/images/grief-two.png"
+                        width={150}
+                        height={150}
+                        alt="Cartoon meme griefing over the interest charged for 4.5%"
+                        priority={true}
+                      />
+                    )}
+                    {result.month === 6 && (
+                      <Image
+                        src="/images/grief-three.png"
+                        width={150}
+                        height={150}
+                        alt="Cartoon meme griefing over the interest charged for 9%"
+                        priority={true}
+                      />
+                    )}
+                    {result.month === 12 && (
+                      <Image
+                        src="/images/grief-four.png"
+                        width={150}
+                        height={150}
+                        alt="Cartoon meme griefing over the interest charged for 18%"
+                        priority={true}
+                      />
+                    )}
                   </div>
                 </div>
               )}
@@ -246,11 +291,11 @@ export default function Home() {
             <CardContent>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 1: Locate PayLater Option on Shopee
+                  Step 1: Locate SPayLater Option on Shopee
                 </h3>
                 <p className="text-justify ">
                   Navigate to your desired product on Shopee. Scroll down to the
-                  payment options and find the &lsquo;PayLater&rsquo; feature.
+                  payment options and find the &lsquo;SPayLater&rsquo; feature.
                   Need help? See the example below:
                 </p>
                 <div className="flex justify-center py-5">
@@ -286,7 +331,7 @@ export default function Home() {
                   the &lsquo;Submit&rsquo; button. The calculator will display a
                   detailed breakdown of your payment plan, including the total
                   interest charged. Review the information to make an informed
-                  decision before proceeding with PayLater.
+                  decision before proceeding with SPayLater.
                 </p>
               </div>
 
