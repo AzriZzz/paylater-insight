@@ -121,7 +121,7 @@ export default function Home() {
             <Card className="w-[350px] md:w-[500px] mt-5 md:mt-10 mb-3">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Calculate Your Interest
+                  Know Your Interest
                 </CardTitle>
                 <CardDescription>
                   Review your SPayLater payment plan before you checkout.
