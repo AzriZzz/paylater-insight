@@ -34,7 +34,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -103,7 +102,17 @@ export default function Home() {
   return (
     <div className="w-auto h-full outline">
       <div className="flex justify-between px-3 md:px-10 pt-4">
-        <h1 className="md:w-fit text-2xl font-semibold">PayLater Insight</h1>
+        <div className="flex items-center">
+          <Image
+            src="/images/paylaterinsight-icon.png"
+            width={50}
+            height={50}
+            style={{ width: 50, height: 50 }}
+            alt="PayLater Insight logo"
+            priority={true}
+          />
+          <h1 className="md:w-fit text-2xl font-semibold">PayLater Insight</h1>
+        </div>
         <ModeToggle />
       </div>
       <div className="container">
@@ -183,11 +192,10 @@ export default function Home() {
                     </DialogTrigger>
                   </form>
                 </Form>
-                <div
-                  className="w-full text-center mt-4"
-                  onClick={handleClick}
-                >
-                  <span className=" cursor-pointer">How to use?</span>
+                <div className="w-full text-center mt-4">
+                  <span className="cursor-pointer" onClick={handleClick}>
+                    How to use?
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -243,6 +251,7 @@ export default function Home() {
                         src="/images/grief-one.png"
                         width={150}
                         height={150}
+                        style={{ width: 150, height: 140 }}
                         alt="Cartoon meme griefing over the interest charged for 1.5%"
                         priority={true}
                       />
@@ -252,6 +261,7 @@ export default function Home() {
                         src="/images/grief-two.png"
                         width={150}
                         height={150}
+                        style={{ width: 150, height: 150 }}
                         alt="Cartoon meme griefing over the interest charged for 4.5%"
                         priority={true}
                       />
@@ -261,6 +271,7 @@ export default function Home() {
                         src="/images/grief-three.png"
                         width={150}
                         height={150}
+                        style={{ width: 150, height: 120 }}
                         alt="Cartoon meme griefing over the interest charged for 9%"
                         priority={true}
                       />
@@ -269,7 +280,8 @@ export default function Home() {
                       <Image
                         src="/images/grief-four.png"
                         width={150}
-                        height={150}
+                        height={130}
+                        style={{ width: 150, height: 120 }}
                         alt="Cartoon meme griefing over the interest charged for 18%"
                         priority={true}
                       />
@@ -281,14 +293,12 @@ export default function Home() {
           </Dialog>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
-          <Card className="card-selector w-[350px] md:w-[500px] mt-3 m-10">
-            <CardHeader>
-              <CardTitle className="text-xl">
-                How to Use PayLater Insight
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
+        <div className="card-selector flex flex-col items-center justify-center pt-5">
+          <div className="md:max-w-[500px]">
+            <h1 className="text-xl font-semibold mb-3">
+              How to Use PayLater Insight
+            </h1>
+            <div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
                   Step 1: Locate SPayLater Option on Shopee
@@ -341,8 +351,8 @@ export default function Home() {
                   your online shopping experience more transparent and informed.
                 </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </div>

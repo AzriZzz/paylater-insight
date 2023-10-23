@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -11,9 +12,16 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Shopee Interest Calculator",
+  title: "PayLater Insight",
   description:
-    "Manage your finance and expection when purchasing on Shopee using SPayL",
+    "Manage your finance and expection when purchasing on Shopee using PayLater Insight",
+  icons: {
+    icon: {
+      url: "/favicon.png",
+      type: "image/png",
+    },
+    shortcut: { url: "/favicon.png", type: "image/png" },
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +47,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Toaster />
+        <GoogleAnalytics />
       </body>
     </html>
   );
