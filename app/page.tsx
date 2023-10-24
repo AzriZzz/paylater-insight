@@ -365,7 +365,7 @@ export default function Home() {
 
               <div className="flex justify-center mb-5">
                 <p className="text-center mt-4">
-                  Thank you for using our PayLater Insight! We strive to make
+                  Thank you for using PayLater Insight! We strive to make
                   your online shopping experience more <span className="font-bold">transparent </span>
                   and <span className="font-bold">informed</span>.
                 </p>
