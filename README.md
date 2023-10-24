@@ -14,11 +14,11 @@ PayLater-Insight: Instantly calculate and analyze interest on your SPayLater pla
 
 1. Clone the repository: 
     ```
-    git clone https://github.com/AzriZzz/spaylater-insight
+    git clone https://github.com/AzriZzz/paylater-insight
     ```
 2. Navigate to the project directory and install dependencies:
     ```
-    cd spaylater-insight
+    cd paylater-insight
     npm install
     ```
 
