@@ -240,7 +240,7 @@ export default function Home() {
                     <div className="flex justify-between items-center py-2">
                       <span className="text-right">Interest Rate (%):</span>
                       <span className="text-lg text-red-600">
-                        {result.interestRate.toFixed(3)}
+                        {result.interestRate.toFixed(2)}
                       </span>
                     </div>
                   </div>
@@ -276,8 +276,8 @@ export default function Home() {
                           <Image
                             src="/images/grief-two.png"
                             width={150}
-                            height={150}
-                            style={{ width: 150, height: 150 }}
+                            height={120}
+                            style={{ width: 150, height: 120 }}
                             alt="Cartoon meme griefing over the interest charged for 4.5%"
                             priority={true}
                           />
@@ -319,7 +319,7 @@ export default function Home() {
             <div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 1: Locate SPayLater Option on Shopee
+                  Step 1: Locate SPayLater Option on Shopee on Mobile App
                 </h3>
                 <p className="text-justify ">
                   Navigate to your desired product on Shopee. Scroll down to the
@@ -366,7 +366,8 @@ export default function Home() {
               <div className="flex justify-center mb-5">
                 <p className="text-center mt-4">
                   Thank you for using our PayLater Insight! We strive to make
-                  your online shopping experience more transparent and informed.
+                  your online shopping experience more <span className="font-bold">transparent </span>
+                  and <span className="font-bold">informed</span>.
                 </p>
               </div>
             </div>
@@ -376,7 +377,7 @@ export default function Home() {
         <footer className="footer flex justify-between mt-4 pb-5">
           <p className="text-sm">PayLater Insight © 2023 </p>
           <div className="flex gap-5">
-          <a
+            <a
               href="https://github.com/AzriZzz/spaylater-insight"
               rel="noopener noreferrer"
               target="_blank"
