@@ -38,6 +38,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const FormSchema = z.object({
   originalPrice: z.coerce
@@ -120,9 +121,7 @@ export default function Home() {
           <Dialog>
             <Card className="w-[350px] md:w-[500px] mt-5 md:mt-10 mb-3">
               <CardHeader>
-                <CardTitle className="text-xl">
-                  Know Your Interest
-                </CardTitle>
+                <CardTitle className="text-xl">Know Your Interest</CardTitle>
                 <CardDescription>
                   Review your SPayLater payment plan before you checkout.
                 </CardDescription>
@@ -241,50 +240,69 @@ export default function Home() {
                     <div className="flex justify-between items-center py-2">
                       <span className="text-right">Interest Rate (%):</span>
                       <span className="text-lg text-red-600">
-                        {result.interestRate.toFixed(2)}
+                        {result.interestRate.toFixed(3)}
                       </span>
                     </div>
                   </div>
                   <div className="items-center flex justify-center translate-y-10">
-                    {result.month === 1 && (
-                      <Image
-                        src="/images/grief-one.png"
-                        width={150}
-                        height={150}
-                        style={{ width: 150, height: 140 }}
-                        alt="Cartoon meme griefing over the interest charged for 1.5%"
-                        priority={true}
-                      />
-                    )}
-                    {result.month === 3 && (
-                      <Image
-                        src="/images/grief-two.png"
-                        width={150}
-                        height={150}
-                        style={{ width: 150, height: 150 }}
-                        alt="Cartoon meme griefing over the interest charged for 4.5%"
-                        priority={true}
-                      />
-                    )}
-                    {result.month === 6 && (
-                      <Image
-                        src="/images/grief-three.png"
-                        width={150}
-                        height={150}
-                        style={{ width: 150, height: 120 }}
-                        alt="Cartoon meme griefing over the interest charged for 9%"
-                        priority={true}
-                      />
-                    )}
-                    {result.month === 12 && (
-                      <Image
-                        src="/images/grief-four.png"
-                        width={150}
-                        height={130}
-                        style={{ width: 150, height: 120 }}
-                        alt="Cartoon meme griefing over the interest charged for 18%"
-                        priority={true}
-                      />
+                    {result.interestCharged < 0 ? (
+                      <div className="flex flex-row justify-between w-full">
+                        <Image
+                          src="/images/questioning.png"
+                          width={150}
+                          height={150}
+                          style={{ width: 150, height: 140 }}
+                          alt="Cartoon meme questioning if the calculation is correct"
+                          priority={true}
+                        />
+                        <div className="text-sm flex w-auto justify-between items-center text-center">
+                          Is this even INTEREST? <br /> Please re-evaluate
+                          again.
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {result.month === 1 && (
+                          <Image
+                            src="/images/grief-one.png"
+                            width={150}
+                            height={150}
+                            style={{ width: 150, height: 140 }}
+                            alt="Cartoon meme griefing over the interest charged for 1.5%"
+                            priority={true}
+                          />
+                        )}
+                        {result.month === 3 && (
+                          <Image
+                            src="/images/grief-two.png"
+                            width={150}
+                            height={150}
+                            style={{ width: 150, height: 150 }}
+                            alt="Cartoon meme griefing over the interest charged for 4.5%"
+                            priority={true}
+                          />
+                        )}
+                        {result.month === 6 && (
+                          <Image
+                            src="/images/grief-three.png"
+                            width={150}
+                            height={150}
+                            style={{ width: 150, height: 120 }}
+                            alt="Cartoon meme griefing over the interest charged for 9%"
+                            priority={true}
+                          />
+                        )}
+                        {result.month === 12 && (
+                          <Image
+                            src="/images/grief-four.png"
+                            width={150}
+                            height={130}
+                            style={{ width: 150, height: 120 }}
+                            alt="Cartoon meme griefing over the interest charged for 18%"
+                            priority={true}
+                          />
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
@@ -294,7 +312,7 @@ export default function Home() {
         </div>
 
         <div className="card-selector flex flex-col items-center justify-center pt-5">
-          <div className="md:max-w-[500px]">
+          <div className="md:max-w-[500px] text-sm md:text-base">
             <h1 className="text-xl font-semibold mb-3">
               How to Use PayLater Insight
             </h1>
@@ -354,6 +372,33 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <footer className="footer flex justify-between mt-4 pb-5">
+          <p className="text-sm">PayLater Insight © 2023 </p>
+          <div className="flex gap-5">
+          <a
+              href="https://github.com/AzriZzz/spaylater-insight"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <FaGithub />
+            </a>
+            <address className="not-italic">
+              <a href="mailto:muhdazri.biz@gmail.com" aria-label="Email">
+                <FaEnvelope />
+              </a>
+            </address>
+            <a
+              href="https://twitter.com/AzriZzz"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <FaTwitter />
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
   );
