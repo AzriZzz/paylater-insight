@@ -240,7 +240,7 @@ export default function Home() {
                     <div className="flex justify-between items-center py-2">
                       <span className="text-right">Interest Rate (%):</span>
                       <span className="text-lg text-red-600">
-                        {result.interestRate.toFixed(2)}
+                        {result.interestRate.toFixed(1)}
                       </span>
                     </div>
                   </div>
