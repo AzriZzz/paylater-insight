@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: {
+      url: "/favicon.png",
+      type: "image/png",
+    },
+    shortcut: { url: "/favicon.png", type: "image/png" },
+  },
   keywords: [
     "PayLater Insight",
     "PayLater",
@@ -61,8 +68,6 @@ export const metadata: Metadata = {
     images: [`${siteConfig.url}/paylater-insight.png`],
     creator: "AzriZzz",
   }, 
-  manifest: `${siteConfig.url}/site.webmanifest`,
-
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
