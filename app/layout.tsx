@@ -5,30 +5,67 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import GoogleAnalytics from "./GoogleAnalytics";
+import { siteConfig } from "@/config/site";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
 export const metadata: Metadata = {
-  title: "PayLater Insight",
-  description:
-    "Manage your finance and expection when purchasing on Shopee - SPayLater using PayLater Insight",
-  icons: {
-    icon: {
-      url: "/favicon.png",
-      type: "image/png",
-    },
-    shortcut: { url: "/favicon.png", type: "image/png" },
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
+  description: siteConfig.description,
+  keywords: [
+    "PayLater Insight",
+    "PayLater",
+    "Interest",
+    "Financial",
+    "Personal Finance",
+    "Fintech",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Shopee",
+    "Buy Now Pay Later",
+  ],
+  authors: [
+    {
+      name: "Muhammad Azri",
+      url: "https://azrizzz.github.io/",
+    },
+  ],
+  creator: "Muhammad Azri",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_MY",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  }, 
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/paylater-insight.png`],
+    creator: "AzriZzz",
+  }, 
+  manifest: `${siteConfig.url}/site.webmanifest`,
+
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
