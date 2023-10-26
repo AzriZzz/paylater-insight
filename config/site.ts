@@ -1,4 +1,4 @@
-import { SiteConfig } from "./../types";
+import { SiteConfig } from "../types/site";
 
 export const siteConfig: SiteConfig = {
   name: "PayLater Insight",
