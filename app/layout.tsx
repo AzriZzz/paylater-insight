@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: {
     icon: {
-      url: "/favicon.png",
+      url: "/favicon.ico",
       type: "image/png",
     },
     shortcut: { url: "/favicon.png", type: "image/png" },
@@ -60,14 +60,15 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-  }, 
+    images: "/paylater-insight.png",
+  },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/paylater-insight.png`],
+    images: "/paylater-insight.png",
     creator: "AzriZzz",
-  }, 
+  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
