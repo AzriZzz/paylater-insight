@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Instantly calculate and analyze interest on your SPayLater plans, empowering smarter purchase decisions.",
   url: "https://www.paylaterinsight.com",
-  ogImage: "https://www.paylaterinsight.com/paylater-insight.png",
+  ogImage: "https://www.paylaterinsight.com/og.png",
   links: {
     twitter: "https://twitter.com/AzriZzz",
     github: "https://github.com/AzriZzz/paylater-insight",

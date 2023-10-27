@@ -38,10 +38,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import Footer from "@/components/footer";
+import Footer from "@/components/molecules/footer";
 import { calculateInterest, scrollToElement } from "@/utils";
-import ResultDetails from "@/components/result-details";
-import ResultImage from "@/components/result-images";
+import ResultDetails from "@/components/molecules/result-details";
+import ResultImage from "@/components/molecules/result-images";
 
 const FormSchema = z.object({
   originalPrice: z.coerce
