@@ -12,6 +12,7 @@ const ResultImage = ({ interestCharged, month }: ResultImageProps) => {
           height={150}
           alt="Cartoon meme questioning if the calculation is correct"
           priority={true}
+          style={{ width: "auto", height: "auto" }}
         />
         <div className="text-sm flex w-auto justify-between items-center text-center">
           Is this even INTEREST? <br /> Please re-evaluate again.
@@ -27,6 +28,7 @@ const ResultImage = ({ interestCharged, month }: ResultImageProps) => {
       height={150}
       alt={`Cartoon meme griefing over the interest charged`}
       priority={true}
+      style={{ width: "auto", height: "auto" }}
     />
   );
 };

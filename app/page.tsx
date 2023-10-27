@@ -121,6 +121,7 @@ export default function Home() {
                   height={300}
                   alt="Example product indicating the location of the PayLater option"
                   priority={true}
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
             </div>
@@ -165,7 +166,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-auto h-full outline">
+    <div className="w-auto h-full">
       <div className="flex justify-between px-3 md:px-10 pt-4">
         <div className="flex items-center">
           <Image
