@@ -121,7 +121,6 @@ export default function Home() {
                   height={300}
                   alt="Example product indicating the location of the PayLater option"
                   priority={true}
-                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
             </div>
