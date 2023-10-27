@@ -61,13 +61,13 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: "/paylater-insight.png",
+    images: [`${siteConfig.url}/og.png`],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: "/paylater-insight.png",
+    images: [`${siteConfig.url}/og.png`],
     creator: "AzriZzz",
   },
 };
