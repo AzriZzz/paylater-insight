@@ -43,6 +43,7 @@ import ResultDetails from "@/components/molecules/result-details";
 import ResultImage from "@/components/molecules/result-images";
 import { motion } from "framer-motion";
 import Header from "@/components/molecules/header";
+import { useTranslations } from "next-intl";
 
 const FormSchema = z.object({
   originalPrice: z.coerce
@@ -73,6 +74,7 @@ const defaultValues: Partial<FormSchemaValues> = {
 export default function Home() {
   const [isResult, setIsResult] = useState(false);
   const [result, setResult] = useState<any>({});
+  const t = useTranslations("Home");
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -185,7 +187,7 @@ export default function Home() {
             >
               <Card className="w-auto md:w-[500px] mt-5 md:mt-10 mb-3">
                 <CardHeader>
-                  <CardTitle className="text-xl">Know Your Interest</CardTitle>
+                  <CardTitle className="text-xl">{t("title")}</CardTitle>
                   <CardDescription>
                     Review your SPayLater payment plan before you checkout.
                   </CardDescription>

@@ -7,14 +7,32 @@ import { Toaster } from "@/components/ui/toaster";
 import GoogleAnalytics from "./GoogleAnalytics";
 import { siteConfig } from "@/config/site";
 import ScrollToTopButton from "@/components/molecules/scroll-to-top";
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
 
-export const fontSans = FontSans({
+
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "my" }];
+}
+
 interface RootLayoutProps {
   children: React.ReactNode;
+  params: {
+    locale: string;
+  };
+}
+
+async function getMessages(locale: string) {
+  try {
+    return (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 }
 
 export const metadata: Metadata = {
@@ -73,9 +91,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: RootLayoutProps) {
+  const messages = await getMessages(locale);
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         suppressHydrationWarning={true}
         className={cn(
@@ -83,16 +106,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <ScrollToTopButton />
-        </ThemeProvider>
-        <Toaster />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <ScrollToTopButton />
+          </ThemeProvider>
+          <Toaster />
+        </NextIntlClientProvider>
         <GoogleAnalytics />
       </body>
     </html>
