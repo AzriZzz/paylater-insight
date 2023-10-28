@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/molecules/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import GoogleAnalytics from "./GoogleAnalytics";
 import { siteConfig } from "@/config/site";
+import ScrollToTopButton from "@/components/molecules/scroll-to-top";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           {children}
+          <ScrollToTopButton />
         </ThemeProvider>
         <Toaster />
         <GoogleAnalytics />
