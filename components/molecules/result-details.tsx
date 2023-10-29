@@ -1,5 +1,5 @@
 import { DetailItemProps, ResultType } from "@/types";
-
+import { useTranslations } from "next-intl";
 
 const DetailItem = ({ label, value, isHighlight = false }: DetailItemProps) => (
   <div className="flex justify-between items-center py-2">
@@ -9,29 +9,31 @@ const DetailItem = ({ label, value, isHighlight = false }: DetailItemProps) => (
 );
 
 const ResultDetails = ({ result }: ResultType) => {
+  const t = useTranslations("Home");
+
   return (
     <div className="grid gap-4">
       <DetailItem
-        label="Product Price (RM):"
+        label={t("resultDetails.productPrice")}
         value={result.beforeInterest.toFixed(2)}
       />
-      <DetailItem label="Duration (Months):" value={result.month} />
+      <DetailItem label={t("resultDetails.duration")} value={result.month} />
       <DetailItem
-        label="Monthly Installment (RM):"
+        label={t("resultDetails.monthlyInstallment")}
         value={result.monthlyInstallment.toFixed(2)}
       />
       <DetailItem
-        label="Total Amount Paid (RM):"
+        label={t("resultDetails.totalAmountPaid")}
         value={result.afterInterest.toFixed(2)}
         isHighlight
       />
       <DetailItem
-        label="Interest Charged (RM):"
+        label={t("resultDetails.interestCharged")}
         value={result.interestCharged.toFixed(2)}
         isHighlight
       />
       <DetailItem
-        label="Interest Rate (%):"
+        label={t("resultDetails.interestRate")}
         value={result.interestRate.toFixed(1)}
         isHighlight
       />

@@ -1,5 +1,43 @@
 {
   "Home": {
-    "title": "Know Your Interest"
+    "title": "Know Your Interest",
+    "description": "Review your SPayLater payment plan before you checkout.",
+    "productPrice": "Product Price",
+    "monthlyInstallment": "Monthly Installment",
+    "months": "months",
+    "submit": "Submit",
+    "howToUseText": "How to use",
+    "howToUse": {
+      "heading": "How to Use PayLater Insight",
+      "steps": {
+        "step1": {
+          "title": "Step 1: Locate SPayLater Option on Shopee on Mobile App",
+          "description": "Navigate to your desired product on Shopee. Scroll down to the payment options and find the ‘SPayLater’ feature. Need help? See the example below:"
+        },
+        "step2": {
+          "title": "Step 2: Input Payment Details",
+          "description": "Carefully copy or type the product's price, the monthly installment amount, and the duration (in months) into the calculator's corresponding input fields. Ensure the information is accurate to get the correct calculation results."
+        },
+        "step3": {
+          "title": "Step 3: Calculate and Review",
+          "description": "Once you've entered all the required information, click the ‘Submit’ button. The calculator will display a detailed breakdown of your payment plan, including the total interest charged. Review the information to make an informed decision before proceeding with SPayLater."
+        },
+        "thankYouNote": {
+          "description": "Thank you for using PayLater Insight! We strive to make your online shopping experience more ",
+          "transparent": "transparent and",
+          "informed": "informed"
+        }
+      }
+    },
+    "resultDetails": {
+      "title": "PayLater Overview",
+      "description": "Detailed breakdown of your upcoming purchase",
+      "duration": "Duration (months):",
+      "productPrice": "Product Price (RM):",
+      "monthlyInstallment": "Monthly Installment (RM):",
+      "totalAmountPaid": "Total Amount Paid (RM):",
+      "interestCharged": "Interest Charged (RM):",
+      "interestRate": "Interest Rate (%):"
+    }
   }
 }

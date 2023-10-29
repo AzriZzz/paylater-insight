@@ -74,6 +74,7 @@ const defaultValues: Partial<FormSchemaValues> = {
 export default function Home() {
   const [isResult, setIsResult] = useState(false);
   const [result, setResult] = useState<any>({});
+
   const t = useTranslations("Home");
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -82,6 +83,11 @@ export default function Home() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data);
+    // check all the data input is not empty
+    if (data.originalPrice === 0 || data.monthlyInstallment === 0) {
+      return;
+    }
     const results = calculateInterest(data);
 
     setResult({
@@ -105,22 +111,20 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1 }}
       >
         <div className="card-selector flex flex-col items-center justify-center pt-5">
           <div className="md:max-w-[500px] text-sm md:text-base">
             <h1 className="text-xl font-semibold mb-3">
-              How to Use PayLater Insight
+              {t("howToUse.heading")}
             </h1>
             <div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 1: Locate SPayLater Option on Shopee on Mobile App
+                  {t("howToUse.steps.step1.title")}
                 </h3>
                 <p className="text-justify ">
-                  Navigate to your desired product on Shopee. Scroll down to the
-                  payment options and find the &lsquo;SPayLater&rsquo; feature.
-                  Need help? See the example below:
+                  {t("howToUse.steps.step1.description")}
                 </p>
                 <div className="flex justify-center py-5">
                   <Image
@@ -135,36 +139,31 @@ export default function Home() {
 
               <div className="step-2 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 2: Input Payment Details
+                  {t("howToUse.steps.step2.title")}
                 </h3>
                 <p className="text-justify ">
-                  Carefully copy or type the product&apos;s price, the monthly
-                  installment amount, and the duration (in months) into the
-                  calculator&apos;s corresponding input fields. Ensure the
-                  information is accurate to get the correct calculation
-                  results.
+                  {t("howToUse.steps.step2.description")}
                 </p>
               </div>
 
               <div className="step-3 mb-5">
                 <h3 className="font-semibold mb-2">
-                  Step 3: Calculate and Review
+                  {t("howToUse.steps.step3.title")}
                 </h3>
                 <p className="text-justify ">
-                  Once you&apos;ve entered all the required information, click
-                  the &lsquo;Submit&rsquo; button. The calculator will display a
-                  detailed breakdown of your payment plan, including the total
-                  interest charged. Review the information to make an informed
-                  decision before proceeding with SPayLater.
+                  {t("howToUse.steps.step3.description")}
                 </p>
               </div>
-
               <div className="flex justify-center mb-5">
                 <p className="text-center mt-4">
-                  Thank you for using PayLater Insight! We strive to make your
-                  online shopping experience more{" "}
-                  <span className="font-bold">transparent </span>
-                  and <span className="font-bold">informed</span>.
+                  {t("howToUse.steps.thankYouNote.description")}
+                  <span className="font-bold">
+                    {t("howToUse.steps.thankYouNote.transparent")}
+                  </span>{" "}
+                  <span className="font-bold">
+                    {t("howToUse.steps.thankYouNote.informed")}
+                  </span>
+                  .
                 </p>
               </div>
             </div>
@@ -188,9 +187,7 @@ export default function Home() {
               <Card className="w-auto md:w-[500px] mt-5 md:mt-10 mb-3">
                 <CardHeader>
                   <CardTitle className="text-xl">{t("title")}</CardTitle>
-                  <CardDescription>
-                    Review your SPayLater payment plan before you checkout.
-                  </CardDescription>
+                  <CardDescription>{t("description")}</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -204,7 +201,7 @@ export default function Home() {
                         name="originalPrice"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Product Price</FormLabel>
+                            <FormLabel>{t("productPrice")}</FormLabel>
                             <FormControl>
                               <Input placeholder="100" {...field} />
                             </FormControl>
@@ -217,7 +214,7 @@ export default function Home() {
                         name="monthlyInstallment"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Monthly Installment</FormLabel>
+                            <FormLabel>{t("monthlyInstallment")}</FormLabel>
                             <FormControl>
                               <Input placeholder="100" {...field} />
                             </FormControl>
@@ -230,7 +227,7 @@ export default function Home() {
                         name="month"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Month</FormLabel>
+                            <FormLabel>{t("months")}</FormLabel>
                             <Select
                               aria-labelledby="month"
                               onValueChange={field.onChange}
@@ -253,13 +250,13 @@ export default function Home() {
                         )}
                       />
                       <DialogTrigger asChild>
-                        <Button type="submit">Submit</Button>
+                        <Button type="submit">{t("submit")}</Button>
                       </DialogTrigger>
                     </form>
                   </Form>
                   <div className="w-full text-center mt-4">
                     <span className="cursor-pointer" onClick={handleClick}>
-                      How to use?
+                      {t("howToUseText")}
                     </span>
                   </div>
                 </CardContent>
@@ -267,9 +264,9 @@ export default function Home() {
             </motion.div>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>PayLater Overview</DialogTitle>
+                <DialogTitle> {t("resultDetails.title")}</DialogTitle>
                 <DialogDescription>
-                  Detailed breakdown of your upcoming purchase
+                  {t("resultDetails.description")}
                 </DialogDescription>
               </DialogHeader>
               {isResult && (
@@ -287,8 +284,8 @@ export default function Home() {
           </Dialog>
         </div>
         {howToTutorial()}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

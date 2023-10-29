@@ -1,5 +1,43 @@
 {
   "Home": {
-    "title": "Semak Kadar Bunga"
+    "title": "Ketahui Faedah Anda",
+    "description": "Semak pembayaran ansuran bulanan SPayLater sebelum pembayaran.",
+    "productPrice": "Harga Produk",
+    "monthlyInstallment": "Ansuran Bulanan",
+    "months": "Bulan",
+    "submit": "Hantar",
+    "howToUseText": "Bagaimana cara menggunakannya?",  
+    "howToUse": {
+      "heading": "Cara Menggunakan PayLater Insight",
+      "steps": {
+        "step1": {
+          "title": "Langkah 1: Cari pilihan SPayLater di Aplikasi Shopee",
+          "description": "Pergi ke produk yang diingini di Shopee. Tatal ke bawah ke pilihan pembayaran dan cari ciri ‘SPayLater’. Perlukan bantuan? Lihat contoh di bawah:"
+        },
+        "step2": {
+          "title": "Langkah 2: Masukkan Butiran Pembayaran",
+          "description": "Salin atau taip harga produk, jumlah ansuran bulanan, dan tempoh (dalam bulan) ke dalam ruangan input kalkulator dengan teliti. Pastikan maklumat adalah tepat untuk mendapatkan hasil kiraan yang betul."
+        },
+        "step3": {
+          "title": "Langkah 3: Kira dan Semak",
+          "description": "Setelah anda memasukkan semua maklumat yang diperlukan, tekan butang ‘Hantar’. Kalkulator akan memaparkan pecahan terperinci pelan pembayaran anda, termasuk jumlah faedah yang dikenakan. Semak maklumat untuk membuat keputusan yang tepat sebelum meneruskan dengan SPayLater."
+        },
+        "thankYouNote": {
+          "description": "Terima kasih kerana menggunakan PayLater Insight! Kami berusaha untuk menjadikan pengalaman beli-belah dalam talian anda ",
+          "transparent": "lebih telus dan",
+          "informed": "bermaklumat"
+        }
+      }
+    },
+    "resultDetails": {
+      "title": "PayLater Rumusan",
+      "description": "Pecahan terperinci bakal pelan pembayaran anda",  
+      "duration": "Tempoh (bulan):",
+      "productPrice": "Harga Produk (RM):",
+      "monthlyInstallment": "Ansuran Bulanan (RM):",
+      "totalAmountPaid": "Jumlah Keseluruhan Dibayar (RM):",
+      "interestCharged": "Faedah Dikenakan (RM):",
+      "interestRate": "Kadar Faedah (%):"
+    }
   }
 }
