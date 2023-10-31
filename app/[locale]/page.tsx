@@ -83,11 +83,6 @@ export default function Home() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-    // check all the data input is not empty
-    if (data.originalPrice === 0 || data.monthlyInstallment === 0) {
-      return;
-    }
     const results = calculateInterest(data);
 
     setResult({
@@ -178,90 +173,87 @@ export default function Home() {
       <Header />
       <div className="container">
         <div className="flex flex-col justify-center items-center">
-          <Dialog>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="w-auto md:w-[500px] mt-5 md:mt-10 mb-3">
-                <CardHeader>
-                  <CardTitle className="text-xl">{t("title")}</CardTitle>
-                  <CardDescription>{t("description")}</CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  <Form {...form}>
-                    <form
-                      onSubmit={form.handleSubmit(onSubmit)}
-                      className="w-full space-y-6"
-                    >
-                      <FormField
-                        control={form.control}
-                        name="originalPrice"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>{t("productPrice")}</FormLabel>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="w-auto md:w-[500px] mt-5 md:mt-10 mb-3">
+              <CardHeader>
+                <CardTitle className="text-xl">{t("title")}</CardTitle>
+                <CardDescription>{t("description")}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="w-full space-y-6"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="originalPrice"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("productPrice")}</FormLabel>
+                          <FormControl>
+                            <Input placeholder="100" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="monthlyInstallment"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("monthlyInstallment")}</FormLabel>
+                          <FormControl>
+                            <Input placeholder="100" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="month"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("months")}</FormLabel>
+                          <Select
+                            aria-labelledby="month"
+                            onValueChange={field.onChange}
+                            defaultValue="12"
+                          >
                             <FormControl>
-                              <Input placeholder="100" {...field} />
+                              <SelectTrigger>
+                                <SelectValue placeholder="Please select month" />
+                              </SelectTrigger>
                             </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="monthlyInstallment"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>{t("monthlyInstallment")}</FormLabel>
-                            <FormControl>
-                              <Input placeholder="100" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="month"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>{t("months")}</FormLabel>
-                            <Select
-                              aria-labelledby="month"
-                              onValueChange={field.onChange}
-                              defaultValue="12"
-                            >
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Please select month" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="1">1</SelectItem>
-                                <SelectItem value="3">3</SelectItem>
-                                <SelectItem value="6">6</SelectItem>
-                                <SelectItem value="12">12</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <DialogTrigger asChild>
-                        <Button type="submit">{t("submit")}</Button>
-                      </DialogTrigger>
-                    </form>
-                  </Form>
-                  <div className="w-full text-center mt-4">
-                    <span className="cursor-pointer" onClick={handleClick}>
-                      {t("howToUseText")}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                            <SelectContent>
+                              <SelectItem value="1">1</SelectItem>
+                              <SelectItem value="3">3</SelectItem>
+                              <SelectItem value="6">6</SelectItem>
+                              <SelectItem value="12">12</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <Button type="submit">{t("submit")}</Button>
+                  </form>
+                </Form>
+                <div className="w-full text-center mt-4">
+                  <span className="cursor-pointer" onClick={handleClick}>
+                    {t("howToUseText")}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+          <Dialog open={isResult} onOpenChange={setIsResult}>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle> {t("resultDetails.title")}</DialogTitle>
