@@ -44,6 +44,7 @@ import ResultImage from "@/components/molecules/result-images";
 import { motion } from "framer-motion";
 import Header from "@/components/molecules/header";
 import { useTranslations } from "next-intl";
+import TikTokVideo from "@/components/molecules/tiktok-video";
 
 const FormSchema = z.object({
   originalPrice: z.coerce
@@ -114,6 +115,7 @@ export default function Home() {
               {t("howToUse.heading")}
             </h1>
             <div>
+              <TikTokVideo id="7298326817939721473" />
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
                   {t("howToUse.steps.step1.title")}
