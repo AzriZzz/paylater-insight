@@ -115,7 +115,9 @@ export default function Home() {
               {t("howToUse.heading")}
             </h1>
             <div>
+              <div className="mb-3">
               <TikTokVideo id="7298326817939721473" />
+              </div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
                   {t("howToUse.steps.step1.title")}
