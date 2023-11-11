@@ -36,7 +36,7 @@ const Feature = (props: FeatureProps) => {
     imagePosition,
     "feature-description flex flex-col",
     "justify-between rounded-2xl h-[50vh] text-center md:text-left",
-    "shadow-lg"
+    "shadow-md"
   ]);
 
   return (
@@ -54,7 +54,7 @@ const Feature = (props: FeatureProps) => {
         <CardHeader>
           <CardTitle>{title}</CardTitle>
         </CardHeader>
-        <CardContent>{description}</CardContent>
+        <CardContent className="text-justify ">{description}</CardContent>
         <CardFooter className="flex justify-center md:justify-start">
           <Button>
             <a href={btnLink}>{btnText}</a>

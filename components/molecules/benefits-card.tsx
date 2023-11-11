@@ -1,16 +1,22 @@
 import React from "react";
-
-interface BenefitsCardProps {
-  title: string;
-  description: string;
-}
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { BenefitsCardProps } from "@/types/spaylater";
 
 const BenefitsCard = (props: BenefitsCardProps) => {
   const { title, description } = props;
-  return <div>
-    <h1>{title}</h1>
-    <p>{description}</p>
-  </div>;
+  return (
+    <Card className="md:w-72">
+      <CardHeader>
+      <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="text-justify">{description}</CardContent>
+    </Card>
+  );
 };
 
 export default BenefitsCard;

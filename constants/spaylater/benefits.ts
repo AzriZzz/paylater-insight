@@ -2,18 +2,18 @@ import { BenefitsCardProps } from "@/types/spaylater";
 
 export const Benefits: BenefitsCardProps[] = [
   {
-    title: "Manage Your Finances Effortlessly",
+    title: "Making Smarter Choices",
     description:
-      "Efficiently manage your financial portfolio, from SPayLater plans to smart budgeting",
+      "Financial literacy helps you understand how to use your money wisely. This means knowing how to save, spend, and plan for your future so you can avoid common money mistakes.",
   },
   {
-    title: "Make Smarter Financial Decisions",
+    title: "Building a Secure Future",
     description:
-      "Access tools for immediate financial insights, enabling smarter, data-driven financial decisions.",
+      "Being financially literate means you're better at preparing for emergencies and big life goals, like buying a home or retiring comfortably. It's about being ready for whatever life throws your way.",
   },
   {
-    title: "Achieve Financial Well-Being",
+    title: "Boosting the Economy",
     description:
-      "Gain control over your spending and saving with our intuitive 50/30/20 budgeting guidance.",
+      "When more people understand finance, they make better investment and spending decisions, which helps the whole economy grow. It's not just good for you, but for everyone around you too.",
   },
 ];
