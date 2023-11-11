@@ -3,7 +3,7 @@ import { SiteConfig } from "../types/site";
 export const siteConfig: SiteConfig = {
   name: "PayLater Insight",
   description:
-    "Instantly calculate and analyze interest on your SPayLater plans, empowering smarter purchase decisions.",
+    "Efficiently manage your finances with PayLater Insight. Analyze SPayLater plans, optimize debt ratios, and plan budgets smarter.",
   url: "https://www.paylaterinsight.com",
   ogImage: "https://www.paylaterinsight.com/og.png",
   links: {

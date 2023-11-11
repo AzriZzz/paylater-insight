@@ -9,7 +9,8 @@ import { siteConfig } from "@/config/site";
 import ScrollToTopButton from "@/components/molecules/scroll-to-top";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-
+import Header from "@/components/molecules/header";
+import Footer from "@/components/molecules/footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -102,10 +103,11 @@ export default async function RootLayout({
       <body
         suppressHydrationWarning={true}
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen font-sans antialiased bg-[fefdfc]",
           fontSans.variable
         )}
       >
+        <Header />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -119,6 +121,7 @@ export default async function RootLayout({
           <Toaster />
         </NextIntlClientProvider>
         <GoogleAnalytics />
+        <Footer />
       </body>
     </html>
   );
