@@ -249,8 +249,8 @@ export default function SPayLaterPage() {
                     <Button type="submit">{t("submit")}</Button>
                   </form>
                 </Form>
-                <div className="w-full text-center mt-4">
-                  <span className="cursor-pointer" onClick={handleClick}>
+                <div className="w-full text-center mt-4 outline">
+                  <span className="cursor-pointer outline" onClick={handleClick}>
                     {t("howToUseText")}
                   </span>
                 </div>

@@ -5,11 +5,19 @@ export interface Label {
 
 export type Position = "left" | "right";
 
-export interface FeatureProps extends Label {
+export interface IFeature extends Label {
   image: string;
   btnText: string;
   btnLink: string;
   position: Position;
+  available?: boolean;
 }
 
-export interface BenefitsCardProps extends Label {}
+export interface IBenefitsCard extends Label {}
+
+
+export type FAQProps = {
+  id: string;
+  question: string;
+  answer: string;
+};

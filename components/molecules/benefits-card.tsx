@@ -5,9 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BenefitsCardProps } from "@/types/spaylater";
+import { IBenefitsCard } from "@/types/spaylater";
 
-const BenefitsCard = (props: BenefitsCardProps) => {
+const BenefitsCard = (props: IBenefitsCard) => {
   const { title, description } = props;
   return (
     <Card className="md:w-72">

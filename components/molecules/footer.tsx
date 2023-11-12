@@ -3,9 +3,9 @@ import { FaEnvelope, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-slate-100 dark:bg-black">
-      <div className="container flex justify-between items-center align-middle py-7 md:py-6">
-        <p className="text-sm">PayLater Insight © 2023 </p>
+    <footer className="footer bg-[#0c3245] text-white py-10">
+      <div className="container flex flex-col lg:flex-row lg:justify-between gap-5 lg:gap-0">
+        <p className="text-md">PayLater Insight © 2023 </p>
         <div className="flex gap-5 mr-8">
           <a
             href="https://github.com/AzriZzz/spaylater-insight"

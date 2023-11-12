@@ -1,6 +1,6 @@
-import { BenefitsCardProps } from "@/types/spaylater";
+import { IBenefitsCard } from "@/types/spaylater";
 
-export const Benefits: BenefitsCardProps[] = [
+export const Benefits: IBenefitsCard[] = [
   {
     title: "Making Smarter Choices",
     description:

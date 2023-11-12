@@ -1,6 +1,6 @@
-import { FeatureProps } from "@/types/spaylater";
+import { IFeature } from "@/types/spaylater";
 
-export const Features: FeatureProps[] = [
+export const Features: IFeature[] = [
   {
     image: "/images/grief-four.png",
     title: "SPayLater Calculator",

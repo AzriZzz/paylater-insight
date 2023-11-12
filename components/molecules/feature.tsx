@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "../ui/button";
-import { FeatureProps } from "@/types/spaylater";
+import { IFeature } from "@/types/spaylater";
 import Image from "next/image";
 import { filterClassNames } from "@/utils/filterClassNames";
 
@@ -15,8 +15,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const Feature = (props: FeatureProps) => {
-  const { title, description, btnText, btnLink, position = "left" } = props;
+interface FeatureProps {
+  feature: IFeature;
+}
+
+const Feature = ({ feature }: FeatureProps) => {
+  const {
+    title,
+    image,
+    description,
+    btnText,
+    btnLink,
+    position = "left",
+    available = true,
+  } = feature;
 
   let imagePosition = "";
 
@@ -35,15 +47,15 @@ const Feature = (props: FeatureProps) => {
   const classNames = filterClassNames([
     imagePosition,
     "feature-description flex flex-col",
-    "justify-between rounded-2xl h-[50vh] text-center md:text-left",
-    "shadow-md"
+    "justify-between rounded-2xl lg:h-[50vh] text-center md:text-left",
+    "shadow-md",
   ]);
 
   return (
     <Card className={classNames}>
       <div className="flex-1 flex justify-center items-center ">
         <Image
-          src={props.image}
+          src={image}
           width={50}
           height={50}
           alt="PayLater Insight logo"
@@ -52,7 +64,14 @@ const Feature = (props: FeatureProps) => {
       </div>
       <div className="flex-1 flex flex-col justify-center text-center md:text-left ">
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className="flex flex-col md:flex-row items-center md:items-end">
+            {title}
+            {!available && (
+              <span className="md:pl-3 pt-2 md:pt-0 text-xs">
+                ✨ coming soon ✨
+              </span>
+            )}
+          </CardTitle>
         </CardHeader>
         <CardContent className="text-justify ">{description}</CardContent>
         <CardFooter className="flex justify-center md:justify-start">
