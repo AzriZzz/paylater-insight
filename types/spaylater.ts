@@ -6,14 +6,14 @@ export interface Label {
 export type Position = "left" | "right";
 
 export interface IFeature extends Label {
-  image: string;
   btnText: string;
   btnLink: string;
-  position: Position;
   available?: boolean;
 }
 
-export interface IBenefitsCard extends Label {}
+export interface IBenefitsCard extends Label {
+  image: string;
+}
 
 
 export type FAQProps = {

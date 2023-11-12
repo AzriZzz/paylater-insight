@@ -15,6 +15,7 @@ import Footer from "@/components/molecules/footer";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["100", "300", "400", "700", "900"],
 });
 
 export function generateStaticParams() {

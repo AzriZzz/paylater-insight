@@ -116,7 +116,7 @@ export default function SPayLaterPage() {
             </h1>
             <div>
               <div className="mb-3">
-              {/* <TikTokVideo id="7298326817939721473" /> */}
+                {/* <TikTokVideo id="7298326817939721473" /> */}
               </div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
@@ -174,7 +174,6 @@ export default function SPayLaterPage() {
 
   return (
     <div className="w-auto h-full">
-      <Header />
       <div className="container">
         <div className="flex flex-col justify-center items-center">
           <motion.div
@@ -249,8 +248,8 @@ export default function SPayLaterPage() {
                     <Button type="submit">{t("submit")}</Button>
                   </form>
                 </Form>
-                <div className="w-full text-center mt-4 outline">
-                  <span className="cursor-pointer outline" onClick={handleClick}>
+                <div className="w-full text-center mt-4">
+                  <span className="cursor-pointer" onClick={handleClick}>
                     {t("howToUseText")}
                   </span>
                 </div>
@@ -281,7 +280,6 @@ export default function SPayLaterPage() {
         </div>
         {howToTutorial()}
       </div>
-      <Footer />
     </div>
   );
 }

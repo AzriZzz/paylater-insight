@@ -1,20 +1,29 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IBenefitsCard } from "@/types/spaylater";
+import Image from "next/image";
 
-const BenefitsCard = (props: IBenefitsCard) => {
-  const { title, description } = props;
+interface BenefitsProps {
+  benefit: IBenefitsCard;
+}
+
+const BenefitsCard = ({ benefit }: BenefitsProps) => {
+  const { title, description, image } = benefit;
   return (
-    <Card className="md:w-72">
+    <Card className="rounded-3xl">
       <CardHeader>
-      <CardTitle>{title}</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent className="text-justify">{description}</CardContent>
+      <CardContent className=" text-base md:text-lg items-center flex flex-col">
+        {description}
+        <Image
+          src={image}
+          width={300}
+          height={300}
+          alt="A guy showing his chat"
+          priority={true}
+        />
+      </CardContent>
     </Card>
   );
 };

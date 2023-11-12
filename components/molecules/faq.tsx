@@ -14,10 +14,10 @@ const FAQ = () => {
         {FAQS.map((faq) => (
           <div key={faq.id}>
             <AccordionItem className="px-3 md:px-[60px]" value={faq.id}>
-              <AccordionTrigger className="py-[20px] gap-10 text-start text-base leading-[20px] font-medium md:font-semibold hover:no-underline">
+              <AccordionTrigger className="py-[30px] gap-10 text-start md:text-xl leading-[20px] font-semibold hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-left font-light text-[rgba(0,0,0,.741)]">
+              <AccordionContent className="text-base md:text-lg text-left font-light text-[rgba(0,0,0,.741)]">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
