@@ -10,7 +10,7 @@ interface BenefitsProps {
 const BenefitsCard = ({ benefit }: BenefitsProps) => {
   const { title, description, image } = benefit;
   return (
-    <Card className="rounded-3xl">
+    <Card className="rounded-3xl pt-7 pb-5 shadow-lg lg:w-1/4 hover:-translate-y-2 ease-in-out duration-300 hover:transform ">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
