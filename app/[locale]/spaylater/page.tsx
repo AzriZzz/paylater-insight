@@ -185,10 +185,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-8/12">
+                              <FormControl className="w-7/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8">
                                 x 1 Month
                               </FormLabel>
                             </div>
@@ -202,10 +202,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-8/12">
+                              <FormControl className="w-7/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8">
                                 x 3 Month
                               </FormLabel>
                             </div>
@@ -219,10 +219,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-8/12">
+                              <FormControl className="w-7/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8">
                                 x 6 Month
                               </FormLabel>
                             </div>
@@ -236,10 +236,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-8/12">
+                              <FormControl className="w-7/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8">
                                 x 12 Month
                               </FormLabel>
                             </div>
