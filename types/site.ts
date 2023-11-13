@@ -12,5 +12,5 @@ export interface SiteConfig  {
 export interface CalculateInterest  { 
   originalPrice: number
   monthlyInstallment: number
-  month: number
+  month?: number
 }

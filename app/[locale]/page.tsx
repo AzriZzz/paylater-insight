@@ -66,7 +66,7 @@ const Home = () => {
         id="start-manage"
         className="feature-section py-6 md:py-12 bg-gradient-to-t from-white to-[#ebf5f3]"
       >
-        <Section>
+        {/* <Section> */}
           <div className="container">
             <h2 className="text-3xl md:text-4xl font-semibold text-center">
               Start Managing Now
@@ -90,7 +90,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </Section>
+        {/* </Section> */}
       </div>
       <div className="benefits py-6 md:py-12 bg-gradient-to-b from-white to-[#ebf5f3]">
         <Section>

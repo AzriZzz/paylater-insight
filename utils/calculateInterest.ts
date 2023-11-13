@@ -2,7 +2,8 @@ import { CalculateInterest } from "@/types/site";
 
 export const calculateInterest = (data: CalculateInterest) => {
   const beforeInterest = data.originalPrice;
-  const afterInterest = data.monthlyInstallment * data.month;
+  // const afterInterest = data.monthlyInstallment * data.month;
+  const afterInterest = data.monthlyInstallment * 12;
   const interestCharged = afterInterest - data.originalPrice;
   const interestRate = (interestCharged / data.originalPrice) * 100;
 
