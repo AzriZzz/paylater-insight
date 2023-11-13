@@ -285,8 +285,8 @@ const SPayLater = () => {
           </div>
         </div>
         <div className="container">
-          <div className="w-full flex justify-between">
-            <div className="flex justify-center py-5 w-1/2">
+          <div className="w-full flex flex-col md:flex-row justify-between">
+            <div className="flex justify-center py-5 md:w-1/2">
               <Image
                 src="/images/example-product-interest.png"
                 width={350}
@@ -296,7 +296,7 @@ const SPayLater = () => {
                 className="shadow-lg rounded-sm"
               />
             </div>
-            <div className="w-1/2">{howToTutorial()}</div>
+            <div className="md:w-1/2">{howToTutorial()}</div>
             
           </div>
         </div>

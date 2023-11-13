@@ -9,7 +9,7 @@ const Header = () => {
   const toggleLanguage = locale !== "en";
 
   return (
-    <div className="flex justify-between px-3 md:px-10 pt-4 mb-10">
+    <div className="flex justify-between px-3 md:px-10 pt-4 mb-5">
       <div className="flex items-center">
         <Link href="/" className="flex">
           <Image
@@ -37,7 +37,7 @@ const Header = () => {
             </Link>
           )}
         </div>
-        <ModeToggle />
+        {/* <ModeToggle /> */}
       </div>
     </div>
   );

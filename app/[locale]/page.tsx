@@ -31,14 +31,14 @@ const Home = () => {
                 </Button>
               </div>
             </div>
-            <div className="intro-section-image pt-10 lg:pt-0 flex flex-col md:flex-row justify-center xl:justify-around w-full md:h-[30vh]">
+            <div className="intro-section-image pt-10 lg:pt-0 flex flex-col md:flex-row items-center md:justify-evenly w-full md:h-[40vh]">
               <Image
                 src="/images/12.svg"
                 width={500}
                 height={500}
                 alt="A guy showing his chat"
                 priority={true}
-                className="hidden xl:block"
+                className="hidden md:block"
               />
               <Image
                 src="/images/47.svg"
@@ -72,7 +72,7 @@ const Home = () => {
               Start Managing Now
             </h2>
             <div className="flex flex-col md:flex-row align-middle items-center">
-              <div className="hidden md:flex flex-1 sticky top-[30vh] self-start justify-center -translate-y-12">
+              <div className="md:flex flex-1 md:sticky md:top-[30vh] self-start justify-center md:-translate-y-12">
                 <Image
                   src="/images/13.svg"
                   width={600}
