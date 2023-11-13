@@ -2,7 +2,7 @@ import { IBenefitsCard } from "@/types/spaylater";
 
 export const Benefits: IBenefitsCard[] = [
   {
-    title: "Making Smarter Choices",
+    title: "Making Smarter Money Choices",
     description:
       "Financial literacy helps you understand how to use your money wisely. This means knowing how to save, spend, and plan for your future so you can avoid common money mistakes.",
     image: "/images/94.svg",

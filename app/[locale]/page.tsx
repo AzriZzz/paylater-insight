@@ -106,7 +106,7 @@ const Home = () => {
           </div>
         </Section>
       </div>
-      <div className="faq-section py-6 md:pt-12 md:pb-20 bg-[#ebf5f3]">
+      <div className="faq-section py-12 md:pt-12 md:pb-20 bg-[#ebf5f3]">
         <Section>
           <div className="container flex flex-col align-middle items-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-10">FAQs</h2>
