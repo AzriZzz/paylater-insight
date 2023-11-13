@@ -14,7 +14,7 @@ const BenefitsCard = ({ benefit }: BenefitsProps) => {
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent className=" text-base md:text-lg items-center flex flex-col">
+      <CardContent className=" items-center flex flex-col">
         {description}
         <Image
           src={image}
@@ -22,6 +22,7 @@ const BenefitsCard = ({ benefit }: BenefitsProps) => {
           height={300}
           alt="A guy showing his chat"
           priority={true}
+          className="pt-5"
         />
       </CardContent>
     </Card>

@@ -72,7 +72,7 @@ const Home = () => {
               Start Managing Now
             </h2>
             <div className="flex flex-col md:flex-row align-middle items-center">
-              <div className="hidden md:flex flex-1 sticky top-0 self-start  justify-center pt-20">
+              <div className="hidden md:flex flex-1 sticky top-[30vh] self-start justify-center -translate-y-12">
                 <Image
                   src="/images/13.svg"
                   width={600}
