@@ -10,7 +10,8 @@ import React from "react";
 import FAQ from "@/components/molecules/faq";
 import Image from "next/image";
 import Section from "@/components/molecules/section";
-import { useLottie } from 'lottie-react';
+import { useLottie } from "lottie-react";
+import LottiePlayer from "@/components/molecules/lottie-player";
 
 const Home = () => {
   const style = {
@@ -30,8 +31,8 @@ const Home = () => {
         <div className="intro-section">
           <div className="container flex flex-col align-middle items-center text-center">
             <div className="intro-section md:w-[700px] lg:w-[900px] flex flex-col items-center">
-              <h1 className="text-center text-4xl md:text-7xl font-bold text whitespace-normal mb-6">
-                Finance Made Easy
+              <h1 className="text-center text-4xl md:text-6xl font-bold text whitespace-normal my-6">
+                Personal Finance Made Easy
               </h1>
               <p className="mb-8 text-gray-600 md:w-[750px] text-center md:text-xl">
                 Effortlessly manage and review your financial life, from
@@ -85,7 +86,10 @@ const Home = () => {
           </h2>
           <div className="flex flex-col md:flex-row align-middle items-center">
             <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center -translate-y-12 md:-translate-y-14 ">
-              {View}
+              <LottiePlayer
+                animationData={require("./../../animation/working.json")}
+                className="w-full max-w-[600px] h-[400px]"
+              />
             </div>
             <div className="flex-1 text-center">
               <div className="grid grid-cols-1 gap-6">
@@ -101,7 +105,7 @@ const Home = () => {
       <div className="benefits py-6 md:py-12 bg-gradient-to-b from-white to-[#ebf5f3]">
         <Section>
           <div className="container">
-            <h1 className="text-center text-3xl md:text-4xl font-bold text whitespace-normal mb-6">
+            <h1 className="text-center text-3xl md:text-4xl font-bold text whitespace-normal mb-8">
               Our Aim
             </h1>
             <div className="flex flex-col md:flex-row gap-10 text-center justify-center">
@@ -125,5 +129,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

@@ -21,6 +21,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import TikTokVideo from "@/components/molecules/tiktok-video";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const FormSchema = z.object({
   originalPrice: z.coerce.number({
@@ -87,11 +88,8 @@ const SPayLater = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="card-selector flex flex-col pt-5">
+        <div className="card-selector flex flex-col">
           <div className="text-sm md:text-base">
-            <h1 className="text-2xl font-semibold mb-3">
-              {t("howToUse.heading")}
-            </h1>
             <div>
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
@@ -284,16 +282,34 @@ const SPayLater = () => {
           </div>
         </div>
         <div className="container">
+          <h1 className="text-2xl font-semibold mb-6 text-center">
+            {t("howToUse.heading")}
+          </h1>
           <div className="w-full flex flex-col md:flex-row justify-between">
-            <div className="flex justify-center py-5 md:w-1/2">
-              <Image
-                src="/images/example-product-interest.png"
-                width={350}
-                height={350}
-                alt="Example product indicating the location of the PayLater option"
-                priority={true}
-                className="shadow-lg rounded-sm"
-              />
+            <div className="flex justify-center pb-6 md:w-1/2">
+              <Tabs defaultValue="image" className="w-full">
+                <TabsContent value="image" className="mb-4 flex justify-center">
+                  <Image
+                    src="/images/example-product-interest.png"
+                    width={350}
+                    height={350}
+                    alt="Example product indicating the location of the PayLater option"
+                    priority={true}
+                    className="shadow-lg rounded-sm"
+                  />
+                </TabsContent>
+                <TabsContent value="video" className="mb-4">
+                  <div className="mb-3 w-full">
+                    <TikTokVideo id="7298326817939721473" />
+                  </div>
+                </TabsContent>
+                <div className="w-full flex justify-center">
+                <TabsList className="grid w-1/3 grid-cols-2">
+                  <TabsTrigger value="image">Image</TabsTrigger>
+                  <TabsTrigger value="video">Video</TabsTrigger>
+                </TabsList>
+                </div>
+              </Tabs>
             </div>
             <div className="md:w-1/2">{howToTutorial()}</div>
           </div>

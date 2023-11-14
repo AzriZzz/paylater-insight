@@ -10,11 +10,11 @@ interface BenefitsProps {
 const BenefitsCard = ({ benefit }: BenefitsProps) => {
   const { title, description, image } = benefit;
   return (
-    <Card className="rounded-3xl pt-7 pb-5 shadow-lg lg:w-1/4 hover:-translate-y-2 ease-in-out duration-300 hover:transform ">
-      <CardHeader>
+    <Card className="rounded-3xl skew-4-2 pt-7 pb-5 shadow-lg lg:w-1/4 ease-in-out duration-300 rotate-3 hover:-translate-y-2">
+      <CardHeader className="-rotate-3">
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent className=" items-center flex flex-col">
+      <CardContent className=" items-center flex flex-col -rotate-3">
         {description}
         <Image
           src={image}

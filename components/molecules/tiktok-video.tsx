@@ -7,10 +7,11 @@ type ITikTok = {
 const TikTokVideo = ({ id }: ITikTok) => {
   return (
     <div
+     className="-mt-3"
       style={{
         left: 0,
         width: "100%",
-        height: 770,
+        height: 570,
         position: "relative",
       }}
     >
