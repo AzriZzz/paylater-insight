@@ -10,8 +10,20 @@ import React from "react";
 import FAQ from "@/components/molecules/faq";
 import Image from "next/image";
 import Section from "@/components/molecules/section";
+import { useLottie } from 'lottie-react';
 
 const Home = () => {
+  const style = {
+    height: 400,
+  };
+  const options = {
+    animationData: require("./../../animation/working.json"),
+    loop: true,
+    autoplay: true,
+  };
+
+  const { View } = useLottie(options, style);
+
   return (
     <main>
       <Section>
@@ -67,29 +79,23 @@ const Home = () => {
         className="feature-section py-6 md:py-12 bg-gradient-to-t from-white to-[#ebf5f3]"
       >
         {/* <Section> */}
-          <div className="container">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center">
-              Start Managing Now
-            </h2>
-            <div className="flex flex-col md:flex-row align-middle items-center">
-              <div className="md:flex flex-1 md:sticky md:top-[30vh] self-start justify-center md:-translate-y-12">
-                <Image
-                  src="/images/13.svg"
-                  width={600}
-                  height={600}
-                  alt="PayLater Insight image"
-                  priority={true}
-                />
-              </div>
-              <div className="flex-1 text-center">
-                <div className="grid grid-cols-1 gap-6">
-                  {Features.map((feature: IFeature, index: number) => {
-                    return <Feature key={index} feature={feature} />;
-                  })}
-                </div>
+        <div className="container">
+          <h2 className="text-3xl md:text-4xl font-semibold text-center">
+            Start Managing Now
+          </h2>
+          <div className="flex flex-col md:flex-row align-middle items-center">
+            <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center -translate-y-12 md:-translate-y-14 ">
+              {View}
+            </div>
+            <div className="flex-1 text-center">
+              <div className="grid grid-cols-1 gap-6">
+                {Features.map((feature: IFeature, index: number) => {
+                  return <Feature key={index} feature={feature} />;
+                })}
               </div>
             </div>
           </div>
+        </div>
         {/* </Section> */}
       </div>
       <div className="benefits py-6 md:py-12 bg-gradient-to-b from-white to-[#ebf5f3]">
@@ -119,3 +125,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

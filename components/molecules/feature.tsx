@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { IFeature } from "@/types/spaylater";
 import { filterClassNames } from "@/utils/filterClassNames";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface FeatureProps {
   feature: IFeature;
@@ -45,9 +46,9 @@ const Feature = ({ feature }: FeatureProps) => {
             onClick={handleClick}
             disabled={!available}
           >
-            <a href={btnLink} tabIndex={available ? 0 : -1}>
+            <Link href={btnLink} tabIndex={available ? 0 : -1}>
               {btnText}
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

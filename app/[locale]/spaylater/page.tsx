@@ -93,7 +93,6 @@ const SPayLater = () => {
               {t("howToUse.heading")}
             </h1>
             <div>
-              
               <div className="step-1 mb-5">
                 <h3 className="font-semibold mb-2">
                   {t("howToUse.steps.step1.title")}
@@ -185,10 +184,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-7/12 md:8/12">
+                              <FormControl className="w-6/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
                                 x 1 Month
                               </FormLabel>
                             </div>
@@ -202,10 +201,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-7/12 md:8/12">
+                              <FormControl className="w-6/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
                                 x 3 Month
                               </FormLabel>
                             </div>
@@ -219,10 +218,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-7/12 md:8/12">
+                              <FormControl className="w-6/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
                                 x 6 Month
                               </FormLabel>
                             </div>
@@ -236,10 +235,10 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <div className="flex flex-row items-center">
-                              <FormControl className="w-7/12 md:8/12">
+                              <FormControl className="w-6/12 md:8/12">
                                 <Input placeholder="100" {...field} />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center ">
                                 x 12 Month
                               </FormLabel>
                             </div>
@@ -256,7 +255,7 @@ const SPayLater = () => {
                     </form>
                   </Form>
                 </div>
-                <div className="lg:w-2/3">
+                <div className="md:w-2/3">
                   <div className="flex flex-col justify-center items-center h-full">
                     <Image
                       src="/images/497.svg"
@@ -268,7 +267,7 @@ const SPayLater = () => {
                     <h3 className=" text-2xl font-semibold pb-3">
                       PayLater Summary
                     </h3>
-                    <p className="max-w-md text-center pb-4">
+                    <p className="max-w-md text-center pb-6">
                       Enter your price, monthly installements which any of the
                       SPayLater plan you want to calculate.
                     </p>
@@ -297,7 +296,6 @@ const SPayLater = () => {
               />
             </div>
             <div className="md:w-1/2">{howToTutorial()}</div>
-            
           </div>
         </div>
       </section>
