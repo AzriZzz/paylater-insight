@@ -10,21 +10,9 @@ import React from "react";
 import FAQ from "@/components/molecules/faq";
 import Image from "next/image";
 import Section from "@/components/molecules/section";
-import { useLottie } from "lottie-react";
 import LottiePlayer from "@/components/molecules/lottie-player";
 
 const Home = () => {
-  const style = {
-    height: 400,
-  };
-  const options = {
-    animationData: require("./../../animation/working.json"),
-    loop: true,
-    autoplay: true,
-  };
-
-  const { View } = useLottie(options, style);
-
   return (
     <main>
       <Section>
