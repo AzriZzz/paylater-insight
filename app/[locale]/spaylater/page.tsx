@@ -90,20 +90,17 @@ const FormSchema = z
   })
   // check if only three month value should not exceed the price
   .refine((value) => value.threeMonth! <= value.price, {
-    message:
-      "Installment must not be greater than the product price.",
+    message: "Installment must not be greater than the product price.",
     path: ["threeMonth"],
   })
   // check if only six month value should not exceed the price
   .refine((value) => value.sixMonth! <= value.price, {
-    message:
-      "Installment must not be greater than the product price.",
+    message: "Installment must not be greater than the product price.",
     path: ["sixMonth"],
   })
   // check if only twelve month value should not exceed the price
   .refine((value) => value.twelveMonth! <= value.price, {
-    message:
-      "Installment must not be greater than the product price.",
+    message: "Installment must not be greater than the product price.",
     path: ["twelveMonth"],
   });
 type FormSchemaValues = z.infer<typeof FormSchema>;
@@ -122,6 +119,14 @@ const defaultValues: Partial<FormSchemaValues> = {
   threeMonth: 173.82,
   sixMonth: 90.64,
   twelveMonth: 49.07,
+};
+
+const resetValues: Partial<FormSchemaValues> = {
+  price: 0,
+  oneMonth: 0,
+  threeMonth: 0,
+  sixMonth: 0,
+  twelveMonth: 0,
 };
 
 const SPayLater = () => {
@@ -189,7 +194,7 @@ const SPayLater = () => {
   }
 
   function resetForm() {
-    reset(defaultValues);
+    reset(resetValues);
     setIsResult(false);
   }
 
@@ -274,7 +279,7 @@ const SPayLater = () => {
           <p>
             {numericInterestRate !== numericInterestBasedOnInput && (
               <span className="text-yellow-500 ml-2 text-base">
-                (Seems like you are paying more or less than the actual interest
+                (Seems like you will pay more or less than the actual interest
                 rate)
               </span>
             )}

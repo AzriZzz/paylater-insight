@@ -11,6 +11,8 @@ import FAQ from "@/components/molecules/faq";
 import Image from "next/image";
 import Section from "@/components/molecules/section";
 import LottiePlayer from "@/components/molecules/lottie-player";
+import SolutionCard from "@/components/molecules/solution-card";
+import { solutionCardData } from "@/constants/solution";
 
 const Home = () => {
   return (
@@ -60,6 +62,52 @@ const Home = () => {
               buying it.”
             </p>
             <span className="  md:text-3xl pt-3">– William Feather.</span>
+          </div>
+        </Section>
+      </div>
+      <div className="problem-solution bg-[#ebf5f3] pb-10">
+        <Section>
+          <div className="container">
+            <div className="flex flex-col-reverse md:flex-row align-middle items-center">
+              <div className="flex-1 text-center">
+                <div className="grid grid-cols-1 gap-6">
+                  <div className="space-y-4">
+                    {solutionCardData.map((card, index) => (
+                      <SolutionCard
+                        key={index}
+                        title={card.title}
+                        description={card.description}
+                        number={card.number}
+                        color={card.color}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center ">
+                <div className="flex flex-col mb-10 md:mb-0">
+                  <h2 className="text-3xl md:text-4xl font-semibold text-center pb-10">
+                    Why Choose PayLater Insight?
+                  </h2>
+                  <p className="md:text-2xl md:leading-10 text-justify text-xl">
+                    Managing money can be tricky, especially with so many bills,
+                    loans, and savings goals to keep track of. Its easy to lose
+                    sight of your financial health and make uninformed decisions
+                    that can lead to debt and stress. PayLater Insight is here
+                    to simplify your finances, offering an easy-to-use platform
+                    that helps you understand and manage your spending, saving,
+                    and debt all in one place.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* <div className="problem-solution flex flex-row">
+              <div className="solution w-1/2">a</div>
+
+              <div className=" w-1/2 text-justify text-xl pb-8 md:sticky md:top-[30vh]">
+                
+              </div>
+            </div> */}
           </div>
         </Section>
       </div>

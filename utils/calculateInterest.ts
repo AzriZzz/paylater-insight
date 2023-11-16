@@ -14,7 +14,7 @@ export const calculateInterest = (
   };
 
   // Check if the month is valid
-if (!(month in interestRates)) {
+  if (!(month in interestRates)) {
     throw new Error("Invalid month value");
   }
 

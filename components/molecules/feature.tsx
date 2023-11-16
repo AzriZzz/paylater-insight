@@ -37,7 +37,7 @@ const Feature = ({ feature }: FeatureProps) => {
         <div className="flex flex-col md:flex-row items-center md:items-end">
           <h3 className="text-2xl md:text-3xl font-semibold pb-6">{title}</h3>
         </div>
-        <p className="text-justify text-base pb-6">{description}</p>
+        <p className="text-justify text-base lg:text-lg pb-6">{description}</p>
         <div className=" md:w-fit">
           <Button
             className={`py-3 px-6 font-bold bg-[#08cf65] ${
