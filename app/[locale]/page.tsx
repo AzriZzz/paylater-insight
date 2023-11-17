@@ -72,7 +72,7 @@ const Home = () => {
               <div className="flex-1 text-center">
                 <div className="grid grid-cols-1 gap-6">
                   <div className="space-y-4">
-                    {/* {solutionCardData.map((card, index) => (
+                    {solutionCardData.map((card, index) => (
                       <SolutionCard
                         key={index}
                         title={card.title}
@@ -80,39 +80,7 @@ const Home = () => {
                         number={card.number}
                         color={card.color}
                       />
-                    ))} */}
-                    <div className="space-y-4">
-                      <SolutionCard
-                        title="Simplified Financial Overview"
-                        description="Get a consolidated view of your finances, from everyday expenses to pay-later plans, all in one place."
-                        number={1}
-                        color="bg-purple-500"
-                      />
-                      <SolutionCard
-                        title="Strategic Budgeting Tools"
-                        description="Utilize intuitive budgeting features that help you plan your spending, savings, and investments effectively."
-                        number={2}
-                        color="bg-blue-500"
-                      />
-                      <SolutionCard
-                        title="Debt Management"
-                        description="Stay on top of your debts with tools that help you understand and manage your pay-later commitments and other liabilities."
-                        number={3}
-                        color="bg-orange-500"
-                      />
-                      <SolutionCard
-                        title="Informed Decision-Making"
-                        description="Gain insights into your financial habits, helping you make smarter choices about your spending and saving."
-                        number={4}
-                        color="bg-red-500"
-                      />
-                      <SolutionCard
-                        title="Goal Setting and Tracking"
-                        description="Set financial goals and track your progress, ensuring you stay aligned with your long-term financial objectives."
-                        number={5}
-                        color="bg-green-600"
-                      />
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -121,7 +89,7 @@ const Home = () => {
                   <h2 className="text-3xl md:text-4xl font-semibold text-center pb-10">
                     Why Choose PayLater Insight?
                   </h2>
-                  <p className="md:text-2xl md:leading-10 text-justify text-xl">
+                  <p className="md:text-xl md:leading-8 text-justify text-lg">
                     Managing money can be tricky, especially with so many bills,
                     loans, and savings goals to keep track of. Its easy to lose
                     sight of your financial health and make uninformed decisions

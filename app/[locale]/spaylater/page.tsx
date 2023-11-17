@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -33,7 +32,7 @@ const FormSchema = z
         invalid_type_error: "Input must be a number.",
       })
       .min(1, "Product price must be greater than 0.")
-      .max(25000, "Product price must be less than RM 25,000."),
+      .max(10000, "Product price must be less than RM 10,000."),
     oneMonth: z.coerce
       .number({
         invalid_type_error: "Installment must be a number.",
@@ -105,21 +104,21 @@ const FormSchema = z
   });
 type FormSchemaValues = z.infer<typeof FormSchema>;
 
-// const defaultValues: Partial<FormSchemaValues> = {
-//   price: 1119,
-//   oneMonth: 1135.79,
-//   threeMonth: 389.79,
-//   sixMonth: 203.29,
-//   twelveMonth: 110.04,
-// };
-
 const defaultValues: Partial<FormSchemaValues> = {
-  price: 499,
-  oneMonth: 506.49,
-  threeMonth: 173.82,
-  sixMonth: 90.64,
-  twelveMonth: 49.07,
+  price: 1119,
+  oneMonth: 1135.79,
+  threeMonth: 389.79,
+  sixMonth: 203.29,
+  twelveMonth: 110.04,
 };
+
+// const defaultValues: Partial<FormSchemaValues> = {
+//   price: 499,
+//   oneMonth: 506.49,
+//   threeMonth: 173.82,
+//   sixMonth: 90.64,
+//   twelveMonth: 49.07,
+// };
 
 const resetValues: Partial<FormSchemaValues> = {
   price: 0,
@@ -511,7 +510,7 @@ const SPayLater = () => {
                   className="mb-4 flex justify-center "
                 >
                   <Image
-                    src="/images/example-product-interest.png"
+                    src="/images/example-product.png"
                     width={350}
                     height={350}
                     alt="Example product indicating the location of the PayLater option"
@@ -533,6 +532,56 @@ const SPayLater = () => {
               </Tabs>
             </div>
             <div className="md:w-1/2">{howToTutorial()}</div>
+          </div>
+        </div>
+        <div className="container pb-12">
+          <h3 className="text-center font-bold text-3xl pb-6">
+            What is Buy Now, Pay Later (BNPL)?
+          </h3>
+          <div className="flex justify-center">
+            <Image
+              src="/images/bnpl.png"
+              width={400}
+              height={400}
+              alt="Buy Now Pay Later Imagery"
+              priority={true}
+              className="pb-10"
+            />
+          </div>
+          <p className="text-justify text-base md:text-lg">
+            Buy Now, Pay Later (BNPL), is a payment method that allows users to
+            make purchases immediately and pay for them later. This service
+            offers different payment plans, allowing users to spread their
+            payments over periods ranging from one to twelve months.
+            <br /> <br />
+            Buy now, pay later (BNPL) programs have different terms and
+            conditions, but generally, they offer short-term loans with fixed
+            payments and no interest. You can use a BNPL app such as Shopee to
+            make the purchase, or you may have BNPL options through your credit
+            card.
+          </p>
+        </div>
+        <div className="container pb-12">
+          <h3 className="text-center font-bold text-3xl pb-6">
+            What is SPayLater?
+          </h3>
+          <p className="text-justify text-base md:text-lg">
+            SPayLater offers users a convenient financial solution, enabling
+            them to enjoy payment flexibility through a user-friendly digital
+            platform. With SPayLater, users can make immediate purchases while
+            having the option to defer payment. This service offers different
+            payment plans, allowing users to spread their payments over periods
+            ranging from one to twelve months.
+          </p>
+          <div className="flex justify-center pt-10">
+            <Button className="py-3 px-6 font-bold bg-[#EE4D2D] ease-in-out duration-300">
+              <a
+                href="https://help.shopee.com.my/portal/category/31-Payments/668-SPayLater?page=1"
+                target="_blank"
+              >
+                Learn More at Shopee
+              </a>
+            </Button>
           </div>
         </div>
       </section>

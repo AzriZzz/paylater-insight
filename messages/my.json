@@ -6,17 +6,17 @@
     "monthlyInstallment": "Ansuran Bulanan",
     "months": "Bulan",
     "submit": "Hantar",
-    "howToUseText": "Bagaimana cara menggunakannya?",  
+    "howToUseText": "Bagaimana cara menggunakannya?",
     "howToUse": {
       "heading": "Cara Menggunakan PayLater Insight",
       "steps": {
         "step1": {
           "title": "Langkah 1: Cari pilihan SPayLater di Aplikasi Shopee",
-          "description": "Pergi ke produk yang diingini di Shopee. Tatal ke bawah ke pilihan pembayaran dan cari ciri ‘SPayLater’. Perlukan bantuan? Lihat contoh di bawah:"
+          "description": "Pergi ke produk 'Checkout' untuk melihat jumlah keseluruhan bayaran iaitu harga product yang anda telah pilih. Di ruangan SPayLater, Shopee telah limitkan jumlah SPayLater anda mengikut aktiviti akaun. Perlukan bantuan? Lihat contoh di bawah:"
         },
         "step2": {
           "title": "Langkah 2: Masukkan Butiran Pembayaran",
-          "description": "Salin atau taip harga produk, jumlah ansuran bulanan, dan tempoh (dalam bulan) ke dalam ruangan input kalkulator dengan teliti. Pastikan maklumat adalah tepat untuk mendapatkan hasil kiraan yang betul."
+          "description": "Salin atau taip harga keseluruhan (total payment), dan semua jumlah ansuran bulanan, ke dalam ruangan input kalkulator dengan teliti. Pastikan maklumat adalah tepat untuk mendapatkan hasil kiraan yang betul."
         },
         "step3": {
           "title": "Langkah 3: Kira dan Semak",
@@ -31,7 +31,7 @@
     },
     "resultDetails": {
       "title": "PayLater Rumusan",
-      "description": "Pecahan terperinci bakal pelan pembayaran anda",  
+      "description": "Pecahan terperinci bakal pelan pembayaran anda",
       "duration": "Tempoh (bulan):",
       "productPrice": "Harga Produk (RM):",
       "monthlyInstallment": "Ansuran Bulanan (RM):",

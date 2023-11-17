@@ -1,12 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-interface SolutionCardProps {
-  title: string;
-  description: string;
-  number: number;
-  color: string;
-}
+import { ISolutionCardProps } from "@/types";
 
 const cardVariants = {
   offscreen: {
@@ -24,7 +18,7 @@ const cardVariants = {
   },
 };
 
-const SolutionCard = (props: SolutionCardProps) => {
+const SolutionCard = (props: ISolutionCardProps) => {
   const { title, description, number, color } = props;
 
   return (

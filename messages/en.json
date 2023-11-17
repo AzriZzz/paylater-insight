@@ -12,11 +12,11 @@
       "steps": {
         "step1": {
           "title": "Step 1: Locate SPayLater Option on Shopee on Mobile App",
-          "description": "Navigate to your desired product on Shopee. Scroll down to the payment options and find the ‘SPayLater’ feature. Need help? See the example below:"
+          "description": "Go to checkout page, you can see the total payment which is the product price that you have selected. In SPayLater section, Shopee has set your SPayLater limit based on your account activity. Need help? See the image/video:"
         },
         "step2": {
           "title": "Step 2: Input Payment Details",
-          "description": "Carefully copy or type the product's price, the monthly installment amount, and the duration (in months) into the calculator's corresponding input fields. Ensure the information is accurate to get the correct calculation results."
+          "description": "Carefully copy or type the total payment, all the monthly installment amount. Ensure the information is accurate to get the correct calculation results."
         },
         "step3": {
           "title": "Step 3: Calculate and Review",

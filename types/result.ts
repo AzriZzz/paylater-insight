@@ -21,3 +21,10 @@ export interface ResultImageProps {
   interestCharged: number;
   month: number;
 };
+
+export interface ISolutionCardProps {
+  title: string;
+  description: string;
+  number: number;
+  color: string;
+}

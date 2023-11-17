@@ -10,8 +10,11 @@ import {
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
 import { IResultTable } from "@/types/spaylater";
+import { useNumberFormatter } from "@react-aria/i18n";
 
 const ResultTables = ({ results }: IResultTable) => {
+  const formatter = useNumberFormatter();
+
   return (
     <Card className="shadow-lg">
       <Table className="p-4">
@@ -23,10 +26,12 @@ const ResultTables = ({ results }: IResultTable) => {
         <TableHeader>
           <TableRow className="bg-gray-300 py-10">
             <TableHead className="text-center">Duration (Month)</TableHead>
-            <TableHead>Monthly Installement</TableHead>
+            <TableHead className="text-center">
+              (MYR) Monthly Installement
+            </TableHead>
             <TableHead className="text-center">Interest Rate</TableHead>
-            <TableHead className="text-right">(RM) Amount Charged </TableHead>
-            <TableHead className="text-right">(RM) Total Amount </TableHead>
+            <TableHead className="text-center">(MYR) Amount Charged </TableHead>
+            <TableHead className="text-center">(MYR) Total Amount </TableHead>
           </TableRow>
         </TableHeader>
 
@@ -38,8 +43,10 @@ const ResultTables = ({ results }: IResultTable) => {
               return null; // Skip rendering empty objects
             }
             const numericInterestRate = parseFloat(resultData.interestRate);
-            const numericInterestBasedOnInput = parseFloat(resultData.interestBasedOnInput);
-        
+            const numericInterestBasedOnInput = parseFloat(
+              resultData.interestBasedOnInput
+            );
+
             // Compare the two numeric values
             const selectedInterestRate =
               numericInterestRate === numericInterestBasedOnInput
@@ -54,16 +61,16 @@ const ResultTables = ({ results }: IResultTable) => {
                   {resultData.month}
                 </TableCell>
                 <TableCell className="text-center">
-                  {resultData.monthInstallement}
+                  {formatter.format(resultData.monthInstallement)}
                 </TableCell>
                 <TableCell className="text-center">
                   {selectedInterestRate}
                 </TableCell>
-                <TableCell className="text-right">
-                  {resultData.interestCharged}
+                <TableCell className="text-center">
+                  {formatter.format(parseFloat(resultData.interestCharged))}
                 </TableCell>
-                <TableCell className="text-right">
-                  {resultData.withInterest}
+                <TableCell className="text-center">
+                  {formatter.format(parseFloat(resultData.withInterest))}
                 </TableCell>
               </TableRow>
             );
