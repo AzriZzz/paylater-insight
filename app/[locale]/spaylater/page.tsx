@@ -33,7 +33,7 @@ const FormSchema = z
         invalid_type_error: "Input must be a number.",
       })
       .min(1, "Product price must be greater than 0.")
-      .max(20000, "Product price must be less than RM 20,000."),
+      .max(25000, "Product price must be less than RM 25,000."),
     oneMonth: z.coerce
       .number({
         invalid_type_error: "Installment must be a number.",
@@ -84,7 +84,7 @@ const FormSchema = z
       path: ["oneMonth"],
     }
   )
-  .refine((value) => value.oneMonth! <= value.price * 1.6, {
+  .refine((value) => value.oneMonth! <= value.price + 0.016 * value.price, {
     message: "Installment should not be more than 1.6 times the product price.",
     path: ["oneMonth"],
   })
@@ -206,35 +206,31 @@ const SPayLater = () => {
         transition={{ duration: 1 }}
       >
         <div className="flex flex-col">
-          <div className="text-sm md:text-base">
-            <div>
-              <div className="step-1 mb-5">
-                <h3 className="font-semibold mb-2">
-                  {t("howToUse.steps.step1.title")}
-                </h3>
-                <p className="text-justify ">
-                  {t("howToUse.steps.step1.description")}
-                </p>
-              </div>
+          <div className="step-1 mb-5">
+            <h3 className="font-semibold mb-2 text-2xl">
+              {t("howToUse.steps.step1.title")}
+            </h3>
+            <p className="text-justify ">
+              {t("howToUse.steps.step1.description")}
+            </p>
+          </div>
 
-              <div className="step-2 mb-5">
-                <h3 className="font-semibold mb-2">
-                  {t("howToUse.steps.step2.title")}
-                </h3>
-                <p className="text-justify ">
-                  {t("howToUse.steps.step2.description")}
-                </p>
-              </div>
+          <div className="step-2 mb-5">
+            <h3 className="font-semibold mb-2 text-2xl">
+              {t("howToUse.steps.step2.title")}
+            </h3>
+            <p className="text-justify ">
+              {t("howToUse.steps.step2.description")}
+            </p>
+          </div>
 
-              <div className="step-3 mb-5">
-                <h3 className="font-semibold mb-2">
-                  {t("howToUse.steps.step3.title")}
-                </h3>
-                <p className="text-justify ">
-                  {t("howToUse.steps.step3.description")}
-                </p>
-              </div>
-            </div>
+          <div className="step-3 mb-5">
+            <h3 className="font-semibold mb-2 text-2xl">
+              {t("howToUse.steps.step3.title")}
+            </h3>
+            <p className="text-justify ">
+              {t("howToUse.steps.step3.description")}
+            </p>
           </div>
         </div>
       </motion.div>
@@ -322,17 +318,21 @@ const SPayLater = () => {
                         name="price"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-semibold">
+                            <FormLabel className="text-base font-semibold">
                               {t("productPrice")} (RM)
                             </FormLabel>
                             <FormControl>
-                              <Input placeholder="1119.90" {...field} />
+                              <Input
+                                placeholder="1119.90"
+                                className="text-base"
+                                {...field}
+                              />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage className="text-sm" />
                           </FormItem>
                         )}
                       />
-                      <h3 className="text-sm font-semibold">
+                      <h3 className="font-semibold">
                         {t("monthlyInstallment")} (RM)
                       </h3>
                       <FormField
@@ -342,13 +342,17 @@ const SPayLater = () => {
                           <FormItem>
                             <div className="flex flex-row items-center">
                               <FormControl className="w-6/12 md:8/12">
-                                <Input placeholder="1135.79" {...field} />
+                                <Input
+                                  placeholder="1135.79"
+                                  className="text-base"
+                                  {...field}
+                                />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center text-base">
                                 x 1 Month
                               </FormLabel>
                             </div>
-                            <FormMessage />
+                            <FormMessage className="text-sm" />
                           </FormItem>
                         )}
                       />
@@ -359,13 +363,17 @@ const SPayLater = () => {
                           <FormItem>
                             <div className="flex flex-row items-center">
                               <FormControl className="w-6/12 md:8/12">
-                                <Input placeholder="389.79" {...field} />
+                                <Input
+                                  placeholder="389.79"
+                                  className="text-base"
+                                  {...field}
+                                />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center text-base">
                                 x 3 Month
                               </FormLabel>
                             </div>
-                            <FormMessage />
+                            <FormMessage className="text-sm" />
                           </FormItem>
                         )}
                       />
@@ -376,13 +384,17 @@ const SPayLater = () => {
                           <FormItem>
                             <div className="flex flex-row items-center">
                               <FormControl className="w-6/12 md:8/12">
-                                <Input placeholder="203.39" {...field} />
+                                <Input
+                                  placeholder="203.39"
+                                  className="text-base"
+                                  {...field}
+                                />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center text-base">
                                 x 6 Month
                               </FormLabel>
                             </div>
-                            <FormMessage />
+                            <FormMessage className="text-sm" />
                           </FormItem>
                         )}
                       />
@@ -393,13 +405,17 @@ const SPayLater = () => {
                           <FormItem>
                             <div className="flex flex-row items-center">
                               <FormControl className="w-6/12 md:8/12">
-                                <Input placeholder="110.04" {...field} />
+                                <Input
+                                  placeholder="110.04"
+                                  className="text-base"
+                                  {...field}
+                                />
                               </FormControl>
-                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center ">
+                              <FormLabel className="font-semibold pl-6 md:pl-8 w-6/12 text-center text-base">
                                 x 12 Month
                               </FormLabel>
                             </div>
-                            <FormMessage />
+                            <FormMessage className="text-sm" />
                           </FormItem>
                         )}
                       />
