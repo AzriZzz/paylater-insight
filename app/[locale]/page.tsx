@@ -37,16 +37,16 @@ const Home = () => {
             <div className="intro-section-image pt-10 lg:pt-0 flex flex-col md:flex-row items-center md:justify-evenly w-full md:h-[40vh]">
               <Image
                 src="/images/12.svg"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 alt="A guy showing his chat"
                 priority={true}
                 className="hidden md:block"
               />
               <Image
                 src="/images/47.svg"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 alt="A plant that has grown with money symbol around it"
                 priority={true}
               />

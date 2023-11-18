@@ -554,12 +554,22 @@ const SPayLater = () => {
             offers different payment plans, allowing users to spread their
             payments over periods ranging from one to twelve months.
             <br /> <br />
-            Buy now, pay later (BNPL) programs have different terms and
-            conditions, but generally, they offer short-term loans with fixed
-            payments and no interest. You can use a BNPL app such as Shopee to
-            make the purchase, or you may have BNPL options through your credit
-            card.
+            Buy now, pay later (BNPL) plans vary in their specifics, yet they
+            typically provide short-term financing options with predetermined
+            payments and often without interest charges. These programs can be
+            accessed through BNPL applications like Shopee or may be available
+            as an option on your credit card.
           </p>
+          <div className="flex justify-center pt-10">
+            <Button className="py-3 px-6 font-bold bg-blue-900 ease-in-out duration-300">
+              <a
+                href="https://www.investopedia.com/buy-now-pay-later-5182291"
+                target="_blank"
+              >
+                Learn More at Investopedia
+              </a>
+            </Button>
+          </div>
         </div>
         <div className="container pb-12">
           <h3 className="text-center font-bold text-3xl pb-6">
