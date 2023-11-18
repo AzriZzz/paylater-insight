@@ -32,7 +32,8 @@ const FormSchema = z
         invalid_type_error: "Input must be a number.",
       })
       .min(1, "Product price must be greater than 0.")
-      .max(10000, "Product price must be less than RM 10,000."),
+      .max(10000, "Product price must be less than RM 10,000.")
+      ,
     oneMonth: z.coerce
       .number({
         invalid_type_error: "Installment must be a number.",
@@ -299,7 +300,6 @@ const SPayLater = () => {
             <p className=" mb-4">
               Review your SPayLater Payment Plan before you checkout.
             </p>
-            <p>Estimated time: 3 minutes</p>
           </div>
         </div>
         <div className="container">
