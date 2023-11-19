@@ -16,14 +16,15 @@ const BenefitsCard = ({ benefit }: BenefitsProps) => {
       </CardHeader>
       <CardContent className=" items-center flex flex-col">
         {description}
-        <Image
-          src={image}
-          width={300}
-          height={300}
-          alt="A guy showing his chat"
-          priority={true}
-          className="pt-5"
-        />
+        <div className="flex-none w-52 h-52 md:w-44 md:h-44 lg:w-56 lg:h-56 relative">
+          <Image
+            src={image}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="100%"
+            alt={description}
+          />
+        </div>
       </CardContent>
     </Card>
   );

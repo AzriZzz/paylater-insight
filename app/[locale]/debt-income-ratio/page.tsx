@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useNumberFormatter } from "@react-aria/i18n";
 import { Separator } from "@/components/ui/separator";
-
+import JobCard from "@/components/molecules/job-card";
 const FormSchema = z
   .object({
     monthlyIncome: z.coerce
@@ -278,13 +278,13 @@ const DebtIncomeRatio = () => {
             </p>
           </div>
         </div>
-        <div className="formula ">
-          <div className="item-breakdown py-6">
+        <div className="understanding-debt-payment">
+          <div className="item-breakdown pb-6">
             <h3 className="text-center font-bold text-3xl pb-6">
               Understanding Debt Payments
             </h3>
-            <div className="text-justify text-base md:text-lg">
-              <p>
+            <div className="text-base md:text-lg">
+              <p className="text-justify ">
                 When calculating your debt payments, its important to include
                 all forms of fixed monthly financial obligations. This
                 calculation helps in assessing your debt-to-income ratio and
@@ -356,6 +356,46 @@ const DebtIncomeRatio = () => {
                   </li>
                 </ul>
               </div>
+            </div>
+            <div className="flex justify-center pt-6">
+              <Button className="py-3 px-6 font-bold bg-blue-900 ease-in-out duration-300">
+                <a
+                  href="https://www.investopedia.com/terms/d/dti.asp"
+                  target="_blank"
+                >
+                  Learn More at Investopedia
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="career py-6">
+          <div className="introduction">
+            <h3 className="text-center font-bold text-3xl pb-6">
+              Increase your income by looking for new job
+            </h3>
+            <p className="text-center text-base md:text-lg font-semibold">
+              Check out these job portal for the latest job postings.
+            </p>
+            <div className="py-6 flex flex-col md:flex-row gap-5 ">
+              <JobCard
+                title="Jobstreet by Seek"
+                description="Find your ideal job at JobStreet with 125 Job Street By SEEK jobs found in Malaysia"
+                image="/images/job/seek.png"
+                link="https://www.jobstreet.com.my/"
+              />
+              <JobCard
+                title="Maukerja"
+                description="Kerja kosong terkini 2023 di Malaysia Full time, part time & kerja dari rumah. Cari kerja sekarang!"
+                image="/images/job/maukerja.png"
+                link="https://www.maukerja.my/"
+              />
+              <JobCard
+                title="Kerja-IT"
+                description="Kerja IT (kerja-it.com) | Job board that source jobs daily from top job boards, companies, and recruiters."
+                image="/images/job/kerja-it.png"
+                link="https://kerja-it.com/"
+              />
             </div>
           </div>
         </div>
