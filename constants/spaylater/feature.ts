@@ -13,10 +13,9 @@ export const Features: IFeature[] = [
     title: "Debt-To-Income Ratio Tool",
     description:
       "Simplify your debt management with our Debt-To-Income Ratio Tool. Discover your financial leverage and make informed decisions to maintain a healthy balance between your earnings and spending.",
-    // btnText: "Evaluate Your Debt",
-    btnText: "✨ Coming Soon ✨",
-    btnLink: "",
-    available: false,
+    btnText: "Evaluate Your Debt",
+    btnLink: "/debt-income-ratio",
+    available: true,
   },
   {
     title: "50/30/20 Budget Planner",

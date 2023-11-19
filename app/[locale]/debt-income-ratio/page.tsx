@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useNumberFormatter } from "@react-aria/i18n";
+import { Separator } from "@/components/ui/separator";
 
 const FormSchema = z
   .object({
@@ -89,7 +90,7 @@ const DebtIncomeRatio = () => {
       );
     } else if (debtToIncomeRatio > 50 && debtToIncomeRatio <= 100) {
       setAdvice(
-        "Alert! Your Debt-to-Income Ratio is in the danger zone (50-100%). This high ratio indicates that a very large portion of your income is dedicated to debt payments, which may lead to financial strain. It's important to take immediate steps to manage your debts more effectively. Consider seeking financial advice, restructuring your debts, or exploring ways to increase your income to bring this ratio down to a safer level."
+        "Alert! Your Debt-to-Income Ratio is in the danger zone (51-100%). This high ratio indicates that a very large portion of your income is dedicated to debt payments, which may lead to financial strain. It's important to take immediate steps to manage your debts more effectively. Consider seeking financial advice, restructuring your debts, or exploring ways to increase your income to bring this ratio down to a safer level."
       );
     } else {
       setAdvice(
@@ -196,7 +197,7 @@ const DebtIncomeRatio = () => {
               </div>
               <div className="md:w-2/3 bg-slate-100">
                 <div className="flex flex-col justify-center text-center h-full">
-                  <h2 className="text-xl font-bold pt-5">
+                  <h2 className="text-2xl font-bold pt-5">
                     Debt to Income Ratio
                   </h2>
                   <h3 className="text-4xl font-semibold py-4">
@@ -209,6 +210,10 @@ const DebtIncomeRatio = () => {
                       indicatorColor={progressColor}
                     />
                   </div>
+                  <div className="pt-5">
+                    <Separator />
+                  </div>
+
                   <div className="text-justify flex justify-center w-full">
                     {!isResult ? (
                       <p className="w-3/4 py-5 font-bold">
@@ -220,13 +225,139 @@ const DebtIncomeRatio = () => {
                         use of this tool implies acceptance of these terms.
                       </p>
                     ) : (
-                      <p className="w-3/4 py-5 text-md">{advice}</p>
+                      <p className="w-3/4 py-5 text-md font-bold">{advice}</p>
                     )}
                   </div>
                 </div>
               </div>
             </CardContent>
           </Card>
+        </div>
+      </div>
+      <div className="container">
+        <div className="introduction">
+          <h3 className="text-center font-bold text-3xl pb-6">
+            What is Debt-to-Income Ratio?
+          </h3>
+          <p className="text-justify text-base md:text-lg">
+            Debt-to-Income Ratio (DTI) is a financial measure that compares your
+            total monthly debt payments to your gross monthly income. It is a
+            critical indicator of your financial health and ability to manage
+            debts. Lenders use this ratio to assess your creditworthiness and
+            determine your eligibility for loans, credit cards, and other credit
+            facilities.{" "}
+          </p>
+        </div>
+        <div className="formula py-6">
+          <h3 className="text-center font-bold text-3xl pb-6">Formula</h3>
+          <div className="text-justify text-base md:text-lg">
+            <p>
+              The formula for calculating your Debt-to-Income Ratio is as
+              follows:
+            </p>
+            <div className="text-center py-5">
+              <span className="text-center font-bold text-xl">
+                Debt-to-Income Ratio = (Monthly Debt / Monthly Income) x 100
+              </span>
+            </div>
+            <p>
+              For example, if your monthly income is RM 1,000 and your monthly
+              debt is RM 300, your Debt-to-Income Ratio is 30%.
+            </p>
+            <div className="text-center py-5">
+              <span className="text-center font-bold text-xl pb-6">
+                (300 / 1000) x 100 = 30%
+              </span>
+            </div>
+            <p>
+              Your Debt-to-Income Ratio is a percentage that indicates how much
+              of your income goes towards debt repayment. The lower your ratio,
+              the better your financial health. A high ratio suggests that a
+              significant portion of your income is dedicated to debt payments,
+              which may lead to financial strain.
+            </p>
+          </div>
+        </div>
+        <div className="formula ">
+          <div className="item-breakdown py-6">
+            <h3 className="text-center font-bold text-3xl pb-6">
+              Understanding Debt Payments
+            </h3>
+            <div className="text-justify text-base md:text-lg">
+              <p>
+                When calculating your debt payments, its important to include
+                all forms of fixed monthly financial obligations. This
+                calculation helps in assessing your debt-to-income ratio and
+                overall financial health.
+              </p>
+
+              <div className="debt-included pt-3">
+                <p>Include the following items:</p>
+                <ul className="list-disc list-inside pt-4">
+                  <li>
+                    <span className="font-semibold pr-2">
+                      Mortgage or Rent Payments:
+                    </span>
+                    Regular payments towards your home loan or rental.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Car Loans:</span>
+                    Monthly payments for any automobile financing.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Student Loans:</span>
+                    Fixed repayments for educational loans.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      Credit Card Payments:
+                    </span>
+                    Minimum monthly payments on credit card balances.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Personal Loans:</span>
+                    Any monthly repayments for personal loans.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      Other Fixed Debts:
+                    </span>
+                    Any other debts that require regular, fixed monthly
+                    payments.
+                  </li>
+                </ul>
+              </div>
+              <div className="debt-not-included py-3">
+                <p>Do not include the following items:</p>
+                <ul className="list-disc list-inside pt-4">
+                  <li>
+                    <span className="font-semibold pr-2">Utilities:</span>
+                    Monthly payments for utilities such as electricity, water,
+                    gas, internet, etc.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Food:</span>Monthly
+                    expenses for groceries and dining out.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Insurance:</span>
+                    Monthly premiums for any insurance policies.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">Entertainment:</span>
+                    Monthly expenses for entertainment such as movies, concerts,
+                    etc.
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      Other Variable Expenses:
+                    </span>
+                    Any other expenses that vary from month to month.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

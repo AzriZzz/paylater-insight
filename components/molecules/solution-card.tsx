@@ -24,14 +24,16 @@ const SolutionCard = (props: ISolutionCardProps) => {
   return (
     <div className="top-[30vh] pb-12">
       <motion.div
-        className={`${color} shadow-lg rounded-xl max-w-xs mx-auto`}
+        className="shadow-lg rounded-xl max-w-xs mx-auto"
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
         variants={cardVariants}
+        style={{ backgroundColor: color }}
       >
         <div
-          className={`${color}  shadow-lg rounded-xl p-6 max-w-sm mx-auto text-left text-white h-[400px]`}
+          style={{ backgroundColor: color }}
+          className="shadow-lg rounded-xl p-6 max-w-sm mx-auto text-left text-white h-[400px]"
         >
           <div className="flex flex-col justify-between h-full">
             <div className="text-8xl">{number}</div>

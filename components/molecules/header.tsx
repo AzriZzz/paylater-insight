@@ -26,7 +26,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center">
-        <div className="flex mr-4 text-base">
+        <div className="flex mr-4 text-base font-semibold">
           {toggleLanguage ? (
             <Link href="/" locale="en">
               ENG
