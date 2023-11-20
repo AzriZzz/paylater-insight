@@ -106,13 +106,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="problem-solution flex flex-row">
-              <div className="solution w-1/2">a</div>
-
-              <div className=" w-1/2 text-justify text-xl pb-8 md:sticky md:top-[30vh]">
-                
-              </div>
-            </div> */}
           </div>
         </Section>
       </div>

@@ -24,6 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LottiePlayer from "@/components/molecules/lottie-player";
 import ResultTables from "@/components/organisms/spaylater/result-table";
 import { ISummary } from "@/types/spaylater";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const FormSchema = z
   .object({
@@ -32,8 +33,15 @@ const FormSchema = z
         invalid_type_error: "Input must be a number.",
       })
       .min(1, "Product price must be greater than 0.")
-      .max(10000, "Product price must be less than RM 10,000.")
-      ,
+      .max(20000, "Product price must be less than RM 20,000."),
+    spaylaterPrice: z.coerce
+      .number({
+        invalid_type_error: "Input must be a number.",
+      })
+      .min(0, "Must be greater than 0.")
+      .max(20000, "Must be less than RM 20,000.")
+      .optional(),
+    isLimit: z.boolean().default(false),
     oneMonth: z.coerce
       .number({
         invalid_type_error: "Installment must be a number.",
@@ -102,27 +110,28 @@ const FormSchema = z
   .refine((value) => value.twelveMonth! <= value.price, {
     message: "Installment must not be greater than the product price.",
     path: ["twelveMonth"],
+  })
+  .refine((value) => value.spaylaterPrice! > 0, {
+    message: "Your limit should be more than 0.",
+    path: ["spaylaterPrice"],
   });
+
 type FormSchemaValues = z.infer<typeof FormSchema>;
 
 const defaultValues: Partial<FormSchemaValues> = {
   price: 1119,
+  spaylaterPrice: 1135.79,
+  isLimit: false,
   oneMonth: 1135.79,
   threeMonth: 389.79,
   sixMonth: 203.29,
   twelveMonth: 110.04,
 };
 
-// const defaultValues: Partial<FormSchemaValues> = {
-//   price: 499,
-//   oneMonth: 506.49,
-//   threeMonth: 173.82,
-//   sixMonth: 90.64,
-//   twelveMonth: 49.07,
-// };
-
 const resetValues: Partial<FormSchemaValues> = {
   price: 0,
+  spaylaterPrice: 0,
+  isLimit: false,
   oneMonth: 0,
   threeMonth: 0,
   sixMonth: 0,
@@ -148,9 +157,12 @@ const SPayLater = () => {
     defaultValues,
   });
 
-  const { reset } = form;
+  const { reset, watch } = form;
+
+  const isLimitChecked = watch("isLimit");
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data);
     const { price, oneMonth, threeMonth, sixMonth, twelveMonth } = data;
     let installementsFirstMonth = oneMonth || 0;
     let installementsThreeMonth = threeMonth || 0;
@@ -207,7 +219,7 @@ const SPayLater = () => {
       >
         <div className="flex flex-col">
           <div className="step-1 mb-5">
-            <h3 className="font-semibold mb-2 text-2xl">
+            <h3 className="font-semibold mb-2 text-xl">
               {t("howToUse.steps.step1.title")}
             </h3>
             <p className="text-justify ">
@@ -216,7 +228,7 @@ const SPayLater = () => {
           </div>
 
           <div className="step-2 mb-5">
-            <h3 className="font-semibold mb-2 text-2xl">
+            <h3 className="font-semibold mb-2 text-xl">
               {t("howToUse.steps.step2.title")}
             </h3>
             <p className="text-justify ">
@@ -225,7 +237,7 @@ const SPayLater = () => {
           </div>
 
           <div className="step-3 mb-5">
-            <h3 className="font-semibold mb-2 text-2xl">
+            <h3 className="font-semibold mb-2 text-xl">
               {t("howToUse.steps.step3.title")}
             </h3>
             <p className="text-justify ">
@@ -331,6 +343,54 @@ const SPayLater = () => {
                           </FormItem>
                         )}
                       />
+                      <div>
+                        <h3 className="font-semibold">SPayLater Available</h3>
+                        <div className="flex flex-col md:flex-row md:items-center">
+                          <div className="flex-1">
+                            <FormField
+                              control={form.control}
+                              name="spaylaterPrice"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <div>
+                                    <FormControl>
+                                      <Input
+                                        placeholder="1135.79"
+                                        className="text-base"
+                                        disabled={!isLimitChecked}
+                                        {...field}
+                                      />
+                                    </FormControl>
+                                  </div>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          <div className="flex-1 ">
+                            <FormField
+                              control={form.control}
+                              name="isLimit"
+                              render={({ field }) => (
+                                <FormItem className=" flex justify-center pl-2 pt-5 md:pt-0">
+                                  <div className="flex">
+                                    <FormControl>
+                                      <Checkbox
+                                        checked={field.value}
+                                        onCheckedChange={field.onChange}
+                                      />
+                                    </FormControl>
+                                    <FormLabel className="pl-4">
+                                      Limit Reached
+                                    </FormLabel>
+                                  </div>
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
                       <h3 className="font-semibold">
                         {t("monthlyInstallment")} (RM)
                       </h3>

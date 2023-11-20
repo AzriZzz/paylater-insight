@@ -2,7 +2,7 @@
   "Home": {
     "title": "Know Your Interest",
     "description": "Review your SPayLater payment plan before you checkout.",
-    "productPrice": "Product Price",
+    "productPrice": "Total Payment",
     "monthlyInstallment": "Monthly Installment",
     "months": "Month",
     "submit": "Submit",
@@ -33,7 +33,7 @@
       "title": "PayLater Overview",
       "description": "Detailed breakdown of your upcoming purchase",
       "duration": "Duration (months):",
-      "productPrice": "Product Price (RM):",
+      "productPrice": "Total Payment (RM):",
       "monthlyInstallment": "Monthly Installment (RM):",
       "totalAmountPaid": "Total Amount Paid (RM):",
       "interestCharged": "Interest Charged (RM):",
