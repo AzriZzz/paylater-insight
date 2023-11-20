@@ -35,22 +35,22 @@ const Home = () => {
               </div>
             </div>
             <div className="intro-section-image pt-10 lg:pt-0 flex flex-col md:flex-row items-center md:justify-evenly w-full md:h-[40vh]">
-              <div className="flex-none w-[400px] h-[400px] relative hidden md:block">
+              <div className="flex-none w-[400px] h-[200px] relative hidden md:block">
                 <Image
                   src="/images/12.svg"
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="100%"
+                  sizes="70%"
                   alt="A guy showing his chat"
                   priority={true}
                 />
               </div>
-              <div className="flex-none w-[400px] h-[400px] relative">
+              <div className="flex-none w-[400px] h-[300px] relative ">
                 <Image
                   src="/images/47.svg"
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="100%"
+                  sizes="70%"
                   alt="A plant that has grown with money symbol around it"
                   priority={true}
                 />

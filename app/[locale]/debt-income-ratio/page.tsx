@@ -372,7 +372,7 @@ const DebtIncomeRatio = () => {
         <div className="career py-6">
           <div className="introduction">
             <h3 className="text-center font-bold text-3xl pb-6">
-              Increase your income by looking for new job
+              Clear your debt by applying to a new job
             </h3>
             <p className="text-center text-base md:text-lg font-semibold">
               Check out these job portal for the latest job postings.
