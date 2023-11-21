@@ -110,22 +110,18 @@ const FormSchema = z
   .refine((value) => value.twelveMonth! <= value.price, {
     message: "Installment must not be greater than the product price.",
     path: ["twelveMonth"],
-  })
-  .refine((value) => value.spaylaterPrice! > 0, {
-    message: "Your limit should be more than 0.",
-    path: ["spaylaterPrice"],
   });
 
 type FormSchemaValues = z.infer<typeof FormSchema>;
 
 const defaultValues: Partial<FormSchemaValues> = {
-  price: 1119,
-  spaylaterPrice: 1135.79,
-  isLimit: false,
-  oneMonth: 1135.79,
-  threeMonth: 389.79,
-  sixMonth: 203.29,
-  twelveMonth: 110.04,
+  price: 7004,
+  spaylaterPrice: 1650,
+  isLimit: true,
+  oneMonth: 1674.75,
+  threeMonth: 574.75,
+  sixMonth: 299.75,
+  twelveMonth: 162.25,
 };
 
 const resetValues: Partial<FormSchemaValues> = {
@@ -149,7 +145,9 @@ const SPayLater = () => {
     interestCharged: "0",
     interestRate: "0",
     interestBasedOnInput: "0",
+    spaylaterPrice: 0,
   });
+  const [isLimit, setIsLimit] = useState(false);
   const t = useTranslations("Home");
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -162,38 +160,64 @@ const SPayLater = () => {
   const isLimitChecked = watch("isLimit");
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-    const { price, oneMonth, threeMonth, sixMonth, twelveMonth } = data;
+    const {
+      price,
+      oneMonth,
+      threeMonth,
+      sixMonth,
+      twelveMonth,
+      spaylaterPrice,
+    } = data;
     let installementsFirstMonth = oneMonth || 0;
     let installementsThreeMonth = threeMonth || 0;
     let installementsSixMonth = sixMonth || 0;
     let installementsTwelveMonth = twelveMonth || 0;
+    // let spaylaterPrice = spaylaterPrice || 0;
     let interestOne = {},
       interestThree = {},
       interestSix = {},
       interestTwelve = {};
+    let priceBasedOnLimit = data.isLimit ? spaylaterPrice! : price;
     if (installementsFirstMonth != 0) {
-      interestOne = calculateInterest(price, installementsFirstMonth, 1);
+      interestOne = calculateInterest(
+        priceBasedOnLimit,
+        installementsFirstMonth,
+        1
+      );
     }
     if (installementsThreeMonth != 0) {
-      interestThree = calculateInterest(price, installementsThreeMonth, 3);
+      interestThree = calculateInterest(
+        priceBasedOnLimit,
+        installementsThreeMonth,
+        3
+      );
     }
     if (installementsSixMonth != 0) {
-      interestSix = calculateInterest(price, installementsSixMonth, 6);
+      interestSix = calculateInterest(
+        priceBasedOnLimit,
+        installementsSixMonth,
+        6
+      );
     }
     if (installementsTwelveMonth != 0) {
-      interestTwelve = calculateInterest(price, installementsTwelveMonth, 12);
+      interestTwelve = calculateInterest(
+        priceBasedOnLimit,
+        installementsTwelveMonth,
+        12
+      );
     }
 
-    setSummary(
-      calculateInterestAndSetSummary(
-        price,
-        installementsFirstMonth,
-        installementsThreeMonth,
-        installementsSixMonth,
-        installementsTwelveMonth
-      )
+    const summary = calculateInterestAndSetSummary(
+      price,
+      installementsFirstMonth,
+      installementsThreeMonth,
+      installementsSixMonth,
+      installementsTwelveMonth,
+      spaylaterPrice!
     );
+
+    setSummary(summary);
+    setIsLimit(data.isLimit);
 
     setPaylaterResult({
       interestOne,
@@ -208,6 +232,7 @@ const SPayLater = () => {
   function resetForm() {
     reset(resetValues);
     setIsResult(false);
+    setIsLimit(false);
   }
 
   const howToTutorial = () => {
@@ -249,7 +274,7 @@ const SPayLater = () => {
     );
   };
 
-  const spaylaterSummary = () => {
+  const spayLaterSummary = () => {
     const { month, interestCharged, interestRate, interestBasedOnInput } =
       summary;
     // Convert interestRate and interestBasedOnInput to numbers
@@ -291,6 +316,53 @@ const SPayLater = () => {
                 rate)
               </span>
             )}
+          </p>
+        </div>
+        <div className="hidden md:flex align-middle items-center">
+          <LottiePlayer
+            animationData={require("../../../animation/flying-money.json")}
+            className="w-full  max-w-[200px] h-[100px]"
+          />
+        </div>
+      </div>
+    );
+  };
+
+  const spayLaterSummaryLimit = () => {
+    const {
+      price,
+      month,
+      interestCharged,
+      monthInstallement,
+      interestRate,
+      interestBasedOnInput,
+      spaylaterPrice,
+      withInterest,
+    } = summary;
+
+    const result = price - spaylaterPrice! + parseFloat(withInterest) - price;
+
+    return (
+      <div className="flex flex-row justify-evenly">
+        <div className="hidden md:flex align-middle items-center">
+          <LottiePlayer
+            animationData={require("../../../animation/flying-money.json")}
+            className="w-full max-w-[200px] h-[100px]"
+          />
+        </div>
+        <div className=" text-xl text-center pt-5">
+          <p>
+            First, you will need to pay an upfront of RM {price - spaylaterPrice},
+            and for {month} month, you will need to pay and extra of{" "}
+            {monthInstallement * month - spaylaterPrice} with interest rate if{" "}
+            {interestRate}%
+          </p>
+          <p>
+            With that, the total you will need to pay after included the
+            *processing fee* is
+            <span className="font-bold text-2xl">
+               RM {price + monthInstallement * month - spaylaterPrice}
+            </span>
           </p>
         </div>
         <div className="hidden md:flex align-middle items-center">
@@ -540,7 +612,9 @@ const SPayLater = () => {
                           <h4 className="font-semibold text-2xl text-center">
                             SPayLater Summary
                           </h4>
-                          {spaylaterSummary()}
+                          {isLimit
+                            ? spayLaterSummaryLimit()
+                            : spayLaterSummary()}
                         </div>
                       </motion.div>
                     </>

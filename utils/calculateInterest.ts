@@ -40,7 +40,8 @@ export const calculateInterestAndSetSummary = (
   installementsFirstMonth: number,
   installementsThreeMonth: number,
   installementsSixMonth: number,
-  installementsTwelveMonth: number
+  installementsTwelveMonth: number,
+  spaylaterPrice: number
 ): ISummary => {
   let summary: ISummary = {
     price: 0,
@@ -50,25 +51,30 @@ export const calculateInterestAndSetSummary = (
     interestCharged: "0",
     interestRate: "0",
     interestBasedOnInput: "0",
+    spaylaterPrice: 0,
   };
   if (installementsFirstMonth !== 0) {
     summary = {
       ...calculateInterest(price, installementsFirstMonth, 1),
+      spaylaterPrice
     };
   }
   if (installementsThreeMonth !== 0) {
     summary = {
       ...calculateInterest(price, installementsThreeMonth, 3),
+      spaylaterPrice
     };
   }
   if (installementsSixMonth !== 0) {
     summary = {
       ...calculateInterest(price, installementsSixMonth, 6),
+      spaylaterPrice
     };
   }
   if (installementsTwelveMonth !== 0) {
     summary = {
       ...calculateInterest(price, installementsTwelveMonth, 12),
+      spaylaterPrice
     };
   }
 

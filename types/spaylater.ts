@@ -27,6 +27,10 @@ export interface IResultTable {
 export interface IResults {
   [key: string]: IResultBody;
 }
+
+export interface IFormData {
+  data: IResultBody;
+}
 export interface IResultBody {
   price: number;
   month: number;
@@ -37,4 +41,6 @@ export interface IResultBody {
   interestBasedOnInput: string;
 }
 
-export interface ISummary extends IResultBody {}
+export interface ISummary extends IResultBody {
+  spaylaterPrice: number;
+}
