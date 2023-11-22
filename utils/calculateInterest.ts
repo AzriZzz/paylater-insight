@@ -1,4 +1,6 @@
+import { FormSchema } from "@/schemas/spaylaterSchema";
 import { IResultBody, ISummary } from "@/types/spaylater";
+import * as z from "zod";
 
 export const calculateInterest = (
   price: number,
@@ -36,13 +38,10 @@ export const calculateInterest = (
 };
 
 export const calculateInterestAndSetSummary = (
-  price: number,
-  firstMonth: number,
-  secondMonth: number,
-  sixMonth: number,
-  twelveMonth: number,
-  spaylaterPrice: number
+  data: z.infer<typeof FormSchema>
 ): ISummary => {
+  const { price, oneMonth, threeMonth, sixMonth, twelveMonth, spaylaterPrice } =
+    data;
   let summary: ISummary = {
     price: 0,
     month: 0,
@@ -53,30 +52,62 @@ export const calculateInterestAndSetSummary = (
     interestBasedOnInput: "0",
     spaylaterPrice: 0,
   };
-  if (firstMonth !== 0) {
+  if (oneMonth !== 0) {
     summary = {
-      ...calculateInterest(price, firstMonth, 1),
-      spaylaterPrice
+      ...calculateInterest(price, oneMonth!, 1),
+      spaylaterPrice,
     };
   }
-  if (secondMonth !== 0) {
+  if (threeMonth !== 0) {
     summary = {
-      ...calculateInterest(price, secondMonth, 3),
-      spaylaterPrice
+      ...calculateInterest(price, threeMonth!, 3),
+      spaylaterPrice,
     };
   }
   if (sixMonth !== 0) {
     summary = {
-      ...calculateInterest(price, sixMonth, 6),
-      spaylaterPrice
+      ...calculateInterest(price, sixMonth!, 6),
+      spaylaterPrice,
     };
   }
   if (twelveMonth !== 0) {
     summary = {
-      ...calculateInterest(price, twelveMonth, 12),
-      spaylaterPrice
+      ...calculateInterest(price, twelveMonth!, 12),
+      spaylaterPrice,
     };
   }
 
   return summary;
+};
+
+export const calculateSummary = (data: z.infer<typeof FormSchema>) => {
+  const {
+    price,
+    oneMonth,
+    threeMonth,
+    sixMonth,
+    twelveMonth,
+    spaylaterPrice,
+    isLimit,
+  } = data;
+
+  let priceBasedOnLimit = isLimit ? spaylaterPrice! : price;
+  let interestOne = {},
+    interestThree = {},
+    interestSix = {},
+    interestTwelve = {};
+    
+  if (oneMonth != 0) {
+    interestOne = calculateInterest(priceBasedOnLimit, oneMonth!, 1);
+  }
+  if (threeMonth != 0) {
+    interestThree = calculateInterest(priceBasedOnLimit, threeMonth!, 3);
+  }
+  if (sixMonth != 0) {
+    interestSix = calculateInterest(priceBasedOnLimit, sixMonth!, 6);
+  }
+  if (twelveMonth != 0) {
+    interestTwelve = calculateInterest(priceBasedOnLimit, twelveMonth!, 12);
+  }
+  return { interestOne, interestThree, interestSix, interestTwelve };
 };

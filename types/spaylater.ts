@@ -39,8 +39,7 @@ export interface IResultBody {
   interestCharged: string;
   interestRate: string;
   interestBasedOnInput: string;
+  spaylaterPrice?: number;
 }
 
-export interface ISummary extends IResultBody {
-  spaylaterPrice: number;
-}
+export interface ISummary extends IResultBody {}

@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { calculateInterest, calculateInterestAndSetSummary } from "@/utils";
+import { calculateInterestAndSetSummary, calculateSummary } from "@/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -25,129 +25,27 @@ import LottiePlayer from "@/components/molecules/lottie-player";
 import ResultTables from "@/components/organisms/spaylater/result-table";
 import { ISummary } from "@/types/spaylater";
 import { Checkbox } from "@/components/ui/checkbox";
-
-const FormSchema = z
-  .object({
-    price: z.coerce
-      .number({
-        invalid_type_error: "Input must be a number.",
-      })
-      .min(1, "Product price must be greater than 0.")
-      .max(20000, "Product price must be less than RM 20,000."),
-    spaylaterPrice: z.coerce
-      .number({
-        invalid_type_error: "Input must be a number.",
-      })
-      .min(0, "Must be greater than 0.")
-      .max(20000, "Must be less than RM 20,000.")
-      .optional(),
-    isLimit: z.boolean().default(false),
-    oneMonth: z.coerce
-      .number({
-        invalid_type_error: "Installment must be a number.",
-      })
-      .optional(),
-    threeMonth: z.coerce
-      .number({
-        invalid_type_error: "Installment must be a number.",
-      })
-      .min(0, "Installment must be a positive number")
-      .optional(),
-    sixMonth: z.coerce
-      .number({
-        invalid_type_error: "Installment must be a number.",
-      })
-      .min(0, "Installment must be a positive number")
-      .optional(),
-    twelveMonth: z.coerce
-      .number({
-        invalid_type_error: "Installment must be a number.",
-      })
-      .min(0, "Installment must be a positive number")
-
-      .optional(),
-  })
-  .refine(
-    // check if at least one installment is greater than 0
-    (value) =>
-      value.oneMonth! > 0 ||
-      value.threeMonth! > 0 ||
-      value.sixMonth! > 0 ||
-      value.twelveMonth! > 0,
-    {
-      message: "Please enter at least one installment.",
-      path: ["oneMonth"],
-    }
-  )
-  // check if other is empty and only one month is filled
-  .refine(
-    (value) =>
-      value.oneMonth! >= value.price ||
-      value.threeMonth! > 0 ||
-      value.sixMonth! > 0 ||
-      value.twelveMonth! > 0,
-    {
-      message:
-        "Installment must be greater than or equal to the product price.",
-      path: ["oneMonth"],
-    }
-  )
-  .refine((value) => value.oneMonth! <= value.price + 0.016 * value.price, {
-    message: "Installment should not be more than 1.6 times the product price.",
-    path: ["oneMonth"],
-  })
-  // check if only three month value should not exceed the price
-  .refine((value) => value.threeMonth! <= value.price, {
-    message: "Installment must not be greater than the product price.",
-    path: ["threeMonth"],
-  })
-  // check if only six month value should not exceed the price
-  .refine((value) => value.sixMonth! <= value.price, {
-    message: "Installment must not be greater than the product price.",
-    path: ["sixMonth"],
-  })
-  // check if only twelve month value should not exceed the price
-  .refine((value) => value.twelveMonth! <= value.price, {
-    message: "Installment must not be greater than the product price.",
-    path: ["twelveMonth"],
-  });
+import { FormSchema } from "@/schemas/spaylaterSchema";
+import {
+  DefaultValuesForm,
+  ResetValuesFrom,
+  SummaryForm,
+} from "@/constants/spaylater/form";
+import { useNumberFormatter } from "@react-aria/i18n";
 
 type FormSchemaValues = z.infer<typeof FormSchema>;
 
-const defaultValues: Partial<FormSchemaValues> = {
-  price: 7004,
-  spaylaterPrice: 1650,
-  isLimit: true,
-  oneMonth: 1674.75,
-  threeMonth: 574.75,
-  sixMonth: 299.75,
-  twelveMonth: 162.25,
-};
+const defaultValues: Partial<FormSchemaValues> = DefaultValuesForm;
 
-const resetValues: Partial<FormSchemaValues> = {
-  price: 0,
-  spaylaterPrice: 0,
-  isLimit: false,
-  oneMonth: 0,
-  threeMonth: 0,
-  sixMonth: 0,
-  twelveMonth: 0,
-};
+const resetValues: Partial<FormSchemaValues> = ResetValuesFrom;
 
 const SPayLater = () => {
   const [isResult, setIsResult] = useState(false);
   const [paylaterResult, setPaylaterResult] = useState<any>({});
-  const [summary, setSummary] = useState<ISummary>({
-    price: 0,
-    month: 0,
-    monthInstallement: 0,
-    withInterest: "0",
-    interestCharged: "0",
-    interestRate: "0",
-    interestBasedOnInput: "0",
-    spaylaterPrice: 0,
-  });
+  const [summary, setSummary] = useState<ISummary>(SummaryForm);
   const [isLimit, setIsLimit] = useState(false);
+  const formatter = useNumberFormatter();
+
   const t = useTranslations("Home");
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -160,72 +58,13 @@ const SPayLater = () => {
   const isLimitChecked = watch("isLimit");
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    const {
-      price,
-      oneMonth,
-      threeMonth,
-      sixMonth,
-      twelveMonth,
-      spaylaterPrice,
-    } = data;
-    let installementsFirstMonth = oneMonth || 0;
-    let installementsThreeMonth = threeMonth || 0;
-    let installementsSixMonth = sixMonth || 0;
-    let installementsTwelveMonth = twelveMonth || 0;
-    // let spaylaterPrice = spaylaterPrice || 0;
-    let interestOne = {},
-      interestThree = {},
-      interestSix = {},
-      interestTwelve = {};
-    let priceBasedOnLimit = data.isLimit ? spaylaterPrice! : price;
-    if (installementsFirstMonth != 0) {
-      interestOne = calculateInterest(
-        priceBasedOnLimit,
-        installementsFirstMonth,
-        1
-      );
-    }
-    if (installementsThreeMonth != 0) {
-      interestThree = calculateInterest(
-        priceBasedOnLimit,
-        installementsThreeMonth,
-        3
-      );
-    }
-    if (installementsSixMonth != 0) {
-      interestSix = calculateInterest(
-        priceBasedOnLimit,
-        installementsSixMonth,
-        6
-      );
-    }
-    if (installementsTwelveMonth != 0) {
-      interestTwelve = calculateInterest(
-        priceBasedOnLimit,
-        installementsTwelveMonth,
-        12
-      );
-    }
-
-    const summary = calculateInterestAndSetSummary(
-      price,
-      installementsFirstMonth,
-      installementsThreeMonth,
-      installementsSixMonth,
-      installementsTwelveMonth,
-      spaylaterPrice!
-    );
+    const resultLa = calculateSummary(data);
+    const { isLimit } = data;
+    const summary = calculateInterestAndSetSummary(data);
 
     setSummary(summary);
-    setIsLimit(data.isLimit);
-
-    setPaylaterResult({
-      interestOne,
-      interestThree,
-      interestSix,
-      interestTwelve,
-    });
-
+    setIsLimit(isLimit);
+    setPaylaterResult(resultLa);
     setIsResult(true);
   }
 
@@ -275,8 +114,13 @@ const SPayLater = () => {
   };
 
   const spayLaterSummary = () => {
-    const { month, interestCharged, interestRate, interestBasedOnInput } =
-      summary;
+    const {
+      month,
+      interestCharged,
+      interestRate,
+      interestBasedOnInput,
+      withInterest,
+    } = summary;
     // Convert interestRate and interestBasedOnInput to numbers
     const numericInterestRate = parseFloat(interestRate.toString());
     const numericInterestBasedOnInput = parseFloat(
@@ -317,6 +161,12 @@ const SPayLater = () => {
               </span>
             )}
           </p>
+          <p>
+            with the total amount of{" "}
+            <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
+              RM {formatter.format(parseFloat(withInterest))}
+            </h3>
+          </p>
         </div>
         <div className="hidden md:flex align-middle items-center">
           <LottiePlayer
@@ -329,18 +179,12 @@ const SPayLater = () => {
   };
 
   const spayLaterSummaryLimit = () => {
-    const {
-      price,
-      month,
-      interestCharged,
-      monthInstallement,
-      interestRate,
-      interestBasedOnInput,
-      spaylaterPrice,
-      withInterest,
-    } = summary;
+    const { price, month, monthInstallement, interestRate, spaylaterPrice } =
+      summary;
 
-    const result = price - spaylaterPrice! + parseFloat(withInterest) - price;
+    const result = formatter.format(
+      price + monthInstallement * month - spaylaterPrice!
+    );
 
     return (
       <div className="flex flex-row justify-evenly">
@@ -352,17 +196,16 @@ const SPayLater = () => {
         </div>
         <div className=" text-xl text-center pt-5">
           <p>
-            First, you will need to pay an upfront of RM {price - spaylaterPrice},
-            and for {month} month, you will need to pay and extra of{" "}
-            {monthInstallement * month - spaylaterPrice} with interest rate if{" "}
+            You will need to pay an upfront of RM{" "}
+            {formatter.format(price - spaylaterPrice!)} and for {month} month,
+            you will need to pay and extra of RM{" "}
+            {monthInstallement * month - spaylaterPrice!} with interest rate if{" "}
             {interestRate}%
           </p>
           <p>
             With that, the total you will need to pay after included the
-            *processing fee* is
-            <span className="font-bold text-2xl">
-               RM {price + monthInstallement * month - spaylaterPrice}
-            </span>
+            *processing fee* is{" "}
+            <span className="font-bold text-2xl">RM {result}</span>
           </p>
         </div>
         <div className="hidden md:flex align-middle items-center">
