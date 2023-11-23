@@ -1,17 +1,21 @@
-import Link from "next/link";
-import { cn } from "@/src/lib/utils";
-import { Inter as FontSans } from "next/font/google";
+import { notFound } from "next/navigation";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
+const locales = ["en", "my"];
 interface SPayLaterProps {
   children: React.ReactNode;
+  params: {
+    locale: string;
+  };
 }
 
-export default async function SPayLater({ children }: SPayLaterProps) {
+export default async function SPayLater({
+  children,
+  params: { locale },
+}: SPayLaterProps) {
+  if (!locales.includes(locale as any)) notFound();
+
+  unstable_setRequestLocale(locale);
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">{children}</main>

@@ -20,7 +20,11 @@ import {
   FormMessage,
 } from "@/src/components/ui/form";
 import { Input } from "@/src/components/ui/input";
-import { calculateInterestAndSetSummary, calculateSummary } from "@/src/utils";
+import {
+  calculateInterestAndSetSummary,
+  calculateSummary,
+  valueReminder,
+} from "@/src/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -68,13 +72,13 @@ const SPayLater = () => {
   const isLimitChecked = watch("isLimit");
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    const resultLa = calculateSummary(data);
+    const dataResult = calculateSummary(data);
     const { isLimit } = data;
     const summary = calculateInterestAndSetSummary(data);
 
     setSummary(summary);
     setIsLimit(isLimit);
-    setPaylaterResult(resultLa);
+    setPaylaterResult(dataResult);
     setIsResult(true);
   }
 
@@ -98,6 +102,10 @@ const SPayLater = () => {
             </h3>
             <p className="text-justify ">
               {t("howToUse.steps.step1.description")}
+            </p>
+            <br/>
+            <p className="text-justify font-semibold italic">
+              P/S: If your Total Payment is more than the SPayLater Price, add your Total Payment. Select Limit Reached checkbox and enter your SPayLater Limit.
             </p>
           </div>
 
@@ -187,8 +195,14 @@ const SPayLater = () => {
   };
 
   const spayLaterSummaryLimit = () => {
-    const { price, month, monthInstallement, interestRate, spaylaterPrice } =
-      summary;
+    const {
+      price,
+      month,
+      monthInstallement,
+      interestRate,
+      spaylaterPrice,
+      interestCharged,
+    } = summary;
 
     const result = formatter.format(
       price + monthInstallement * month - spaylaterPrice!
@@ -202,19 +216,28 @@ const SPayLater = () => {
             className="w-full max-w-[200px] h-[100px]"
           />
         </div>
-        <div className=" text-xl text-center pt-5">
+        <div className=" text-lg text-center pt-5">
           <p>
-            You will need to pay an upfront of RM{" "}
-            {formatter.format(price - spaylaterPrice!)} and for {month} month,
-            you will need to pay and extra of RM{" "}
-            {monthInstallement * month - spaylaterPrice!} with interest rate if{" "}
-            {interestRate}%
+            You will need to pay an upfront of{" "}
+            <span className="font-bold text-2xl">
+              RM {formatter.format(price - spaylaterPrice!)}
+            </span>
+            {""} first, then in {""}
+            <span className="font-bold text-2xl">{month}</span> month, the total
+            interest charged is{" "}
           </p>
-          <p>
-            With that, the total you will need to pay after included the
-            *processing fee* is{" "}
-            <span className="font-bold text-2xl">RM {result}</span>
-          </p>
+          <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
+            RM{monthInstallement * month - spaylaterPrice!}{" "}
+          </h3>
+          <p>with an interest rate of</p>
+          <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
+            {valueReminder(parseFloat(interestRate))}%
+          </h3>
+
+          <p>With that, the final payment you have made after 12 month will be </p>
+          <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
+            RM {result}
+          </h3>
         </div>
         <div className="hidden md:flex align-middle items-center">
           <LottiePlayer
@@ -267,7 +290,9 @@ const SPayLater = () => {
                         )}
                       />
                       <div>
-                        <h3 className="font-semibold pb-3">SPayLater Available</h3>
+                        <h3 className="font-semibold pb-3">
+                          SPayLater Available
+                        </h3>
                         <div className="flex flex-col md:flex-row md:items-center">
                           <div className="flex-1">
                             <FormField

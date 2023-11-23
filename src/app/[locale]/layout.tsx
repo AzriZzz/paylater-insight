@@ -11,12 +11,15 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import Header from "@/src/components/molecules/header";
 import Footer from "@/src/components/molecules/footer";
+import {unstable_setRequestLocale} from 'next-intl/server';
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["100", "300", "400", "700", "900"],
 });
+
+const locales = ['en', 'my'];
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "my" }];
@@ -97,6 +100,11 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: RootLayoutProps) {
+   // Validate that the incoming `locale` parameter is valid
+   if (!locales.includes(locale as any)) notFound();
+ 
+   unstable_setRequestLocale(locale);
+
   const messages = await getMessages(locale);
 
   return (

@@ -96,7 +96,7 @@ export const calculateSummary = (data: z.infer<typeof FormSchema>) => {
     interestThree = {},
     interestSix = {},
     interestTwelve = {};
-    
+
   if (oneMonth != 0) {
     interestOne = calculateInterest(priceBasedOnLimit, oneMonth!, 1);
   }
@@ -110,4 +110,12 @@ export const calculateSummary = (data: z.infer<typeof FormSchema>) => {
     interestTwelve = calculateInterest(priceBasedOnLimit, twelveMonth!, 12);
   }
   return { interestOne, interestThree, interestSix, interestTwelve };
+};
+
+export const valueReminder = (value: number ) => {
+  if (value % 1 === 0) {
+    return value.toString();
+  } else {
+    return value.toFixed(1);
+  }
 };
