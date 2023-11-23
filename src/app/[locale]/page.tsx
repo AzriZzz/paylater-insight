@@ -111,7 +111,7 @@ const Home = () => {
       </div>
       <div
         id="start-manage"
-        className="feature-section py-6 md:py-12 bg-gradient-to-t from-white to-[#ebf5f3]"
+        className="feature-section py-24 -mt-24  md:py-24 md:-mt-14 bg-gradient-to-t from-white to-[#ebf5f3]"
       >
         {/* <Section> */}
         <div className="container">
@@ -122,7 +122,7 @@ const Home = () => {
             <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center -translate-y-12 md:-translate-y-14 ">
               <LottiePlayer
                 animationData={require("../../animation/working.json")}
-                className="w-full max-w-[600px] h-[500px]"
+                className="w-full max-w-[600px] h-[300px] md:h-[400px]"
               />
             </div>
             <div className="flex-1 text-center">

@@ -117,7 +117,7 @@ const DebtIncomeRatio = () => {
   }
 
   return (
-    <div>
+    <div className="pt-16 md:24">
       <div className="spaylater-header bg-[#0a6160]">
         <div className="container text-white pt-9 pb-44">
           <h1 className="font-bold text-3xl py-4 ">
@@ -372,7 +372,7 @@ const DebtIncomeRatio = () => {
         <div className="career py-6">
           <div className="introduction">
             <h3 className="text-center font-bold text-3xl pb-6">
-              Clear your debt by applying to a new job
+              Clear your debt faster by applying to a new job
             </h3>
             <p className="text-center text-base md:text-lg font-semibold">
               Check out these job portal for the latest job postings.

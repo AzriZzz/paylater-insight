@@ -1,12 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
+import { Card, CardContent } from "@/src/components/ui/card";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -80,6 +75,11 @@ const SPayLater = () => {
     setIsLimit(isLimit);
     setPaylaterResult(dataResult);
     setIsResult(true);
+
+    const summaryElement = document.getElementById("summary");
+    if (summaryElement) {
+      summaryElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function resetForm() {
@@ -103,9 +103,11 @@ const SPayLater = () => {
             <p className="text-justify ">
               {t("howToUse.steps.step1.description")}
             </p>
-            <br/>
+            <br />
             <p className="text-justify font-semibold italic">
-              P/S: If your Total Payment is more than the SPayLater Price, add your Total Payment. Select Limit Reached checkbox and enter your SPayLater Limit.
+              P/S: If your Total Payment is more than the SPayLater Price, add
+              your Total Payment. Select Limit Reached checkbox and enter your
+              SPayLater Limit.
             </p>
           </div>
 
@@ -234,7 +236,9 @@ const SPayLater = () => {
             {valueReminder(parseFloat(interestRate))}%
           </h3>
 
-          <p>With that, the final payment you have made after 12 month will be </p>
+          <p>
+            With that, the final payment you have made after 12 month will be{" "}
+          </p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM {result}
           </h3>
@@ -443,7 +447,7 @@ const SPayLater = () => {
                     </form>
                   </Form>
                 </div>
-                <div className="md:w-2/3">
+                <div id="summary" className="md:w-2/3">
                   {!isResult ? (
                     <motion.div
                       initial={{ opacity: 0 }}
