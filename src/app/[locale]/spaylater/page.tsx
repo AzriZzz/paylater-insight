@@ -277,11 +277,10 @@ const SPayLater = () => {
                                 <FormItem>
                                   <FormControl>
                                     <Input
+                                      {...field}
                                       placeholder="1135.79"
                                       className="text-base"
                                       disabled={!isLimitChecked}
-
-                                      {...field}
                                     />
                                   </FormControl>
                                   <FormMessage />
