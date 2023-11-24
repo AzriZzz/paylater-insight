@@ -13,8 +13,42 @@ import Section from "@/src/components/molecules/section";
 import LottiePlayer from "@/src/components/molecules/lottie-player";
 import SolutionCard from "@/src/components/molecules/solution-card";
 import { solutionCardData } from "@/src/constants/solution";
+import { useTranslations } from "next-intl";
 
 const Home = () => {
+  const t = useTranslations("Home");
+
+  const translatedSolution = solutionCardData.map((card, index) => ({
+    ...card,
+    title: t(`SolutionSection.SolutionCard.title${index + 1}`),
+    description: t(`SolutionSection.SolutionCard.description${index + 1}`),
+  }));
+
+  const translatedFeatures = Features.map((card, index) => ({
+    ...card,
+    title: t(`ManagingSection.FeatureCard.title${index + 1}`),
+    description: t(`ManagingSection.FeatureCard.description${index + 1}`),
+    btnText: t(`ManagingSection.FeatureCard.button${index + 1}`),
+  }));
+
+  const translatedBenefits: IBenefitsCard[] = [
+    {
+      title: t("BenefitsSection.BenefitsCard.title1"),
+      description: t("BenefitsSection.BenefitsCard.description1"),
+      image: "/images/94.svg",
+    },
+    {
+      title: t("BenefitsSection.BenefitsCard.title2"),
+      description: t("BenefitsSection.BenefitsCard.description2"),
+      image: "/images/114.svg",
+    },
+    {
+      title: t("BenefitsSection.BenefitsCard.title3"),
+      description: t("BenefitsSection.BenefitsCard.description3"),
+      image: "/images/72.svg",
+    },
+  ];
+
   return (
     <main>
       <Section>
@@ -22,15 +56,14 @@ const Home = () => {
           <div className="container flex flex-col align-middle items-center text-center">
             <div className="intro-section md:w-[700px] lg:w-[900px] flex flex-col items-center">
               <h1 className="text-center text-4xl md:text-6xl font-bold text whitespace-normal my-6">
-                Personal Finance Made Easy
+                {t("IntroSection.title")}
               </h1>
               <p className="mb-8 text-gray-600 md:w-[750px] text-center md:text-xl">
-                Effortlessly manage and review your financial life, from
-                SPayLater plans to comprehensive budgeting and saving strategies
+                {t("IntroSection.description")}
               </p>
               <div>
                 <Button className="py-3 px-6 font-bold bg-[#08cf65]">
-                  <a href="#start-manage">Start Managing Now</a>
+                  <a href="#start-manage">{t("IntroSection.ctaButton")}</a>
                 </Button>
               </div>
             </div>
@@ -63,10 +96,11 @@ const Home = () => {
         <Section>
           <div className="container h-[400px] text-2xl italic flex flex-col justify-center items-center text-center">
             <p className=" md:w-[800px] md:text-4xl font-semibold">
-              “A budget tells us what we cant afford, but it doesnt keep us from
-              buying it.”
+              &ldquo;{t("AdviceSection.quote")}&rdquo;
             </p>
-            <span className="  md:text-3xl pt-3">– William Feather.</span>
+            <span className="  md:text-3xl pt-3">
+              – {t("AdviceSection.author")}
+            </span>
           </div>
         </Section>
       </div>
@@ -77,7 +111,7 @@ const Home = () => {
               <div className="flex-1 text-center">
                 <div className="grid grid-cols-1 gap-6">
                   <div className="space-y-4">
-                    {solutionCardData.map((card, index) => (
+                    {translatedSolution.map((card, index) => (
                       <SolutionCard
                         key={index}
                         title={card.title}
@@ -92,16 +126,10 @@ const Home = () => {
               <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center ">
                 <div className="flex flex-col mb-10 md:mb-0">
                   <h2 className="text-3xl md:text-4xl font-semibold text-center pb-10">
-                    Why Choose PayLater Insight?
+                    {t("SolutionSection.title")}
                   </h2>
                   <p className="md:text-xl md:leading-8 text-justify text-lg">
-                    Managing money can be tricky, especially with so many bills,
-                    loans, and savings goals to keep track of. Its easy to lose
-                    sight of your financial health and make uninformed decisions
-                    that can lead to debt and stress. PayLater Insight is here
-                    to simplify your finances, offering an easy-to-use platform
-                    that helps you understand and manage your spending, saving,
-                    and debt all in one place.
+                    {t("SolutionSection.description")}
                   </p>
                 </div>
               </div>
@@ -111,12 +139,12 @@ const Home = () => {
       </div>
       <div
         id="start-manage"
-        className="feature-section py-24 -mt-24  md:py-24 md:-mt-14 bg-gradient-to-t from-white to-[#ebf5f3]"
+        className="feature-section py-12  md:py-12 bg-gradient-to-t from-white to-[#ebf5f3]"
       >
         {/* <Section> */}
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-semibold text-center">
-            Start Managing Now
+            {t("ManagingSection.title")}
           </h2>
           <div className="flex flex-col md:flex-row align-middle items-center">
             <div className="md:flex flex-1 md:sticky md:top-[30vh] w-full self-start justify-center -translate-y-12 md:-translate-y-14 ">
@@ -127,9 +155,9 @@ const Home = () => {
             </div>
             <div className="flex-1 text-center">
               <div className="grid grid-cols-1 gap-6">
-                {Features.map((feature: IFeature, index: number) => {
-                  return <Feature key={index} feature={feature} />;
-                })}
+                {translatedFeatures.map((card, index) => (
+                  <Feature key={index} feature={card} />
+                ))}
               </div>
             </div>
           </div>
@@ -140,12 +168,12 @@ const Home = () => {
         <Section>
           <div className="container">
             <h1 className="text-center text-3xl md:text-4xl font-bold text whitespace-normal mb-8">
-              Our Aim
+            {t("BenefitsSection.title")}
             </h1>
             <div className="flex flex-col md:flex-row gap-10 text-center justify-center">
-              {Benefits.map((benefit: IBenefitsCard, index: number) => {
-                return <BenefitsCard key={index} benefit={benefit} />;
-              })}
+              {translatedBenefits.map((benefit, index) => (
+                <BenefitsCard key={index} benefit={benefit} />
+              ))}
             </div>
           </div>
         </Section>
@@ -153,7 +181,9 @@ const Home = () => {
       <div className="faq-section py-12 md:pt-12 md:pb-20 bg-[#ebf5f3]">
         <Section>
           <div className="container flex flex-col align-middle items-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-10">FAQs</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-10">
+              {t("FAQ.title")}
+            </h2>
             <FAQ />
           </div>
         </Section>

@@ -5,9 +5,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/src/components/ui/accordion";
-import { FAQS } from "@/src/constants/spaylater/faq";
+import { useTranslations } from "next-intl";
+import { FAQProps } from "@/src/types/spaylater";
+
+const generateFAQItems = (numFAQs: number, t: any) => {
+  let faqItems = [];
+  for (let i = 1; i <= numFAQs; i++) {
+    faqItems.push({
+      id: `${i}`,
+      question: t(`FAQ.FAQCard.question${i}`),
+      answer: t(`FAQ.FAQCard.answer${i}`)
+    });
+  }
+  return faqItems;
+};
 
 const FAQ = () => {
+  const t = useTranslations("Home");
+
+  const FAQS = generateFAQItems(6, t); // Assuming you have 6 FAQ items
+
+
   return (
     <div className="w-full bg-white rounded-[12px] border border-gray-200 shadow-md">
       <Accordion type="single" collapsible>

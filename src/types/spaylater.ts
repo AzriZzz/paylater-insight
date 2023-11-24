@@ -5,8 +5,10 @@ export interface Label {
 
 export type Position = "left" | "right";
 
-export interface IFeature extends Label {
-  btnText: string;
+export interface IFeature {
+  title?: string;
+  description?: string;
+  btnText?: string;
   btnLink: string;
   available?: boolean;
 }

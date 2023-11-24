@@ -56,6 +56,7 @@ const SPayLater = () => {
   const formatter = useNumberFormatter();
 
   const t = useTranslations("Home");
+  const r = useTranslations("SpayLater");
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -98,34 +99,32 @@ const SPayLater = () => {
         <div className="flex flex-col">
           <div className="step-1 mb-5">
             <h3 className="font-semibold mb-2 text-xl">
-              {t("howToUse.steps.step1.title")}
+              {r("Body.howToUse.steps.step1.title")}
             </h3>
             <p className="text-justify ">
-              {t("howToUse.steps.step1.description")}
+              {r("Body.howToUse.steps.step1.description")}
             </p>
             <br />
             <p className="text-justify font-semibold italic">
-              P/S: If your Total Payment is more than the SPayLater Price, add
-              your Total Payment. Select Limit Reached checkbox and enter your
-              SPayLater Limit.
+              {r("Body.howToUse.steps.disclaimer")}
             </p>
           </div>
 
           <div className="step-2 mb-5">
             <h3 className="font-semibold mb-2 text-xl">
-              {t("howToUse.steps.step2.title")}
+              {r("Body.howToUse.steps.step2.title")}
             </h3>
             <p className="text-justify ">
-              {t("howToUse.steps.step2.description")}
+              {r("Body.howToUse.steps.step2.description")}
             </p>
           </div>
 
           <div className="step-3 mb-5">
             <h3 className="font-semibold mb-2 text-xl">
-              {t("howToUse.steps.step3.title")}
+              {r("Body.howToUse.steps.step3.title")}
             </h3>
             <p className="text-justify ">
-              {t("howToUse.steps.step3.description")}
+              {r("Body.howToUse.steps.step3.description")}
             </p>
           </div>
         </div>
@@ -162,26 +161,30 @@ const SPayLater = () => {
         </div>
         <div className=" text-xl text-center pt-5">
           <p>
-            After <span className="font-bold text-2xl">{month} month</span> ,
-            you will need to pay an{" "}
-            <span className="font-bold text-2xl">extra</span>{" "}
+            {r("Header.Summary.Summary2.after")}{" "}
+            <span className="font-bold text-2xl">
+              {month} {r("Header.Summary.Summary2.months")}
+            </span>{" "}
+            , {r("Header.Summary.Summary2.toPay")}{" "}
+            <span className="font-bold text-2xl">
+              {r("Header.Summary.Summary2.extra")}
+            </span>{" "}
           </p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM{interestCharged}{" "}
           </h3>
-          <p>which is equivalent to</p>
+          <p>{r("Header.Summary.Summary2.equivalent")}</p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             {selectedInterestRate}%!
           </h3>
           <p>
             {numericInterestRate !== numericInterestBasedOnInput && (
               <span className="text-yellow-500 ml-2 text-base">
-                (Seems like you will pay more or less than the actual interest
-                rate)
+                ({r("Header.Summary.Summary2.overchanged")})
               </span>
             )}
           </p>
-          <p>with the total amount of </p>
+          <p>{r("Header.Summary.Summary2.withTotalAmount")}</p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM {formatter.format(parseFloat(withInterest))}
           </h3>
@@ -220,24 +223,25 @@ const SPayLater = () => {
         </div>
         <div className=" text-lg text-center pt-5">
           <p>
-            You will need to pay an upfront of{" "}
+            {r("Header.Summary.Summary3.upfront")}{" "}
             <span className="font-bold text-2xl">
               RM {formatter.format(price - spaylaterPrice!)}
             </span>
-            {""} first, then in {""}
-            <span className="font-bold text-2xl">{month}</span> month, the total
-            interest charged is{" "}
+            {""} {r("Header.Summary.Summary3.then")}{" "}
+            <span className="font-bold text-2xl">{month} </span>
+            {r("Header.Summary.Summary3.monthTotal")}{" "}
           </p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM{monthInstallement * month - spaylaterPrice!}{" "}
           </h3>
-          <p>with an interest rate of</p>
+          <p>{r("Header.Summary.Summary3.withAnInterest")}</p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             {valueReminder(parseFloat(interestRate))}%
           </h3>
 
           <p>
-            With that, the final payment you have made after 12 month will be{" "}
+            {r("Header.Summary.Summary3.withThat")} {month} month{" "}
+            {r("Header.Summary.Summary3.willBe")}{" "}
           </p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM {result}
@@ -258,10 +262,8 @@ const SPayLater = () => {
       <section className="spaylater">
         <div className="spaylater-header bg-[#0a6160]">
           <div className="container text-white pt-9 pb-72">
-            <h1 className="font-bold text-3xl py-4 ">SPayLater Calculator</h1>
-            <p className=" mb-4">
-              Review your SPayLater Payment Plan before you checkout.
-            </p>
+            <h1 className="font-bold text-3xl py-4 ">{r("Header.title")}</h1>
+            <p className=" mb-4">{r("Header.description")}</p>
           </div>
         </div>
         <div className="container">
@@ -280,7 +282,7 @@ const SPayLater = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-base font-semibold">
-                              {t("productPrice")} (RM)
+                              {r("Header.Form.productPrice")} (RM)
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -295,7 +297,7 @@ const SPayLater = () => {
                       />
                       <div>
                         <h3 className="font-semibold pb-3">
-                          SPayLater Available
+                          {r("Header.Form.spaylaterPrice")}
                         </h3>
                         <div className="flex flex-col md:flex-row md:items-center">
                           <div className="flex-1">
@@ -342,7 +344,8 @@ const SPayLater = () => {
                       </div>
 
                       <h3 className="font-semibold">
-                        {t("monthlyInstallment")} (RM)
+                        {r("Header.Form.monthlyInstallment")} {""}
+                        (RM)
                       </h3>
                       <FormField
                         control={form.control}
@@ -435,13 +438,13 @@ const SPayLater = () => {
                           className="py-3 mx-6 font-bold bg-[#00491e] w-full"
                           disabled={!isResult}
                         >
-                          Reset
+                          {r("Header.Form.reset")}
                         </Button>
                         <Button
                           type="submit"
                           className="py-3 mx-6 font-bold bg-[#08cf65] w-full"
                         >
-                          {t("submit")}
+                          {r("Header.Form.submit")}
                         </Button>
                       </div>
                     </form>
@@ -464,17 +467,13 @@ const SPayLater = () => {
                           priority={true}
                         />
                         <h3 className=" text-2xl font-semibold pb-3">
-                          PayLater Summary
+                          {r("Header.Summary.DefaultSummary.title")}
                         </h3>
                         <p className="max-w-md text-center pb-6">
-                          Enter your price, monthly installements which any of
-                          the SPayLater plan you want to calculate.
+                          {r("Header.Summary.DefaultSummary.description")}
                         </p>
                         <span className="max-w-md text-center text-xs font-bold">
-                          Disclaimer: The actual amount may vary based on the
-                          user input and the actual SPayLater plan. Please
-                          insert the correct amount from SPayLater to calculate
-                          the correct amount for you.
+                          {r("Header.Summary.DefaultSummary.disclaimer")}
                         </span>
                       </div>
                     </motion.div>
@@ -488,7 +487,7 @@ const SPayLater = () => {
                       >
                         <div className="p-6 h-full flex flex-col justify-center">
                           <h4 className="font-semibold text-2xl text-center">
-                            SPayLater Summary
+                            {r("Header.Summary.title")}
                           </h4>
                           {isLimit
                             ? spayLaterSummaryLimit()
@@ -505,7 +504,7 @@ const SPayLater = () => {
         {isResult && (
           <div className="container pb-12">
             <h3 className="text-center font-bold text-3xl pb-6">
-              SPayLater Breakdown
+              {r("Body.breakdown")}
             </h3>
             <ResultTables results={paylaterResult} />
           </div>
@@ -548,7 +547,7 @@ const SPayLater = () => {
         </div>
         <div className="container pb-12">
           <h3 className="text-center font-bold text-3xl pb-6">
-            What is Buy Now, Pay Later (BNPL)?
+            {r("Body.BNPLSection.title")}
           </h3>
           <div className="flex justify-center">
             <Image
@@ -561,16 +560,9 @@ const SPayLater = () => {
             />
           </div>
           <p className="text-justify text-base md:text-lg">
-            Buy Now, Pay Later (BNPL), is a payment method that allows users to
-            make purchases immediately and pay for them later. This service
-            offers different payment plans, allowing users to spread their
-            payments over periods ranging from one to twelve months.
+            {r("Body.BNPLSection.description1")}
             <br /> <br />
-            Buy now, pay later (BNPL) plans vary in their specifics, yet they
-            typically provide short-term financing options with predetermined
-            payments and often without interest charges. These programs can be
-            accessed through BNPL applications like Shopee or may be available
-            as an option on your credit card.
+            {r("Body.BNPLSection.description2")}
           </p>
           <div className="flex justify-center pt-10">
             <Button className="py-3 px-6 font-bold bg-blue-900 ease-in-out duration-300">
@@ -578,22 +570,17 @@ const SPayLater = () => {
                 href="https://www.investopedia.com/buy-now-pay-later-5182291"
                 target="_blank"
               >
-                Learn More at Investopedia
+                {r("Body.BNPLSection.btnText")}
               </a>
             </Button>
           </div>
         </div>
         <div className="container pb-12">
           <h3 className="text-center font-bold text-3xl pb-6">
-            What is SPayLater?
+            {r("Body.SPayLaterSection.title")}
           </h3>
           <p className="text-justify text-base md:text-lg">
-            SPayLater offers users a convenient financial solution, enabling
-            them to enjoy payment flexibility through a user-friendly digital
-            platform. With SPayLater, users can make immediate purchases while
-            having the option to defer payment. This service offers different
-            payment plans, allowing users to spread their payments over periods
-            ranging from one to twelve months.
+            {r("Body.SPayLaterSection.description1")}
           </p>
           <div className="flex justify-center pt-10">
             <Button className="py-3 px-6 font-bold bg-[#EE4D2D] ease-in-out duration-300">
@@ -601,7 +588,7 @@ const SPayLater = () => {
                 href="https://help.shopee.com.my/portal/category/31-Payments/668-SPayLater?page=1"
                 target="_blank"
               >
-                Learn More at Shopee
+                {r("Body.SPayLaterSection.btnText")}
               </a>
             </Button>
           </div>

@@ -1,5 +1,77 @@
 {
   "Home": {
+    "IntroSection": {
+      "title": "Personal Finance Made Easy",
+      "description": "Effortlessly manage and review your financial life,from SPayLater plans to comprehensive budgeting and saving strategies",
+      "ctaButton": "Start Managing Now"
+    },
+    "AdviceSection": {
+      "quote": "A budget tells us what we cant afford, but it doesnt keep us frombuying it.",
+      "author": "William Feather"
+    },
+    "SolutionSection": {
+      "title": "Why Choose PayLater Insight?",
+      "description": "Managing money can be tricky, especially with so many bills, loans, and savings goals to keep track of. Its easy to lose sight of your financial health and make uninformed decisions that can lead to debt and stress. PayLater Insight is here to simplify your finances, offering an easy-to-use platform that helps you understand and manage your spending, saving, and debt all in one place.",
+      "SolutionCard": {
+        "title1": "Simplified Financial Overview",
+        "description1": "Get a consolidated view of your finances, from everyday expenses to pay-later plans, all in one place.",
+        "title2": "Strategic Budgeting Tools",
+        "description2": "Utilize intuitive budgeting features that help you plan your spending, savings, and investments effectively.",
+        "title3": "Debt Management",
+        "description3": "Stay on top of your debts with tools that help you understand and manage your pay-later commitments and other liabilities.",
+        "title4": "Informed Decision-Making",
+        "description4": "Gain insights into your financial habits, helping you make smarter choices about your spending and saving.",
+        "title5": "Goal Setting and Tracking",
+        "description5": "Set financial goals and track your progress, ensuring you stay aligned with your long-term financial objectives"
+      }
+    },
+    "ManagingSection": {
+      "title": "Start Managing Now",
+      "FeatureCard": {
+        "title1": "SPayLater Calculator",
+        "description1": "Gain insights into your pay-later plans with our intuitive SPayLater Calculator. Understand the long-term financial implications of your purchases and plan repayments with ease.",
+        "button1": "Calculate Now",
+        "title2": "Debt-To-Income Ratio Tool",
+        "description2": "Simplify your debt management with our Debt-To-Income Ratio Tool. Discover your financial leverage and make informed decisions to maintain a healthy balance between your earnings and spending.",
+        "button2": "Evaluate Your Debt",
+        "title3": "50/30/20 Budget Planner",
+        "description3": "Strategically allocate your income with our 50/30/20 Budget Planner. This tool helps in dividing your income into needs, wants, and savings, ensuring a balanced financial plan.",
+        "button3": "✨Coming Soon✨"
+      }
+    },
+    "BenefitsSection": {
+      "title": "Our Aim",
+      "BenefitsCard": {
+        "title1": "Making Smarter Money Choices",
+        "description1": "Financial literacy helps you understand how to use your money wisely. This means knowing how to save, spend, and plan for your future so you can avoid common money mistakes.",
+        "title2": "Building a Secure Future",
+        "description2": "Being financially literate means you're better at preparing for emergencies and big life goals, like buying a home or retiring comfortably. It's about being ready for whatever life throws your way.",
+        "title3": "Boosting the Economy",
+        "description3": "When more people understand finance, they make better investment and spending decisions, which helps the whole economy grow. It's not just good for you, but for everyone around you too."
+      }
+    },
+    "FAQ": {
+      "title": "Frequently Asked Questions",
+      "FAQCard": {
+        "question1": "What is PayLater Insight?",
+        "answer1": "PayLater Insight is a financial tool designed to help you manage and optimize your finances, including pay-later plans, budgeting, and saving strategies.",
+
+        "question2": "How does the SPayLater Calculator work?",
+        "answer2": "Our SPayLater Calculator helps you understand the interest and long-term financial impact of your pay-later plans, enabling you to plan repayments effectively.",
+
+        "question3": "What is the Debt-To-Income Ratio Tool?",
+        "answer3": "This tool calculates your debt-to-income ratio, giving you a clear picture of your financial leverage and helping you make informed debt management decisions.",
+
+        "question4": "Can PayLater Insight help with budgeting?",
+        "answer4": "Absolutely! Our platform includes tools like the 50/30/20 budget planner to help you allocate your income effectively between needs, wants, and savings.",
+
+        "question5": "Is PayLater Insight suitable for beginners in personal finance?",
+        "answer5": "Yes, our platform is user-friendly and designed to be accessible for everyone, regardless of their financial knowledge or experience.",
+
+        "question6": "How does PayLater Insight differ from other financial tools?",
+        "answer6": "PayLater Insight focuses on simplicity and effectiveness, offering unique tools like the SPayLater Calculator and personalized budgeting strategies."
+      }
+    },
     "title": "Know Your Interest",
     "description": "Review your SPayLater payment plan before you checkout.",
     "productPrice": "Total Payment",
@@ -38,6 +110,83 @@
       "totalAmountPaid": "Total Amount Paid (RM):",
       "interestCharged": "Interest Charged (RM):",
       "interestRate": "Interest Rate (%):"
+    }
+  },
+  "SpayLater": {
+    "Header": {
+      "title": "SPayLater Calculator",
+      "description": "Review your SPayLater payment plan before you checkout.",
+      "Form": {
+        "productPrice": "Total Payment",
+        "spaylaterPrice": "SPayLater Available",
+        "monthlyInstallment": "Monthly Installment",
+        "months": "Month",
+        "submit": "Submit",
+        "reset": "Reset",
+        "limit": "Limit Reached"
+      },
+      "Summary": {
+        "title": "SPaylater Summary",
+        "DefaultSummary": {
+          "title": "SPayLater Summary",
+          "description": "Enter your price, monthly installements which any of the SPayLater plan you want to calculate.",
+          "disclaimer": "Disclaimer: The actual amount may vary based on the user input and the actual SPayLater plan. Please insert the correct amount from SPayLater to calculate the correct amount for you."
+        },
+        "Summary2": {
+          "after": "After",
+          "months": "months",
+          "toPay": "you will need to pay an",
+          "extra": "extra",
+          "equivalent": "which is equivalent to",
+          "overchanged": "Seems like you will pay more or less that the actual interest rate",
+          "withTotalAmount": "with total amount of"
+        },
+        "Summary3": {
+          "upfront": "You will need to pay an upfront of",
+          "then": "first, then in",
+          "monthTotal": "month, the total interest charged is",
+          "withAnInterest": "with an interest rate of",
+          "withThat": "With that, the final payment you have made after",
+          "willBe": "month will be"
+        }
+      }
+    },
+    "Body": {
+      "howToUse": {
+        "heading": "How to Use SPayLater Calculator",
+        "steps": {
+          "step1": {
+            "title": "Step 1: Locate SPayLater Option on Shopee on Mobile App",
+            "description": "Go to checkout page, you can see the total payment which is the product price that you have selected. In SPayLater section, Shopee has set your SPayLater limit based on your account activity. Need help? See the image/video:"
+          },
+          "disclaimer": "P/S: If your Total Payment is more than the SPayLater Limit, add Total Payment into the input field. Tick Limit Reached checkbox and enter your SPayLater Limit into SpayLater Available input field.",
+          "step2": {
+            "title": "Step 2: Input Payment Details",
+            "description": "Carefully copy or type the total payment, all the monthly installment amount. Ensure the information is accurate to get the correct calculation results."
+          },
+          "step3": {
+            "title": "Step 3: Calculate and Review",
+            "description": "Once you've entered all the required information, click the ‘Submit’ button. The calculator will display a detailed breakdown of your payment plan, including the total interest charged. Review the information to make an informed decision before proceeding with SPayLater."
+          },
+          "thankYouNote": {
+            "description": "Thank you for using PayLater Insight! We strive to make your online shopping experience more ",
+            "transparent": "transparent and",
+            "informed": "informed"
+          }
+        }
+      },
+      "breakdown": "SpayLater Breakdown",
+      "BNPLSection": {
+        "title": "What is Buy Now, Pay Later (BNPL)?",
+        "description1": "Buy Now, Pay Later (BNPL), is a payment method that allows users to make purchases immediately and pay for them later. This service offers different payment plans, allowing users to spread their payments over periods ranging from one to twelve months.",
+        "description2": "Buy now, pay later (BNPL) plans vary in their specifics, yet they typically provide short-term financing options with predetermined payments and often without interest charges. These programs can be accessed through BNPL applications like Shopee or may be available as an option on your credit card.",
+        "btnText": "Learn More at Investopedia"
+      },
+      "SPayLaterSection": {
+        "title": "What is SPayLater?",
+        "description1": "SPayLater offers users a convenient financial solution, enabling them to enjoy payment flexibility through a user-friendly digital platform. With SPayLater, users can make immediate purchases while having the option to defer payment. This service offers different payment plans, allowing users to spread their payments over periods ranging from one to twelve months",
+        "btnText": "Learn More at Shopee"
+      }
     }
   }
 }
