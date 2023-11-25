@@ -3,10 +3,9 @@
 import BenefitsCard from "@/src/components/molecules/benefits-card";
 import Feature from "@/src/components/molecules/feature";
 import { Button } from "@/src/components/ui/button";
-import { Benefits } from "@/src/constants/spaylater/benefits";
 import { Features } from "@/src/constants/spaylater/feature";
-import { IBenefitsCard, IFeature } from "@/src/types/spaylater";
-import React from "react";
+import { IBenefitsCard } from "@/src/types/spaylater";
+import React, { useEffect } from "react";
 import FAQ from "@/src/components/molecules/faq";
 import Image from "next/image";
 import Section from "@/src/components/molecules/section";
@@ -48,6 +47,13 @@ const Home = () => {
       image: "/images/72.svg",
     },
   ];
+
+  useEffect(() => {
+    // Or clear all localStorage or sessionStorage
+    localStorage.clear();
+    sessionStorage.clear();
+  }, []);
+
 
   return (
     <main>
