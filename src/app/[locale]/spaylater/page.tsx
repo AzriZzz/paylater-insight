@@ -511,7 +511,7 @@ const SPayLater = () => {
         )}
         <div className="container">
           <h1 className="text-2xl font-semibold mb-6 text-center">
-            {t("howToUse.heading")}
+            {r("Body.howToUse.heading")}
           </h1>
           <div className="w-full flex flex-col md:flex-row justify-between">
             <div className="flex justify-center pb-6 md:w-1/2">

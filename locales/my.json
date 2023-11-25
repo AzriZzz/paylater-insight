@@ -188,5 +188,76 @@
         "btnText": "Ketahui Lebih Lanjut di Shopee"
       }
     }
+  },
+  "DebtIncomeRatio": {
+    "Header": {
+      "title": "Alat Nisbah Hutang-kepada-Pendapatan",
+      "description": "Nilai Kesihatan Kewangan Anda dengan Kalkulator Nisbah Hutang-kepada-Pendapatan."
+    },
+    "Form": {
+      "monthlyIncome": "Pendapatan Bulanan",
+      "monthlyDebt": "Hutang / Komitment Bulanan",
+      "submit": "Submit",
+      "reset": "Reset"
+    },
+    "Summary": {
+      "title": "Nisbah Hutang Kepada Pendapatan",
+      "disclaimer": "Penafian: Dengan memasukkan data anda dalam alat ini, anda mengakui bahawa maklumat itu digunakan semata-mata untuk pengiraan segera dan tidak disimpan atau dikongsi. Keputusan adalah hanya anggaran dan bukan nasihat kewangan. Untuk bimbingan peribadi, berunding dengan pakar penasihat kewangan. Penggunaan alat ini membuktikan penerimaan syarat ini."
+    },
+    "Advice": {
+      "below36": "Bagus! Nisbah Hutang-kepada-Pendapatan anda berada dalam julat yang sihat (0-36%). Ini menunjukkan anda menguruskan hutang anda dengan baik berbanding dengan pendapatan anda. Kekalkan nisbah ini menunjukkan kestabilan kewangan dan meletakkan anda pada kedudukan yang baik untuk perancangan kewangan masa depan dan peluang kredit.",
+      "below50": "Wow! Nisbah Hutang-kepada-Pendapatan anda jatuh dalam zon amaran (37-50%). Masih boleh diurus, tetapi sangat penting untuk berhati-hati. Tahap ini menunjukkan bahawa sebahagian besar pendapatan anda digunakan untuk membayar balik hutang. Sila buat semakan perbelanjaan anda untuk mengoptimumkan perbelanjaan dan pengurusan hutang anda, pastikan perbelanjaan itu tidak meningkat ke tahap yang mungkin menjejaskan kesihatahn kewangan anda.",
+      "below100": "Amaran! Nisbah Hutang-kepada-Pendapatan anda berada dalam zon bahaya (51-100%). Nisbah yang tinggi ini menunjukkan bahawa sebahagian besar daripada pendapatan anda hanya untuk pembayaran hutang, yang boleh menyebabkan tekanan kewangan. Sangat penting untuk mengambil langkah segera untuk menguruskan hutang anda dengan lebih effektif. Sila buat pertimbangan untuk mendapatkan nasihat kewangan, menyusun semula hutang anda atau meneroka cara untuk meningkatkan pendapatan anda untuk menurunkan nisbah ini ke tahap yang lebih selamat.",
+      "alert100": "Makluman Kritikal: Nisbah Hutang-kepada-Pendapatan anda melebihi 100%, menunjukkan bahawa hutang anda lebih tinggi daripada pendapatan anda. Ini adalah keadaan kewangan yang teruk yang memerlukan perhatian segera. Adalah sangat disyorkan untuk mendapatkan kaunseling kewangan profesional untuk meneroka penyatuan hutang, pilihan penstrukturan semula atau langkah mendesak lain untuk menangani tahap keberhutangan yang kritikal ini. Tindakan menangguhkan boleh membawa kepada masalah kewangan yang lebih ketara, termasuk potensi implikasi undang-undang."
+    },
+    "Body": {
+      "title": "Apakah Nisbah Hutang kepada Pendapatan?",
+      "description": "Nisbah Hutang-kepada-Pendapatan (DTI) ialah ukuran kewangan yang membandingkan jumlah pembayaran hutang bulanan anda dengan pendapatan kasar bulanan anda. Ia adalah penunjuk kritikal kesihatan kewangan anda dan keupayaan untuk menguruskan hutang. Pemberi pinjaman menggunakan nisbah ini untuk menilai kelayakan kredit dan menentukan kelayakan untuk pinjaman, kad kredit dan kemudahan kredit lain.",
+      "Formula": {
+        "title": "Formula",
+        "description1": "Formula untuk mengira Nisbah Hutang kepada Pendapatan anda adalah seperti berikut:",
+        "math1": "Nisbah Hutang kepada Pendapatan = (Hutang Bulanan / Pendapatan Bulanan) x 100",
+        "desription2": "Sebagai contoh, jika pendapatan bulanan anda ialah RM 4,000 dan hutang bulanan anda ialah RM 1,200, Nisbah Hutang kepada Pendapatan anda ialah 30%.",
+        "math2": "(300 / 1000) x 100 = 30%",
+        "conclusion": "Nisbah Hutang-kepada-Pendapatan anda ialah peratusan yang menunjukkan berapa banyak pendapatan anda pergi ke arah pembayaran balik hutang. Semakin rendah nisbah anda, semakin baik kesihatan kewangan anda. Nisbah yang tinggi menunjukkan bahawa sebahagian besar daripada pendapatan anda dikhaskan untuk pembayaran hutang, yang boleh menyebabkan tekanan kewangan."
+      },
+      "Understanding": {
+        "title": "Memahami Pembayaran Hutang",
+        "description1": "Apabila mengira pembayaran hutang anda, penting untuk memasukkan semua bentuk kewajipan kewangan bulanan tetap. Pengiraan ini membantu dalam menilai nisbah hutang kepada pendapatan anda dan kesihatan kewangan keseluruhan.",
+        "description2": "Sertakan item berikut:",
+        "List1": {
+          "item1": "Bayaran Pinjaman atau Sewa Rumah:",
+          "desc1": "Bayaran tetap untuk pinjaman atau sewa rumah anda.",
+          "item2": "Pinjaman Kenderaan:",
+          "desc2": "Bayaran bulanan untuk sebarang pembiayaan automobil.",
+          "item3": "Pinjaman Pendidikan:",
+          "desc3": "Bayaran balik tetap untuk pinjaman pendidikan.",
+          "item4": "Pembayaran Kad Kredit:",
+          "desc4": "Bayaran bulanan minimum pada baki kad kredit.",
+          "item5": "Pinjaman Peribadi:",
+          "desc5": "Sebarang bayaran balik bulanan untuk pinjaman peribadi.",
+          "item6": "Hutang Tetap Lain:",
+          "desc6": "Sebarang hutang lain yang memerlukan bayaran bulanan tetap dan tetap"
+        },
+        "description3": "Jangan masukkan item berikut:",
+        "List2": {
+          "item1": "Utiliti:",
+          "desc1": "Bayaran bulanan untuk utiliti seperti elektrik, air, gas, internet, dll",
+          "item2": "Makanan:",
+          "desc2": "Perbelanjaan bulanan untuk barangan runcit dan makan di luar.",
+          "item3": "Insurans:",
+          "desc3": "Premium bulanan untuk sebarang polisi insurans.",
+          "item4": "Hiburan:",
+          "desc4": "Perbelanjaan bulanan untuk hiburan seperti filem, konsert, dll.",
+          "item5": "Perbelanjaan Lain:",
+          "desc5": "Sebarang perbelanjaan lain yang berbeza dari bulan ke bulan."
+        },
+        "btnText": "Ketahui Lebih Lanjut di Investopedia"
+      },
+      "JobSite": {
+        "title": "Langsaikan hutang dengan lebih cepat dengan kerja baharu",
+        "description": "Lihat portal kerja ini untuk siaran kerja terkini."
+      }
+    }
   }
 }

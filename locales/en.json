@@ -188,5 +188,77 @@
         "btnText": "Learn More at Shopee"
       }
     }
+  },
+  "DebtIncomeRatio": {
+    "Header": {
+      "title": "Debt-To-Income Ratio Tool",
+      "description": "Assess Your Financial Health with Debt-to-Income Ratio Calculator."
+    },
+    "Form": {
+      "monthlyIncome": "Monthly Income",
+      "monthlyDebt": "Monthly Debt / Commitment",
+      "submit": "Submit",
+      "reset": "Reset"
+    },
+    "Summary": {
+      "title": "Debt-To-Income Ratio",
+      "disclaimer": "Disclaimer: By entering your data in this tool, you acknowledge that the information is used solely for immediate calculations and not stored or shared. The results are estimative and not financial advice. For personalized guidance, consult a financial advisor. Your use of this tool implies acceptance of these terms."
+    },
+    "Advice": {
+      "below36": "Great job! Your Debt-to-Income Ratio is within a healthy range (0-36%). This indicates you're managing your debts well compared to your income. Maintaining this ratio shows financial stability and puts you in a good position for future financial planning and credit opportunities.",
+      "below50": "Heads up! Your Debt-to-Income Ratio falls in the warning zone (37-50%). It's manageable, but it's crucial to be cautious. This level suggests that a significant part of your income goes towards debt repayment. Consider reviewing your budget to optimize your spending and debt management, ensuring it doesn't escalate to a level that might strain your finances.",
+      "below100": "Alert! Your Debt-to-Income Ratio is in the danger zone (51-100%). This high ratio indicates that a very large portion of your income is dedicated to debt payments, which may lead to financial strain. It's important to take immediate steps to manage your debts more effectively. Consider seeking financial advice, restructuring your debts, or exploring ways to increase your income to bring this ratio down to a safer level.",
+      "alert100": "Critical Alert: Your Debt-to-Income Ratio exceeds 100%, indicating that your debts are higher than your income. This is a severe financial situation requiring immediate attention. It's highly recommended to seek professional financial counseling to explore debt consolidation, restructuring options, or other urgent measures to address this critical level of indebtedness. Delaying action can lead to more significant financial difficulties, including potential legal implications."
+    },
+    "Body": {
+      "title": "What is Debt-to-Income Ratio?",
+      "description": "Debt-to-Income Ratio (DTI) is a financial measure that compares your total monthly debt payments to your gross monthly income. It is a critical indicator of your financial health and ability to manage debts. Lenders use this ratio to assess your creditworthiness and determine your eligibility for loans, credit cards, and other credit facilities.",
+      "Formula": {
+        "title": "Formula",
+        "description1": "The formula for calculating your Debt-to-Income Ratio is as follows:",
+        "math1": "Debt-to-Income Ratio = (Monthly Debt / Monthly Income) x 100",
+        "desription2": "For example, if your monthly income is RM 4,000 and your monthly debt is RM 1,200, your Debt-to-Income Ratio is 30%.",
+        "math2": "(300 / 1000) x 100 = 30%",
+        "conclusion": "Your Debt-to-Income Ratio is a percentage that indicates how much of your income goes towards debt repayment. The lower your ratio, the better your financial health. A high ratio suggests that a significant portion of your income is dedicated to debt payments, which may lead to financial strain."
+      },
+      "Understanding": {
+        "title": "Understanding Debt Payments",
+        "description1": "When calculating your debt payments, its important to include all forms of fixed monthly financial obligations. This calculation helps in assessing your debt-to-income ratio and overall financial health.",
+        "description2": "Include the following items:",
+        "List1": {
+          "item1": "Mortgage or Rent Payments:",
+          "desc1": "Regular payments towards your home loan or rental.",
+          "item2": "Car loans:",
+          "desc2": "Monthly payments for any automobile financing.",
+          "item3": "Students loans:",
+          "desc3": "Fixed repayments for educational loans.",
+          "item4": "Credit Card Payments:",
+          "desc4": "Minimum monthly payments on credit card balances.",
+          "item5": "Personal Loans:",
+          "desc5": "Any monthly repayments for personal loans.",
+          "item6": "Other Fixed Debts:",
+          "desc6": "Any other debts that require regular, fixed monthly payments"
+        },
+        "description3": "Do not include the following items:",
+        "List2": {
+          "item1": "Utilities:",
+          "desc1": "Monthly payments for utilities such as electricity, water, gas, internet, etc",
+          "item2": "Food:",
+          "desc2": "Monthly expenses for groceries and dining out.",
+          "item3": "Insurance:",
+          "desc3": "Monthly premiums for any insurance policies.",
+          "item4": "Entertainment:",
+          "desc4": "Monthly expenses for entertainment such as movies, concerts, etc.",
+          "item5": "Other Variable Expenses:",
+          "desc5": "Any other expenses that vary from month to month."
+        },
+        "btnText": "Learn More at Investopedia"
+      },
+      "JobSite": {
+        "title": "Clear your debt faster by applying to a new job",
+        "description": "Check out these job portal for the latest job postings.",
+        "btnText": "Calculate Now"
+      }
+    }
   }
 }

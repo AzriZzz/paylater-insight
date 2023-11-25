@@ -19,6 +19,7 @@ import { Progress } from "@/src/components/ui/progress";
 import { useNumberFormatter } from "@react-aria/i18n";
 import { Separator } from "@/src/components/ui/separator";
 import JobCard from "@/src/components/molecules/job-card";
+import { useTranslations } from "next-intl";
 const FormSchema = z
   .object({
     monthlyIncome: z.coerce
@@ -57,6 +58,8 @@ const DebtIncomeRatio = () => {
   const [advice, setAdvice] = useState("");
   const formatter = useNumberFormatter();
 
+  const t = useTranslations("DebtIncomeRatio");
+
   const form = useForm<z.infer<typeof FormSchema>>({
     defaultValues,
     resolver: zodResolver(FormSchema),
@@ -81,21 +84,13 @@ const DebtIncomeRatio = () => {
     }
 
     if (debtToIncomeRatio >= 0 && debtToIncomeRatio <= 36) {
-      setAdvice(
-        "Great job! Your Debt-to-Income Ratio is within a healthy range (0-36%). This indicates you're managing your debts well compared to your income. Maintaining this ratio shows financial stability and puts you in a good position for future financial planning and credit opportunities."
-      );
+      setAdvice(t("Advice.below36"));
     } else if (debtToIncomeRatio > 36 && debtToIncomeRatio <= 50) {
-      setAdvice(
-        "Heads up! Your Debt-to-Income Ratio falls in the warning zone (37-50%). It's manageable, but it's crucial to be cautious. This level suggests that a significant part of your income goes towards debt repayment. Consider reviewing your budget to optimize your spending and debt management, ensuring it doesn't escalate to a level that might strain your finances."
-      );
+      setAdvice(t("Advice.below50"));
     } else if (debtToIncomeRatio > 50 && debtToIncomeRatio <= 100) {
-      setAdvice(
-        "Alert! Your Debt-to-Income Ratio is in the danger zone (51-100%). This high ratio indicates that a very large portion of your income is dedicated to debt payments, which may lead to financial strain. It's important to take immediate steps to manage your debts more effectively. Consider seeking financial advice, restructuring your debts, or exploring ways to increase your income to bring this ratio down to a safer level."
-      );
+      setAdvice(t("Advice.below100"));
     } else {
-      setAdvice(
-        "Critical Alert: Your Debt-to-Income Ratio exceeds 100%, indicating that your debts are higher than your income. This is a severe financial situation requiring immediate attention. It's highly recommended to seek professional financial counseling to explore debt consolidation, restructuring options, or other urgent measures to address this critical level of indebtedness. Delaying action can lead to more significant financial difficulties, including potential legal implications."
-      );
+      setAdvice(t("Advice.alert100"));
     }
 
     if (debtToIncomeRatio % 1 === 0) {
@@ -117,15 +112,11 @@ const DebtIncomeRatio = () => {
   }
 
   return (
-    <div className="pt-16 md:24">
+    <div>
       <div className="spaylater-header bg-[#0a6160]">
         <div className="container text-white pt-9 pb-44">
-          <h1 className="font-bold text-3xl py-4 ">
-            Debt-To-Income Ratio Tool
-          </h1>
-          <p className=" mb-4">
-            Assess Your Financial Health with Debt-to-Income Ratio Calculator.
-          </p>
+          <h1 className="font-bold text-3xl py-4 ">{t("Header.title")}</h1>
+          <p className=" mb-4">{t("Header.description")}</p>
         </div>
       </div>
       <div className="container">
@@ -144,7 +135,7 @@ const DebtIncomeRatio = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-base font-semibold">
-                            Monthly Income
+                            {t("Form.monthlyIncome")}
                           </FormLabel>
                           <FormControl>
                             <Input
@@ -163,7 +154,7 @@ const DebtIncomeRatio = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-base font-semibold">
-                            Monthly Debt / Commitment
+                            {t("Form.monthlyDebt")}
                           </FormLabel>
                           <FormControl>
                             <Input
@@ -183,13 +174,13 @@ const DebtIncomeRatio = () => {
                         className="py-3 mx-6 font-bold bg-[#00491e] w-full"
                         disabled={!isResult}
                       >
-                        Reset
+                        {t("Form.reset")}
                       </Button>
                       <Button
                         type="submit"
                         className="py-3 mx-6 font-bold bg-[#08cf65] w-full"
                       >
-                        Calculate
+                        {t("Form.submit")}
                       </Button>
                     </div>
                   </form>
@@ -198,7 +189,7 @@ const DebtIncomeRatio = () => {
               <div className="md:w-2/3 bg-slate-100">
                 <div className="flex flex-col justify-center text-center h-full">
                   <h2 className="text-2xl font-bold pt-5">
-                    Debt to Income Ratio
+                    {t("Summary.title")}
                   </h2>
                   <h3 className="text-4xl font-semibold py-4">
                     {formatter.format(parseFloat(result))}%
@@ -217,12 +208,7 @@ const DebtIncomeRatio = () => {
                   <div className="text-justify flex justify-center w-full">
                     {!isResult ? (
                       <p className="w-3/4 py-5 font-bold">
-                        Disclaimer: By entering your data in this tool, you
-                        acknowledge that the information is used solely for
-                        immediate calculations and not stored or shared. The
-                        results are estimative and not financial advice. For
-                        personalized guidance, consult a financial advisor. Your
-                        use of this tool implies acceptance of these terms.
+                        {t("Summary.disclaimer")}
                       </p>
                     ) : (
                       <p className="w-3/4 py-5 text-md font-bold">{advice}</p>
@@ -237,122 +223,118 @@ const DebtIncomeRatio = () => {
       <div className="container">
         <div className="introduction">
           <h3 className="text-center font-bold text-3xl pb-6">
-            What is Debt-to-Income Ratio?
+            {t("Body.title")}
           </h3>
           <p className="text-justify text-base md:text-lg">
-            Debt-to-Income Ratio (DTI) is a financial measure that compares your
-            total monthly debt payments to your gross monthly income. It is a
-            critical indicator of your financial health and ability to manage
-            debts. Lenders use this ratio to assess your creditworthiness and
-            determine your eligibility for loans, credit cards, and other credit
-            facilities.{" "}
+            {t("Body.description")}
           </p>
         </div>
         <div className="formula py-6">
-          <h3 className="text-center font-bold text-3xl pb-6">Formula</h3>
+          <h3 className="text-center font-bold text-3xl pb-6">
+            {t("Body.Formula.title")}
+          </h3>
           <div className="text-justify text-base md:text-lg">
-            <p>
-              The formula for calculating your Debt-to-Income Ratio is as
-              follows:
-            </p>
+            <p>{t("Body.Formula.description1")}</p>
             <div className="text-center py-5">
               <span className="text-center font-bold text-xl">
-                Debt-to-Income Ratio = (Monthly Debt / Monthly Income) x 100
+                {t("Body.Formula.math1")}
               </span>
             </div>
-            <p>
-              For example, if your monthly income is RM 1,000 and your monthly
-              debt is RM 300, your Debt-to-Income Ratio is 30%.
-            </p>
+            <p>{t("Body.Formula.desription2")}</p>
             <div className="text-center py-5">
               <span className="text-center font-bold text-xl pb-6">
-                (300 / 1000) x 100 = 30%
+                {t("Body.Formula.math2")}
               </span>
             </div>
-            <p>
-              Your Debt-to-Income Ratio is a percentage that indicates how much
-              of your income goes towards debt repayment. The lower your ratio,
-              the better your financial health. A high ratio suggests that a
-              significant portion of your income is dedicated to debt payments,
-              which may lead to financial strain.
-            </p>
+            <p>{t("Body.Formula.conclusion")}</p>
           </div>
         </div>
         <div className="understanding-debt-payment">
           <div className="item-breakdown pb-6">
             <h3 className="text-center font-bold text-3xl pb-6">
-              Understanding Debt Payments
+              {t("Body.Understanding.title")}
             </h3>
             <div className="text-base md:text-lg">
               <p className="text-justify ">
-                When calculating your debt payments, its important to include
-                all forms of fixed monthly financial obligations. This
-                calculation helps in assessing your debt-to-income ratio and
-                overall financial health.
+                {t("Body.Understanding.description1")}
               </p>
 
               <div className="debt-included pt-3">
-                <p>Include the following items:</p>
+                <p> {t("Body.Understanding.description2")}</p>
                 <ul className="list-disc list-inside pt-4">
                   <li>
                     <span className="font-semibold pr-2">
-                      Mortgage or Rent Payments:
+                      {t("Body.Understanding.List1.item1")}
                     </span>
-                    Regular payments towards your home loan or rental.
-                  </li>
-                  <li>
-                    <span className="font-semibold pr-2">Car Loans:</span>
-                    Monthly payments for any automobile financing.
-                  </li>
-                  <li>
-                    <span className="font-semibold pr-2">Student Loans:</span>
-                    Fixed repayments for educational loans.
+                    {t("Body.Understanding.List1.desc1")}
                   </li>
                   <li>
                     <span className="font-semibold pr-2">
-                      Credit Card Payments:
+                      {t("Body.Understanding.List1.item2")}
                     </span>
-                    Minimum monthly payments on credit card balances.
-                  </li>
-                  <li>
-                    <span className="font-semibold pr-2">Personal Loans:</span>
-                    Any monthly repayments for personal loans.
+                    {t("Body.Understanding.List1.desc2")}
                   </li>
                   <li>
                     <span className="font-semibold pr-2">
-                      Other Fixed Debts:
+                      {t("Body.Understanding.List1.item3")}
                     </span>
-                    Any other debts that require regular, fixed monthly
-                    payments.
+                    {t("Body.Understanding.List1.desc3")}
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      {t("Body.Understanding.List1.item4")}
+                    </span>
+                    {t("Body.Understanding.List1.desc4")}
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      {t("Body.Understanding.List1.item5")}
+                    </span>
+                    {t("Body.Understanding.List1.desc5")}
+                  </li>
+                  <li>
+                    <span className="font-semibold pr-2">
+                      {t("Body.Understanding.List1.item6")}
+                    </span>
+                    {t("Body.Understanding.List1.desc6")}
                   </li>
                 </ul>
               </div>
               <div className="debt-not-included py-3">
-                <p>Do not include the following items:</p>
+                <p> {t("Body.Understanding.description3")}</p>
                 <ul className="list-disc list-inside pt-4">
                   <li>
-                    <span className="font-semibold pr-2">Utilities:</span>
-                    Monthly payments for utilities such as electricity, water,
-                    gas, internet, etc.
+                    <span className="font-semibold pr-2">
+                      {t("Body.Understanding.List2.item1")}
+                    </span>
+                    {t("Body.Understanding.List2.desc1")}
                   </li>
                   <li>
-                    <span className="font-semibold pr-2">Food:</span>Monthly
-                    expenses for groceries and dining out.
+                    <span className="font-semibold pr-2">
+                      {t("Body.Understanding.List2.item2")}
+                    </span>
+                    {t("Body.Understanding.List2.desc2")}
                   </li>
                   <li>
-                    <span className="font-semibold pr-2">Insurance:</span>
-                    Monthly premiums for any insurance policies.
+                    <span className="font-semibold pr-2">
+                    {t("Body.Understanding.List2.item3")}
+                    </span>
+                    {t("Body.Understanding.List2.desc3")}
                   </li>
                   <li>
-                    <span className="font-semibold pr-2">Entertainment:</span>
-                    Monthly expenses for entertainment such as movies, concerts,
+                    <span className="font-semibold pr-2">
+                    {t("Body.Understanding.List2.item4")}
+
+                    </span>
+                    {t("Body.Understanding.List2.desc4")}
+
                     etc.
                   </li>
                   <li>
                     <span className="font-semibold pr-2">
-                      Other Variable Expenses:
+                    {t("Body.Understanding.List2.item5")}
                     </span>
-                    Any other expenses that vary from month to month.
+                    {t("Body.Understanding.List2.desc5")}
                   </li>
                 </ul>
               </div>
@@ -363,7 +345,7 @@ const DebtIncomeRatio = () => {
                   href="https://www.investopedia.com/terms/d/dti.asp"
                   target="_blank"
                 >
-                  Learn More at Investopedia
+                  {t("Body.Understanding.btnText")}
                 </a>
               </Button>
             </div>
@@ -372,10 +354,10 @@ const DebtIncomeRatio = () => {
         <div className="career py-6">
           <div className="introduction">
             <h3 className="text-center font-bold text-3xl pb-6">
-              Clear your debt faster by applying to a new job
+            {t("Body.JobSite.title")}
             </h3>
             <p className="text-center text-base md:text-lg font-semibold">
-              Check out these job portal for the latest job postings.
+            {t("Body.JobSite.description")}
             </p>
             <div className="py-6 flex flex-col md:flex-row gap-5 ">
               <JobCard
