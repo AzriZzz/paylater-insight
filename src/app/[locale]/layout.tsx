@@ -118,15 +118,15 @@ export default async function RootLayout({
       >
         <Header />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider
+          {/* <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
+          > */}
             {children}
             <ScrollToTopButton />
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
           <Toaster />
         </NextIntlClientProvider>
         <GoogleAnalytics />
