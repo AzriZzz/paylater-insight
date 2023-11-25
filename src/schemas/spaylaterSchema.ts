@@ -55,19 +55,18 @@ export const FormSchema = z
       path: ["oneMonth"],
     }
   )
-  // check if other is empty and only one month is filled
-  .refine(
-    (value) =>
-      value.oneMonth! >= value.price ||
-      value.threeMonth! > 0 ||
-      value.sixMonth! > 0 ||
-      value.twelveMonth! > 0,
-    {
-      message:
-        "Installment must be greater than or equal to the product price.",
-      path: ["oneMonth"],
-    }
-  )
+  // .refine(
+  //   (value) =>
+  //     (value.isLimit === false && value.oneMonth! >= value.price) ||
+  //     value.threeMonth! > 0 ||
+  //     value.sixMonth! > 0 ||
+  //     value.twelveMonth! > 0,
+  //   {
+  //     message:
+  //       "Installment must be greater than or equal to the product price.",
+  //     path: ["oneMonth"],
+  //   }
+  // )
   .refine((value) => value.oneMonth! <= value.price + 0.016 * value.price, {
     message: "Installment should not be more than 1.6 times the product price.",
     path: ["oneMonth"],
@@ -87,5 +86,3 @@ export const FormSchema = z
     message: "Installment must not be greater than the product price.",
     path: ["twelveMonth"],
   });
-
-

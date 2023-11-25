@@ -114,7 +114,7 @@
   },
   "SpayLater": {
     "Header": {
-      "title": "Kalulator SPayLater",
+      "title": "Kalkulator SPayLater",
       "description": "Semak pembayaran ansuran bulanan SPayLater sebelum pembayaran.",
       "Form": {
         "productPrice": "Total Payment",

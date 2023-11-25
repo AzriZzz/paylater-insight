@@ -1,13 +1,20 @@
+"use client";
+
 import React from "react";
 import { ModeToggle } from "../ui/toggleMode";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { Link, usePathname, useRouter } from "@/src/navigation";
+import { Link } from "@/src/navigation";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const locale = useLocale();
-  const toggleLanguage = locale !== "en";
+  const pathname = usePathname();
 
+  const generateLocaleUrl = () => {
+    const basePath = pathname.split("/")[2];
+    return `/${basePath || ""}`;
+  };
   return (
     <div>
       <div className="flex justify-between px-3 md:px-5 pt-4 mb-5">
@@ -28,12 +35,12 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           <div className="flex mr-4 text-base font-semibold">
-            {toggleLanguage ? (
-              <Link href="/" locale="en">
+            {locale !== "en" ? (
+              <Link href={generateLocaleUrl()} locale="en">
                 ENG
               </Link>
             ) : (
-              <Link href="/" locale="my">
+              <Link href={generateLocaleUrl()} locale="my">
                 BM
               </Link>
             )}

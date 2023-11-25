@@ -184,7 +184,7 @@ const SPayLater = () => {
               </span>
             )}
           </p>
-          <p>{r("Header.Summary.Summary2.withTotalAmount")}</p>
+          <p className="pt-1">{r("Header.Summary.Summary2.withTotalAmount")}</p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
             RM {formatter.format(parseFloat(withInterest))}
           </h3>
