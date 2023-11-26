@@ -247,7 +247,7 @@ const SPayLater = () => {
             {r("Header.Summary.Summary3.monthTotal")}{" "}
           </p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
-            RM{monthInstallement * month - spaylaterPrice!}{" "}
+            RM{(monthInstallement * month - spaylaterPrice!).toFixed(2)}{" "}
           </h3>
           <p>{r("Header.Summary.Summary3.withAnInterest")}</p>
           <h3 className="text-5xl md:text-7xl font-bold text-red-500 py-3">
