@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/src/components/ui/card";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -18,6 +18,7 @@ import { Input } from "@/src/components/ui/input";
 import {
   calculateInterestAndSetSummary,
   calculateSummary,
+  calculateTotals,
   valueReminder,
 } from "@/src/utils";
 import { useTranslations } from "next-intl";
@@ -55,7 +56,6 @@ const SPayLater = () => {
   const [isLimit, setIsLimit] = useState(false);
   const formatter = useNumberFormatter();
 
-  const t = useTranslations("Home");
   const r = useTranslations("SpayLater");
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -63,9 +63,24 @@ const SPayLater = () => {
     defaultValues,
   });
 
-  const { reset, watch } = form;
+  const { reset, watch, setValue } = form;
 
-  const isLimitChecked = watch("isLimit");
+  const formPrice = watch("price");
+  const formSpayLaterPrice = watch("spaylaterPrice");
+  const formIsLimit = watch("isLimit");
+
+  useEffect(() => {
+    const inputPrice = formIsLimit ? formSpayLaterPrice! : formPrice;
+    if (inputPrice) {
+      const inputPriceNumber = Number(inputPrice);
+      const calculatedValues = calculateTotals(inputPriceNumber);
+
+      setValue("oneMonth", calculatedValues.oneMonth);
+      setValue("threeMonth", calculatedValues.threeMonth);
+      setValue("sixMonth", calculatedValues.sixMonth);
+      setValue("twelveMonth", calculatedValues.twelveMonth);
+    }
+  }, [formPrice, formSpayLaterPrice, formIsLimit, setValue]);
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const dataResult = calculateSummary(data);
@@ -311,7 +326,7 @@ const SPayLater = () => {
                                       {...field}
                                       placeholder="1135.79"
                                       className="text-base"
-                                      disabled={!isLimitChecked}
+                                      disabled={!formIsLimit}
                                     />
                                   </FormControl>
                                   <FormMessage />

@@ -112,6 +112,20 @@ export const calculateSummary = (data: z.infer<typeof FormSchema>) => {
   return { interestOne, interestThree, interestSix, interestTwelve };
 };
 
+export const calculateTotals = (inputPriceNumber: number) => {
+  const totalOneMonth = inputPriceNumber + inputPriceNumber * 0.015;
+  const totalThreeMonth = (inputPriceNumber + inputPriceNumber * 0.045) / 3;
+  const totalSixMonth = (inputPriceNumber + inputPriceNumber * 0.09) / 6;
+  const totalTwelveMonth = (inputPriceNumber + inputPriceNumber * 0.18) / 12;
+
+  return {
+    oneMonth: parseFloat(totalOneMonth.toFixed(2)),
+    threeMonth: parseFloat(totalThreeMonth.toFixed(2)),
+    sixMonth: parseFloat(totalSixMonth.toFixed(2)),
+    twelveMonth: parseFloat(totalTwelveMonth.toFixed(2)),
+  };
+}
+
 export const valueReminder = (value: number ) => {
   if (value % 1 === 0) {
     return value.toString();
@@ -119,3 +133,5 @@ export const valueReminder = (value: number ) => {
     return value.toFixed(1);
   }
 };
+
+
