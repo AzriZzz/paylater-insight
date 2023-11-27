@@ -57,7 +57,7 @@
         "answer1": "PayLater Insight adalah alat kewangan yang direka untuk membantu anda mengurus dan mengoptimumkan kewangan anda, termasuk pelan bayar kemudian, bajet, dan strategi simpanan.",
 
         "question2": "Bagaimana Kalkulator SPayLater berfungsi?",
-        "answer2": "Kalkulator SPayLater kami membantu anda memahami faedah dan impak kewangan jangka panjang pelan bayar kemudian anda, membolehkan anda merancang pembayaran dengan berkesan.",
+        "answer2": "Kalkulator SPayLater kami membantu anda memahami bayaran pemprosesan dan impak kewangan jangka panjang pelan bayar kemudian anda, membolehkan anda merancang pembayaran dengan berkesan.",
 
         "question3": "Apakah Alat Nisbah Hutang-Ke-Pendapatan?",
         "answer3": "Alat ini mengira nisbah hutang-ke-pendapatan anda, memberikan anda gambaran yang jelas tentang pengungkit kewangan anda dan membantu anda membuat keputusan pengurusan hutang yang berinformasi.",
@@ -71,45 +71,6 @@
         "question6": "Bagaimanakah PayLater Insight berbeza daripada alat kewangan lain?",
         "answer6": "PayLater Insight memberi tumpuan kepada kesederhanaan dan keberkesanan, menawarkan alat unik seperti Kalkulator SPayLater dan strategi bajet yang dipersonalisasi."
       }
-    },
-    "title": "Ketahui Faedah Anda",
-    "description": "Semak pembayaran ansuran bulanan SPayLater sebelum pembayaran.",
-    "productPrice": "Harga Produk",
-    "monthlyInstallment": "Ansuran Bulanan",
-    "months": "Bulan",
-    "submit": "Hantar",
-    "howToUseText": "Bagaimana cara menggunakannya?",
-    "howToUse": {
-      "heading": "Cara Menggunakan PayLater Insight",
-      "steps": {
-        "step1": {
-          "title": "Langkah 1: Cari pilihan SPayLater di Aplikasi Shopee",
-          "description": "Pergi ke produk 'Checkout' untuk melihat jumlah keseluruhan bayaran iaitu harga product yang anda telah pilih. Di ruangan SPayLater, Shopee telah limitkan jumlah SPayLater anda mengikut aktiviti akaun. Perlukan bantuan? Lihat contoh di bawah:"
-        },
-        "step2": {
-          "title": "Langkah 2: Masukkan Butiran Pembayaran",
-          "description": "Salin atau taip harga keseluruhan (total payment), dan semua jumlah ansuran bulanan, ke dalam ruangan input kalkulator dengan teliti. Pastikan maklumat adalah tepat untuk mendapatkan hasil kiraan yang betul."
-        },
-        "step3": {
-          "title": "Langkah 3: Kira dan Semak",
-          "description": "Setelah anda memasukkan semua maklumat yang diperlukan, tekan butang ‘Hantar’. Kalkulator akan memaparkan pecahan terperinci pelan pembayaran anda, termasuk jumlah faedah yang dikenakan. Semak maklumat untuk membuat keputusan yang tepat sebelum meneruskan dengan SPayLater."
-        },
-        "thankYouNote": {
-          "description": "Terima kasih kerana menggunakan PayLater Insight! Kami berusaha untuk menjadikan pengalaman beli-belah dalam talian anda ",
-          "transparent": "lebih telus dan",
-          "informed": "bermaklumat"
-        }
-      }
-    },
-    "resultDetails": {
-      "title": "PayLater Rumusan",
-      "description": "Pecahan terperinci bakal pelan pembayaran anda",
-      "duration": "Tempoh (bulan):",
-      "productPrice": "Harga Produk (RM):",
-      "monthlyInstallment": "Ansuran Bulanan (RM):",
-      "totalAmountPaid": "Jumlah Keseluruhan Dibayar (RM):",
-      "interestCharged": "Faedah Dikenakan (RM):",
-      "interestRate": "Kadar Faedah (%):"
     }
   },
   "SpayLater": {
@@ -138,14 +99,14 @@
           "toPay": "anda perlu membayar",
           "extra": "lebihan sebanyak",
           "equivalent": "yang bersamaan dengan",
-          "overchanged": "Nampaknya anda akan bayar lebih atau kurang dari kadar faedah yang dinyatakan.",
+          "overchanged": "Nampaknya anda akan bayar lebih atau kurang dari kadar bayaran pemprosesan yang dinyatakan.",
           "withTotalAmount": "dengan jumlah sekaligus iaitu"
         },
         "Summary3": {
           "upfront": "Anda perlu membayar pendahuluan sebanyak",
           "then": ", selepas",
-          "monthTotal": "bulan, jumlah caj faedah yang dikenakan adalah",
-          "withAnInterest": "dengan kadar faedah sebanyak",
+          "monthTotal": "bulan, jumlah caj bayaran pemprosesan yang dikenakan adalah",
+          "withAnInterest": "dengan kadar bayaran pemprosesan sebanyak",
           "withThat": "Dengan ini, jumlah terakhir yang anda perlu bayar selepas",
           "willBe": "bulan akan menjadi"
         }
@@ -166,7 +127,7 @@
           },
           "step3": {
             "title": "Langkah 3: Kira dan Semak",
-            "description": "Setelah anda memasukkan semua maklumat yang diperlukan, tekan butang ‘Hantar’. Kalkulator akan memaparkan pecahan terperinci pelan pembayaran anda, termasuk jumlah faedah yang dikenakan. Semak maklumat untuk membuat keputusan yang tepat sebelum meneruskan dengan SPayLater."
+            "description": "Setelah anda memasukkan semua maklumat yang diperlukan, tekan butang ‘Hantar’. Kalkulator akan memaparkan pecahan terperinci pelan pembayaran anda, termasuk jumlah bayaran pemprosesan yang dikenakan. Semak maklumat untuk membuat keputusan yang tepat sebelum meneruskan dengan SPayLater."
           },
           "thankYouNote": {
             "description": "Terima kasih kerana menggunakan PayLater Insight! Kami berusaha untuk menjadikan pengalaman beli-belah dalam talian anda ",
@@ -179,7 +140,7 @@
       "BNPLSection": {
         "title": "Apakah Beli Sekarang, Bayar Kemudian (BNPL)?",
         "description1": "Beli Sekarang, Bayar Kemudian (BNPL), adalah kaedah pembayaran yang membolehkan pengguna membuat pembelian dengan segera dan membayar kemudian. Perkhidmatan ini menawarkan pelan pembayaran yang berbeza, membolehkan pengguna menyebarkan pembayaran mereka dalam tempoh dari satu hingga dua belas bulan.",
-        "description2": "Pelan Beli Sekarang, Bayar Kemudian (BNPL) berbeza dalam spesifiknya, namun kebiasannya menyediakan pilihan pembiayaan jangka pendek dengan pembayaran yang ditetapkan terlebih dahulu dan seringkali tanpa caj faedah. Program ini boleh diakses melalui aplikasi BNPL seperti Shopee atau mungkin tersedia sebagai pilihan pada kad kredit anda.",
+        "description2": "Pelan Beli Sekarang, Bayar Kemudian (BNPL) berbeza dalam spesifiknya, namun kebiasannya menyediakan pilihan pembiayaan jangka pendek dengan pembayaran yang ditetapkan terlebih dahulu dan seringkali tanpa caj faedah (atau bayaran pemprosesan untuk Patuh Shariah). Program ini boleh diakses melalui aplikasi BNPL seperti Shopee atau mungkin tersedia sebagai pilihan pada kad kredit anda.",
         "btnText": "Ketahui Lebih Lanjut di Investopedia"
       },
       "SPayLaterSection": {

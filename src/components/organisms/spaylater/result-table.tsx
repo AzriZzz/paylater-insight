@@ -29,7 +29,7 @@ const ResultTables = ({ results }: IResultTable) => {
             <TableHead className="text-center">
               (MYR) Monthly Installement
             </TableHead>
-            <TableHead className="text-center">Interest Rate</TableHead>
+            <TableHead className="text-center">Processing Fee Rate</TableHead>
             <TableHead className="text-center">(MYR) Amount Charged </TableHead>
             <TableHead className="text-center">(MYR) Total Amount </TableHead>
           </TableRow>

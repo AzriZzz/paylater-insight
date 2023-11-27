@@ -57,7 +57,7 @@
         "answer1": "PayLater Insight is a financial tool designed to help you manage and optimize your finances, including pay-later plans, budgeting, and saving strategies.",
 
         "question2": "How does the SPayLater Calculator work?",
-        "answer2": "Our SPayLater Calculator helps you understand the interest and long-term financial impact of your pay-later plans, enabling you to plan repayments effectively.",
+        "answer2": "Our SPayLater Calculator helps you understand the processing fee and long-term financial impact of your pay-later plans, enabling you to plan repayments effectively.",
 
         "question3": "What is the Debt-To-Income Ratio Tool?",
         "answer3": "This tool calculates your debt-to-income ratio, giving you a clear picture of your financial leverage and helping you make informed debt management decisions.",
@@ -71,45 +71,6 @@
         "question6": "How does PayLater Insight differ from other financial tools?",
         "answer6": "PayLater Insight focuses on simplicity and effectiveness, offering unique tools like the SPayLater Calculator and personalized budgeting strategies."
       }
-    },
-    "title": "Know Your Interest",
-    "description": "Review your SPayLater payment plan before you checkout.",
-    "productPrice": "Total Payment",
-    "monthlyInstallment": "Monthly Installment",
-    "months": "Month",
-    "submit": "Submit",
-    "howToUseText": "How to use?",
-    "howToUse": {
-      "heading": "How to Use SPayLater Calculator",
-      "steps": {
-        "step1": {
-          "title": "Step 1: Locate SPayLater Option on Shopee on Mobile App",
-          "description": "Go to checkout page, you can see the total payment which is the product price that you have selected. In SPayLater section, Shopee has set your SPayLater limit based on your account activity. Need help? See the image/video:"
-        },
-        "step2": {
-          "title": "Step 2: Input Payment Details",
-          "description": "Carefully copy or type the total payment, all the monthly installment amount. Ensure the information is accurate to get the correct calculation results."
-        },
-        "step3": {
-          "title": "Step 3: Calculate and Review",
-          "description": "Once you've entered all the required information, click the ‘Submit’ button. The calculator will display a detailed breakdown of your payment plan, including the total interest charged. Review the information to make an informed decision before proceeding with SPayLater."
-        },
-        "thankYouNote": {
-          "description": "Thank you for using PayLater Insight! We strive to make your online shopping experience more ",
-          "transparent": "transparent and",
-          "informed": "informed"
-        }
-      }
-    },
-    "resultDetails": {
-      "title": "PayLater Overview",
-      "description": "Detailed breakdown of your upcoming purchase",
-      "duration": "Duration (months):",
-      "productPrice": "Total Payment (RM):",
-      "monthlyInstallment": "Monthly Installment (RM):",
-      "totalAmountPaid": "Total Amount Paid (RM):",
-      "interestCharged": "Interest Charged (RM):",
-      "interestRate": "Interest Rate (%):"
     }
   },
   "SpayLater": {
@@ -138,14 +99,14 @@
           "toPay": "you will need to pay an",
           "extra": "extra",
           "equivalent": "which is equivalent to",
-          "overchanged": "Seems like you will pay more or less that the actual interest rate",
+          "overchanged": "Seems like you will pay more or less that the actual processing fee rate",
           "withTotalAmount": "with total amount of"
         },
         "Summary3": {
           "upfront": "You will need to pay an upfront of",
           "then": "first, then in",
-          "monthTotal": "month, the total interest charged is",
-          "withAnInterest": "with an interest rate of",
+          "monthTotal": "month, the total processing fee charged is",
+          "withAnInterest": "with an processing fee rate of",
           "withThat": "With that, the final payment you have made after",
           "willBe": "month will be"
         }
@@ -166,7 +127,7 @@
           },
           "step3": {
             "title": "Step 3: Calculate and Review",
-            "description": "Once you've entered all the required information, click the ‘Submit’ button. The calculator will display a detailed breakdown of your payment plan, including the total interest charged. Review the information to make an informed decision before proceeding with SPayLater."
+            "description": "Once you've entered all the required information, click the ‘Submit’ button. The calculator will display a detailed breakdown of your payment plan, including the total processing fee charged. Review the information to make an informed decision before proceeding with SPayLater."
           },
           "thankYouNote": {
             "description": "Thank you for using PayLater Insight! We strive to make your online shopping experience more ",
@@ -179,7 +140,7 @@
       "BNPLSection": {
         "title": "What is Buy Now, Pay Later (BNPL)?",
         "description1": "Buy Now, Pay Later (BNPL), is a payment method that allows users to make purchases immediately and pay for them later. This service offers different payment plans, allowing users to spread their payments over periods ranging from one to twelve months.",
-        "description2": "Buy now, pay later (BNPL) plans vary in their specifics, yet they typically provide short-term financing options with predetermined payments and often without interest charges. These programs can be accessed through BNPL applications like Shopee or may be available as an option on your credit card.",
+        "description2": "Buy now, pay later (BNPL) plans vary in their specifics, yet they typically provide short-term financing options with predetermined payments and often without interest charges (or processing Fee for Shariah Compliant). These programs can be accessed through BNPL applications like Shopee or may be available as an option on your credit card.",
         "btnText": "Learn More at Investopedia"
       },
       "SPayLaterSection": {
