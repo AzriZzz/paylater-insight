@@ -17,7 +17,7 @@ const Header = () => {
   };
   return (
     <div>
-      <div className="flex justify-between px-3 md:px-5 pt-4 mb-5">
+      <div className="flex justify-between px-3 md:px-5 md:pt-4 md:mb-5">
         <div className="flex items-center">
           <Link href="/" className="flex">
             <Image
@@ -34,16 +34,22 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center">
-          <div className="flex mr-4 text-base font-semibold">
-            {locale !== "en" ? (
-              <Link href={generateLocaleUrl()} locale="en">
-                ENG
-              </Link>
-            ) : (
-              <Link href={generateLocaleUrl()} locale="my">
-                BM
-              </Link>
-            )}
+          <div className="flex mr-4 text-base">
+            <Link
+              href={generateLocaleUrl()}
+              locale="my"
+              className={`px-2 ${locale === "my" ? "font-semibold" : ""}`}
+            >
+              BM
+            </Link>
+            |
+            <Link
+              href={generateLocaleUrl()}
+              locale="en"
+              className={`px-2 ${locale === "en" ? "font-semibold" : ""}`}
+            >
+              ENG
+            </Link>
           </div>
           {/* <ModeToggle /> */}
         </div>
